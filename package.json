@@ -1,37 +1,30 @@
 {
-  "name": "m14-tech-blog",
+  "name": "shocase",
   "version": "1.0.0",
-  "description": "Tech Blog with full front end and back end. MVC Practice",
+  "description": "Anime social media platform",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mateo-Wallace/M14-Tech-Blog.git"
+    "url": "git+https://github.com/Bfunk54/ShoCase.git"
   },
-  "keywords": [
-    "MVC",
-    "OOP",
-    "Express",
-    "NodeJs"
-  ],
-  "author": "Mateo Wallace",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Mateo-Wallace/M14-Tech-Blog/issues"
+    "url": "https://github.com/Bfunk54/ShoCase/issues"
   },
-  "homepage": "https://github.com/Mateo-Wallace/M14-Tech-Blog#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "connect-session-sequelize": "^7.1.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-handlebars": "^6.0.6",
-    "express-session": "^1.17.3",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.25.5"
+  "homepage": "https://github.com/Bfunk54/ShoCase#readme",
+"dependencies": {
+  "bcrypt": "^5.1.0",
+  "connect-session-sequelize": "^7.1.5",
+  "dotenv": "^16.0.3",
+  "express": "^4.18.2",
+  "express-handlebars": "^6.0.6",
+  "express-session": "^1.17.3",
+  "mysql2": "^2.3.3",
+  "sequelize": "^6.25.5"
   }
 }

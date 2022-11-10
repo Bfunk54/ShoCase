@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS m14_tech_blog_db;
+DROP DATABASE IF EXISTS shocase_db;
 
-CREATE DATABASE m14_tech_blog_db;
+CREATE DATABASE shocase_db;
