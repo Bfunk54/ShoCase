@@ -1,5 +1,5 @@
 const User = require('./User');
-const Post = require('./Post');
+const Playlist = require('./Playlist');
 const Comment = require('./Comment')
 
 User.hasMany(Post, {
@@ -12,7 +12,7 @@ User.hasMany(Comment, {
     onDelete: 'CASCADE'
 });
 
-Post.belongsTo(User, {
+Playlist.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
@@ -29,4 +29,4 @@ Comment.belongsTo(Post, {
     foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Comment };
+module.exports = { User, Playlist, Comment };
