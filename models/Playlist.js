@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
-class Post extends Model { }
+class Playlist extends Model { }
 
-Post.init(
+Playlist.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -40,4 +40,4 @@ Post.init(
     }
 );
 
-module.exports = Post;
+module.exports = Playlist;
