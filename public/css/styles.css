@@ -3,11 +3,47 @@
 }
 .logo {
     /* width: 120px; */
-    size-adjust: 100px;
+    /* size-adjust: 100px; */
     height: auto;
     /* object-fit: contain; */
     margin-left: 15px;
     /* height: auto; */
     max-width: 2%;
     min-width: 6%;
+}
+@media screen and (max-width: 1010px) {
+    .logo {
+    max-width: 3%;
+    min-width: 7%;
+    }
+}
+@media screen and (max-width: 840px) {
+    .logo {
+    max-width: 4%;
+    min-width: 8%;
+    }
+}
+
+
+@media screen and (max-width: 625px) {
+    .logo {
+    max-width: 6%;
+    min-width: 10%;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .logo {
+    max-width: 8%;
+    min-width: 12%;
+    }
+}
+
+
+
+@media screen and (max-width: 405px) {
+    .logo {
+    max-width: 14%;
+    min-width: 18%;
+    }
 }
