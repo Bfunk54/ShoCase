@@ -6,16 +6,16 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         // Get all posts and JOIN with user data
-        const playlistData = await Playlist.findAll({
-            include: [ { model: User } ],
-        });
+        // const playlistData = await Playlist.findAll({
+        //     include: [ { model: User } ],
+        // });
 
-        // Serialize data so the template can read it
-        const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+        // // Serialize data so the template can read it
+        // const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
 
         // Pass serialized data and session flag into template
         res.render('all-posts', {
-            playlists,
+            // playlists,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Boy</title>
   <script src="https://kit.fontawesome.com/b84e779c40.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -15,20 +15,40 @@
     <header class="display-flex justify-space-between align-center p-2 custom-bg">
       <h1 >
         <i class="fa-solid fa-blog ml-4 text-light"></i>
-        <a href="/" class="text-light">Blog Boy</a>
+        <a href="/" class="text-light">Shocase</a>
       </h1>
-      <nav>
+  </header>
         <!-- Conditionally render login or logout links -->
-        {{#if loggedIn}}
-        <a href="/" class="text-light">home</a> |
-        <a href="/dashboard" class="text-light">dashboard</a> |
-        <button class="no-button mr-4 text-light" id="logout">logout</button>
-        {{else}}
-        <a class="mr-4 text-light" href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
+        
+        
+        
+        
     <main class="container container-fluid mt-5">
+          
+          <a href="#" data-target="slide-out" class="sidenav-trigger btn"><i class="material-icons">menu</i></a>
+      
+      <ul id="slide-out" class="sidenav">
+        <li><div class="user-view">
+          {{#if logged_in}}
+          <div class="background">
+            <img src="images/office.jpg">
+          </div>
+          <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+          <a href="#name"><span class="white-text name">John Doe</span></a>
+          <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          <button class="no-button mr-4 text-light" id="logout">logout</button>
+          {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+        </div></li>
+        <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
+      <li><a href="#!">First Sidebar Link</a></li>
+      <li><a href="#!">Second Sidebar Link</a></li>
+    </ul>
+    
+
+        
+  
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
@@ -38,7 +58,10 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if loggedIn}}
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/mainPage.js"></script>
+   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
