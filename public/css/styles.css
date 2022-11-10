@@ -1,37 +1,49 @@
-header,
-.project:not(:last-child) {
-    border-bottom: 1px solid #ccc;
+* {
+    margin-top: -10px;
+}
+.logo {
+    /* width: 120px; */
+    /* size-adjust: 100px; */
+    height: auto;
+    /* object-fit: contain; */
+    margin-left: 15px;
+    /* height: auto; */
+    max-width: 2%;
+    min-width: 6%;
+}
+@media screen and (max-width: 1010px) {
+    .logo {
+    max-width: 3%;
+    min-width: 7%;
+    }
+}
+@media screen and (max-width: 840px) {
+    .logo {
+    max-width: 4%;
+    min-width: 8%;
+    }
 }
 
-.no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
+
+@media screen and (max-width: 625px) {
+    .logo {
+    max-width: 6%;
+    min-width: 10%;
+    }
 }
 
-.no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
+@media screen and (max-width: 525px) {
+    .logo {
+    max-width: 8%;
+    min-width: 12%;
+    }
 }
 
-.dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
-}
 
-.custom-bg {
-    background-color: rgb(182, 37, 73);
-}
 
-.custom-input-height {
-    height: 50px;
-}
-
-.custom-hidden {
-    display: none;
+@media screen and (max-width: 405px) {
+    .logo {
+    max-width: 14%;
+    min-width: 18%;
+    }
 }
