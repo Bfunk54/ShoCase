@@ -1,7 +1,13 @@
+* {
+    margin-top: -10px;
+}
 .logo {
-    width: 12%;
-    height: 12%;
-    object-fit: contain;
-    margin-top: -50px;
-    margin-left: -25px;
+    /* width: 120px; */
+    size-adjust: 100px;
+    height: auto;
+    /* object-fit: contain; */
+    margin-left: 15px;
+    /* height: auto; */
+    max-width: 2%;
+    min-width: 6%;
 }
