@@ -9,26 +9,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-
-<body>
-  <div class="flex-column justify-space-around ">
-    <header class="display-flex justify-space-between align-center p-2 custom-bg">
-      <h1 >
-        <i class="fa-solid fa-blog ml-4 text-light"></i>
-        <a href="/" class="text-light">Shocase</a>
-      </h1>
-  </header>
-        <!-- Conditionally render login or logout links -->
-        
-        
-        
-        
-    <main class="container container-fluid mt-5">
-          
-          <a href="#" data-target="slide-out" class="sidenav-trigger btn"><i class="material-icons">menu</i></a>
-      
+    <header>
       <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
+          <a href="/" class="amber-text text-darken-1">Shocase</a>
           {{#if logged_in}}
           <div class="background">
             <img src="images/office.jpg">
@@ -38,17 +22,28 @@
           <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           <button class="no-button mr-4 text-light" id="logout">logout</button>
           {{else}}
-        <a href="/login">login</a>
+        <br><a href="/login">login</a>
         {{/if}}
         </div></li>
         <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
       <li><a href="#!">First Sidebar Link</a></li>
       <li><a href="#!">Second Sidebar Link</a></li>
     </ul>
-    
-
         
-  
+      <h1>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><img class="responsive-img logo" src="/images/better_s_logo.png"></a>
+      
+        
+      </h1>
+  </header>
+        <!-- Conditionally render login or logout links -->
+        
+        
+  <body>     
+        
+    <main class="container container-fluid mt-5">
+          
+          
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
