@@ -3,8 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems, options);
   });
 
+const navButton = document.querySelector('.sidenav-trigger');
 
 
-instance.open();
+// navButton.addEventListener('click', function() {
+//   if (instance.open()) {
+//     instance.close();
+//   } else {
+//     instance.open();
+//   }
+//   });
 
-instance.close();
+// instance.close();
