@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Boy</title>
+  <script src="https://kit.fontawesome.com/b84e779c40.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <div class="flex-column justify-space-around ">
+    <header class="display-flex justify-space-between align-center p-2 custom-bg">
+      <h1 >
+        <i class="fa-solid fa-blog ml-4 text-light"></i>
+        <a href="/" class="text-light">Blog Boy</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if loggedIn}}
+        <a href="/" class="text-light">home</a> |
+        <a href="/dashboard" class="text-light">dashboard</a> |
+        <button class="no-button mr-4 text-light" id="logout">logout</button>
+        {{else}}
+        <a class="mr-4 text-light" href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

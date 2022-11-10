@@ -1,0 +1,37 @@
+{
+  "name": "m14-tech-blog",
+  "version": "1.0.0",
+  "description": "Tech Blog with full front end and back end. MVC Practice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mateo-Wallace/M14-Tech-Blog.git"
+  },
+  "keywords": [
+    "MVC",
+    "OOP",
+    "Express",
+    "NodeJs"
+  ],
+  "author": "Mateo Wallace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mateo-Wallace/M14-Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/Mateo-Wallace/M14-Tech-Blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.5"
+  }
+}

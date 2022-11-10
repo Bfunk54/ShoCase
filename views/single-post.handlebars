@@ -1,0 +1,42 @@
+<div class="row mb-4 project">
+    <div class="col-md-5">
+        <h2>
+            <a href="/post/{{id}}">{{title}}</a>
+        </h2>
+        <p>Created by {{user.username}} on {{format_date date_created}}</p>
+    </div>
+    <div class="col-md-7">
+        <p>
+            {{content}}
+        </p>
+    </div>
+</div>
+
+<!-- Loop over each object in the comments array -->
+{{#each comments as |comment| }}
+<div class="row mb-4 project">
+    <div class="col-md-5">
+        <p>Comment by {{comment.user.username}} on {{format_date comment.date_created}}</p>
+    </div>
+    <div class="col-md-7">
+        <p>
+            {{comment.content}}
+        </p>
+    </div>
+</div>
+{{/each}}
+
+<div class="row mb-4 project mt-5">
+    <div class="col-md-5">
+        <h2>Add A Comment</h2>
+    </div>
+    <div class="col-md-7">
+        <form>
+            <input type="text" id="comment-body" class="w-100 custom-input-height">
+            <button id="new-comment-form" class="mt-2 mb-2">Submit</button>
+            <p id="post-id" class="custom-hidden">{{id}}</p>
+        </form>
+    </div>
+    <script src="/js/comment.js"></script>
+</div>
+
