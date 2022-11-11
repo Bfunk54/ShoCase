@@ -14,7 +14,7 @@
       <ul id="slide-out" class="sidenav grey darken-4">
         <li><div class="user-view">
           <a href="/" class="amber-text text-darken-1 navBarTitle">ShoCase</a>
-          {{#if logged_in}}
+          {{#if loggedIn}}
           <div class="background">
             <img src="images/office.jpg">
           </div>
@@ -39,9 +39,11 @@
 
         <i class="magnifyingGlass grey-text text-darken-4 fa-solid fa-magnifying-glass"></i>
         <div class="input-field inline">
-            <input id="email_inline" type="email" class="validate">
+          <form type="submit">
+            <input id="playlist-search" type="search" class="validate" name="term">
             
-            <label for="email_inline">Search Animes/Playlists</label>
+            <label for="playlist-search">Search Animes/Playlists</label>
+          </form>
           </div>
       </nav>
   </header>

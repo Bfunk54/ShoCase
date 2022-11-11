@@ -6,8 +6,8 @@ const commentRoutes = require('./comment-routes.js');
 const animeRoutes = require('./anime-routes')
 
 router.use('/users', userRoutes);
-router.use('/post', playlistRoutes);
-router.use('/comment', commentRoutes);
-router.use('/anime', animeRoutes);
+router.use('/playlists', playlistRoutes);
+router.use('/comments', commentRoutes);
+router.use('/animes', animeRoutes);
 
 module.exports = router;
