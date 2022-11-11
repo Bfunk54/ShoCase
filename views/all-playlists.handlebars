@@ -3,14 +3,11 @@
 <div class="row">
   <div class="col-md-5">
     <h2>
-      <a href="/post/{{playlist.id}}">{{playlist.title}}</a>
+      {{playlist.title}}
     </h2>
     <p>Created by {{playlist.user.username}} on {{format_date playlist.date_created}}</p>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{playlist.content}}
-    </p>
-  </div>
 </div>
 {{/each}}
+
+<script src="/js/searchplaylists.js"></script>
