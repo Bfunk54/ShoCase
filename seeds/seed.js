@@ -1,6 +1,6 @@
 const sequelize = require('../config/config');
 const seedUsers = require('./userData.js');
-// const seedPosts = require('./postData.js');
+const seedPlaylists = require('./playlistData.js');
 // const seedComments = require('./commentData.js');
 
 const seedAll = async () => {
@@ -8,7 +8,7 @@ const seedAll = async () => {
 
   await seedUsers();
 
-  // await seedPosts();
+  await seedPlaylists();
 
   // await seedComments();
 
