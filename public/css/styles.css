@@ -21,8 +21,11 @@
 }
 
 .navBarTitle {
-    font-family: "Yatra", sans-serif;
-  font-size: 48px;
+    font-family: "Yatra One", sans-serif;
+    font-size: 48px; 
+}
+.user-view {
+    margin-top: 20px;
 }
 
 .closeBtn {
