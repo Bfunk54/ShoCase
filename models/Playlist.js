@@ -20,34 +20,6 @@ Playlist.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        anime_1: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'anime',
-                key: 'id'
-            }
-        },
-        anime_2: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'anime',
-                key: 'id'
-            }
-        },
-        anime_3: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'anime',
-                key: 'id'
-            }
-        },
-        anime_4: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'anime',
-                key: 'id'
-            }
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

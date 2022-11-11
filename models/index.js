@@ -48,3 +48,5 @@ Playlist.belongsToMany(User, {
     through: Favorites
 });
 
+
+// module.exports = { User, Playlist, Comment, Anime };
