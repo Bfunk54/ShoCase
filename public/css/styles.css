@@ -1,29 +1,47 @@
 * {
     margin-top: -10px;
 }
+.navBtn {
+    font-size: 16px !important;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important; 
+}
+.sidenav li>a {
+    padding: 10px 32px !important;
+    display: flex !important;
+    align-items: center !important;
+}
 .logo {
-    /* width: 120px; */
-    /* size-adjust: 100px; */
     height: auto;
-    /* object-fit: contain; */
     margin-left: 15px;
-    /* height: auto; */
     max-width: 2%;
     min-width: 6%;
 }
+
+.navBarTitle {
+    font-family: "Yatra", sans-serif;
+  font-size: 48px;
+}
+
+.closeBtn {
+    font-size: 20px !important;
+}
+
 @media screen and (max-width: 1010px) {
     .logo {
     max-width: 3%;
     min-width: 7%;
     }
 }
+
 @media screen and (max-width: 840px) {
     .logo {
     max-width: 4%;
     min-width: 8%;
     }
 }
-
 
 @media screen and (max-width: 625px) {
     .logo {

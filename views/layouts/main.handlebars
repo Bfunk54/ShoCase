@@ -7,12 +7,13 @@
   <title>Blog Boy</title>
   <script src="https://kit.fontawesome.com/b84e779c40.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com/css?family=Yatra">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
     <header>
-      <ul id="slide-out" class="sidenav">
+      <ul id="slide-out" class="sidenav grey darken-4">
         <li><div class="user-view">
-          <a href="/" class="amber-text text-darken-1">Shocase</a>
+          <a href="/" class="amber-text text-darken-1 navBarTitle">ShoCase</a>
           {{#if logged_in}}
           <div class="background">
             <img src="images/office.jpg">
@@ -20,14 +21,14 @@
           <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
           <a href="#name"><span class="white-text name">John Doe</span></a>
           <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-          <button class="no-button mr-4 text-light" id="logout">logout</button>
-          {{else}}
-        <br><a href="/login">login</a>
-        {{/if}}
+          <button class="no-button mr-4 text-light navBtn" id="logout">logout</button>
         </div></li>
-        <li><a class="sidenav-close" href="#!">Clicking this will close Sidenav</a></li>
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
+       {{else}}
+        <br><li><a class="amber-text navBtn" href="/login">Login/Signup</a></li>
+        {{/if}}
+      <li><a class="amber-text text-accent-1 navBtn" href="#!">Profile</a></li>
+      <li><a class="amber-text text-accent-1 navBtn" href="#!">Likes</a></li>
+       <li><a class="sidenav-close closeBtn deep-orange-text text-darken-2" href="#!">Close</a></li>
     </ul>
         
       <h1>
