@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 //get single playlist
 router.get('/:id', async (req, res) => {
     try {
-        const postData = await Playlist.findOne({
+        const playlistData = await Playlist.findOne({
             where: {
                 id: req.params.id
             },
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
                 }
             ]
         });
-        res.json(postData);
+        res.json(playlistData);
     } catch (err) {
         res.status(500).json(err)
     }
@@ -50,7 +50,6 @@ router.get('/:id', async (req, res) => {
 //search playlists
 router.get('/search', (req, res) => {
     const { term } = req.query;
-
     Playlist.findAll({ where: { title: { [Op.like]: '%' + term + '%' } } })
      .then(playlists => res.render('all-playlists', { playlists }))
      .catch(err => console.log(err))
@@ -69,7 +68,7 @@ router.put('/edit/:id', withAuth, (req, res) => {
 //delete playlist
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-      const data = await Product.destroy({
+      const data = await Playlist.destroy({
         where: {
           id: req.params.id
         },
