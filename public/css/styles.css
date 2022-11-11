@@ -50,13 +50,23 @@
     line-height: normal !important;
 }
 
+.modal_trigger {
+    display: inline-block !important;
+    /* width: fit-content; */
+    height: initial !important;
+    line-height: normal !important;
+    width: 10%;
+}
+
 .menuBar {
     display: inline-block;
-    height: auto;
-    width: 100%;
     font-size: 40px;
     margin: 0 8px !important;
-    padding-top: 10px;
+    padding-top: 20px;
+    display: inline-block !important;
+    width: fit-content;
+    height: auto !important;
+    line-height: normal !important;
 }
 
 .menuBar:hover {
@@ -70,26 +80,33 @@
 .addPlaylist {
     display: inline-block;
     font-size: 40px;
-    width: 10%;
-    margin-left: -3px;
-    margin: 0 8px !important;
-    padding-top: 22px;
+    margin-bottom: 14px;
+}
+
+.wholeSearch {
+    display: inline-block;
+    /* margin-top: 10px; */
+    width: fit-content;
+   
 }
 
 .magnifyingGlass { 
     display: inline-block;
     height: auto;
-    width: 5%;
+    width: 3%;
+    padding-left: 20px;
     font-size: 20px;
-    margin: 0 5px !important;
-    margin-top: 10px;
-    position: relative;
-    flex-direction: row;
+    margin-top: 30px !important;
 }
 
+.input-field {
+    margin-left: 30px !important;
+    margin-top: 5px !important;
+
+}
 .theNav {
    opacity: 80%;
-   height: 85px !important;
+   height: 75px !important;
 }
 
 .navBarTitle {
@@ -112,3 +129,5 @@
 .btn:hover {
     background-color: #fee13de4 !important;
 }
+
+
