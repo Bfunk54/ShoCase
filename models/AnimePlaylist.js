@@ -31,7 +31,7 @@ AnimePlaylist.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'anime',
+        modelName: 'animeplaylist',
     }
 );
 
