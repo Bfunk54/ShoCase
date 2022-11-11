@@ -5,15 +5,15 @@ const withAuth = require('../utils/auth');
 // get all posts for homepage
 router.get('/', withAuth, async (req, res) => {
     try {
-        const playlistData = await Playlist.findAll({
-            where: {
-                user_id: req.session.user_id 
-            },
-            include: [ { model: User } ]
-        });
+        // const playlistData = await Playlist.findAll({
+        //     where: {
+        //         user_id: req.session.user_id 
+        //     },
+        //     include: [ { model: User } ]
+        // });
 
-        // Serialize data so the template can read it
-        const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+        // // Serialize data so the template can read it
+        // const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
 
         // Pass serialized data and session flag into template
         res.render('dashboard', {
