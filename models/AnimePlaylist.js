@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
-class Anime extends Model { }
+class AnimePlaylist extends Model { }
 
-Anime.init(
+AnimePlaylist.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,17 +11,20 @@ Anime.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        anime_title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        anime_image: {
+        playlist_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            references: {
+                model: 'playlist',
+                key: 'id'
+            }
         },
-        watch_link: {
+        anime_id: {
             type: DataTypes.INTEGER,
-        },
+            references: {
+                model: 'anime',
+                key: 'id'
+            }
+        }
     },
     {
         sequelize,
@@ -32,4 +35,4 @@ Anime.init(
     }
 );
 
-module.exports = Anime;
+module.exports = AnimePlaylist;
