@@ -49,4 +49,4 @@ Playlist.belongsToMany(User, {
 });
 
 
-// module.exports = { User, Playlist, Comment, Anime };
+module.exports = { User, Playlist, Comment, Anime };

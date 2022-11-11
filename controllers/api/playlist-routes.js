@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Playlist } = require('../../models');
 const User = require('../../models/User');
 const withAuth = require('../../utils/auth');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 
 //new playlist
@@ -43,6 +45,15 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
+});
+
+//search playlists
+router.get('/search', (req, res) => {
+    const { term } = req.query;
+
+    Playlist.findAll({ where: { title: { [Op.like]: '%' + term + '%' } } })
+     .then(playlists => res.render('all-playlists', { playlists }))
+     .catch(err => console.log(err))
 });
 
 //edit playlist
