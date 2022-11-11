@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
-class Post extends Model { }
+class Playlist extends Model { }
 
-Post.init(
+Playlist.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -15,13 +15,38 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        content: {
-            type: DataTypes.TEXT,
-        },
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
+        },
+        anime_1: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'anime',
+                key: 'id'
+            }
+        },
+        anime_2: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'anime',
+                key: 'id'
+            }
+        },
+        anime_3: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'anime',
+                key: 'id'
+            }
+        },
+        anime_4: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'anime',
+                key: 'id'
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -29,15 +54,15 @@ Post.init(
                 model: 'user',
                 key: 'id',
             },
-        },
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post',
+        modelName: 'playlist',
     }
 );
 
-module.exports = Post;
+module.exports = Playlist;

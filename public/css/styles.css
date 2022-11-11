@@ -1,37 +1,75 @@
-header,
-.project:not(:last-child) {
-    border-bottom: 1px solid #ccc;
+.navBtn {
+    font-size: 16px !important;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important; 
+}
+.sidenav li>a {
+    padding: 10px 32px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.sidenav li>a:hover {
+    background-color: #fed13d35 !important;
+}
+.opacity {
+    width: auto;
+}
+.opacity:hover {
+    background-color: #fe743d !important;
+    opacity: 0.5;
 }
 
-.no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
+.sidenav li>a:hover:before {
+    background-color: #fe743d !important;
+    opacity: 10%;
+}
+.logo {
+    width: 100%;
+    display: block !important;
 }
 
-.no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
+.logoContainer {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 15px;
+    margin-top: 5px;
+    float: right;
 }
 
-.dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
+.sidenav-trigger {
+    display: inline-block !important;
+    width: fit-content;
 }
 
-.custom-bg {
-    background-color: rgb(182, 37, 73);
+.menuBar {
+    height: auto;
+    width: 100%;
+    font-size: 45px;
+    margin: 15px;
+    margin-top: 25px;
 }
 
-.custom-input-height {
-    height: 50px;
+.theNav {
+   opacity: 80%;
+   height: 115px !important;
 }
 
-.custom-hidden {
-    display: none;
+.navBarTitle {
+    font-family: "Yatra One", sans-serif;
+    font-size: 48px; 
 }
+.user-view {
+    margin-top: 20px;
+}
+
+.closeBtn {
+    font-size: 16px !important;
+}
+
+.xForNav {
+    margin-right: 4px !important;
+    font-size: 24px;
+}
+

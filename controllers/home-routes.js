@@ -1,21 +1,21 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models');
+const { Playlist, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
     try {
         // Get all posts and JOIN with user data
-        const postData = await Post.findAll({
-            include: [ { model: User } ],
-        });
+        // const playlistData = await Playlist.findAll({
+        //     include: [ { model: User } ],
+        // });
 
-        // Serialize data so the template can read it
-        const posts = postData.map((post) => post.get({ plain: true }));
+        // // Serialize data so the template can read it
+        // const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
 
         // Pass serialized data and session flag into template
         res.render('all-posts', {
-            posts,
+            // playlists,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
@@ -24,25 +24,25 @@ router.get('/', async (req, res) => {
 });
 
 // get single post
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/playlist/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             where: {
                 post_id: req.params.id 
             },
-            include: [ { model: User }, { model: Post }]
+            include: [ { model: User }, { model: Playlist }]
         });
 
-        const postData = await Post.findByPk(req.params.id, {
+        const playlistData = await Playlist.findByPk(req.params.id, {
             include: [ { model: User } ],
         });
         
-        const post = postData.get({ plain: true });
+        const playlist = playlistData.get({ plain: true });
 
         const comments = commentData.map((comment) => comment.get({ plain: true }));
 
         res.render('single-post', {
-            ...post,
+            ...playlist,
             comments,
             loggedIn: req.session.loggedIn
         });

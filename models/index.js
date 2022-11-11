@@ -1,8 +1,11 @@
 const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comment')
+const Playlist = require('./Playlist');
+const Comment = require('./Comment');
+const Anime = require('./Anime');
+const Favorites = require('./Favorites');
+const AnimePlaylist = require('./Animeplaylist');
 
-User.hasMany(Post, {
+User.hasMany(Playlist, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
@@ -12,7 +15,7 @@ User.hasMany(Comment, {
     onDelete: 'CASCADE'
 });
 
-Post.belongsTo(User, {
+Playlist.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
@@ -20,13 +23,28 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Post.hasMany(Comment, {
-    foreignKey: 'post_id',
+Playlist.hasMany(Comment, {
+    foreignKey: 'playlist_id',
     onDelete: 'CASCADE'
 });
 
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+Comment.belongsTo(Playlist, {
+    foreignKey: 'playlist_id'
 });
 
-module.exports = { User, Post, Comment };
+Anime.belongsToMany(Playlist, {
+    through: AnimePlaylist
+});
+
+Playlist.belongsToMany(Anime, {
+    through: AnimePlaylist
+});
+
+User.belongsToMany(Playlist, {
+    through: Favorites
+});
+
+Playlist.belongsToMany(User, {
+    through: Favorites
+});
+

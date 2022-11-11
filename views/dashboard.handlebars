@@ -1,19 +1,19 @@
-{{#each posts as |post| }}
+{{!-- {{#each playlists as |playlist| }}
 <div class="row mb-4 project">
     <div class="col-md-5">
         <h2>
-            <a href="/post/{{post.id}}">{{post.title}}</a>
+            <a href="/post/{{playlist.id}}">{{playlist.title}}</a>
         </h2>
-        <p>Created by {{post.user.username}} on {{format_date post.date_created}}</p>
+        <p>Created by {{playlist.user.username}} on {{format_date playlist.date_created}}</p>
     </div>
     <div class="col-md-7">
         <p>
-            {{post.content}}
+            {{playlist.content}}
         </p>
     </div>
 </div>
 
-<p class="custom-hidden" id="{{post.id}}">{{post.id}}</p>
+<p class="custom-hidden" id="{{playlist.id}}">{{playlist.id}}</p>
 {{/each}}
 
 <div class="row mb-4 project mt-5">
@@ -31,4 +31,4 @@
     </div>
 </div>
 
-<script src="/js/new.js"></script>
+<script src="/js/new.js"></script> --}}
