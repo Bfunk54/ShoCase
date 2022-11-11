@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Playlist, Comment, User } = require('../models');
+const { Playlist, Comment, User, AnimePlaylist } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for homepage
+// get all playlists for homepage
 router.get('/', async (req, res) => {
     try {
         const playlistData = await Playlist.findAll({
