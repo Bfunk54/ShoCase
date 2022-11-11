@@ -4,18 +4,20 @@ const userData = [
   {
     username: 'foobar',
     email: 'foo@bar.com',
-    password: 'foofoobarbar',
-    // new password is bloopbloop
+    password: 'foofoobarbar1',
+    avatar: 1,
   },
   {
-    username: 'numberletter',
-    email: 'number@letter.com',
-    password: '1a2b3c4d',
+    username: 'littleLad',
+    email: 'little@lad.com',
+    password: 'littlelad2',
+    avatar: 2,
   },
   {
-    username: 'patrickstar',
-    email: 'patrick@star.com',
-    password: 'starpatrick',
+    username: 'mateowallace',
+    email: 'mateo@wallace.com',
+    password: 'mateowallace3',
+    avatar: 3,
   },
 ];
 
@@ -26,5 +28,6 @@ module.exports = seedUsers;
 // {
 //   username: 'beepbeep',
 //   email: 'beep@beep.com',
-//   password: 'beepbeepbeep',
+//   password: 'beepbeepbeep2',
+//   avatar: 4,
 // }

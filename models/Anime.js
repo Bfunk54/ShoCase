@@ -16,11 +16,14 @@ Anime.init(
             allowNull: false,
         },
         anime_image: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         watch_link: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
+        },
+        api_id: {
+            type: DataTypes.BIGINT
         }
     },
     {

@@ -1,0 +1,13 @@
+<!-- Loop over each object in the projects array -->
+{{#each playlists as |playlist| }}
+<div class="row">
+  <div class="col-md-5">
+    <h2>
+      {{playlist.title}}
+    </h2>
+    <p>Created by {{playlist.user.username}} on {{format_date playlist.date_created}}</p>
+  </div>
+</div>
+{{/each}}
+
+<script src="/js/searchplaylists.js"></script>

@@ -1,23 +1,20 @@
-const { Post } = require('../models');
+const { Playlist } = require('../models');
 
-const postData = [
+const playlistData = [
   {
-    title: 'Whoa look at this post!',
-    content: 'This is the absolute coolest post ever. If I really had to define a cool post... it would most definitely be this one!',
+    title: 'Summer 2022 Anime',
     user_id: 1,
   },
   {
-    title: 'Im happy today. Guess why!',
-    content: 'Absolutely no way youll guess. No one has guessed correctly yet!',
+    title: 'Winter 2010 Anime',
     user_id: 2,
   },
   {
-    title: 'My favorite anime',
-    content: 'ALL OF THEM MUAHAHA',
+    title: 'Fall 2015 Anime',
     user_id: 3,
   },
 ];
 
-const seedPosts = () => Post.bulkCreate(postData);
+const seedPlaylists = () => Playlist.bulkCreate(playlistData);
 
-module.exports = seedPosts;
+module.exports = seedPlaylists;
