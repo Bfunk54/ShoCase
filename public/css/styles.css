@@ -46,14 +46,17 @@
 .sidenav-trigger {
     display: inline-block !important;
     width: fit-content;
+    height: auto !important;
+    line-height: normal !important;
 }
 
 .menuBar {
+    display: inline-block;
     height: auto;
     width: 100%;
     font-size: 40px;
-    margin: 15px;
-    margin-top: 10px;
+    margin: 0 8px !important;
+    padding-top: 10px;
 }
 
 .menuBar:hover {
@@ -67,15 +70,21 @@
 .addPlaylist {
     display: inline-block;
     font-size: 40px;
-    margin: 10px;
-    margin-top: 20px;
+    width: 10%;
+    margin-left: -3px;
+    margin: 0 8px !important;
+    padding-top: 22px;
 }
 
 .magnifyingGlass { 
-    display: flex;
-    font-size: 40px;
-    margin: 10px;
-    margin-top: 20px;
+    display: inline-block;
+    height: auto;
+    width: 5%;
+    font-size: 20px;
+    margin: 0 5px !important;
+    margin-top: 10px;
+    position: relative;
+    flex-direction: row;
 }
 
 .theNav {
