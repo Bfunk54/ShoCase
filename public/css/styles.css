@@ -10,6 +10,21 @@
     display: flex !important;
     align-items: center !important;
 }
+.sidenav li>a:hover {
+    background-color: #fed13d35 !important;
+}
+.opacity {
+    width: auto;
+}
+.opacity:hover {
+    background-color: #fe743d !important;
+    opacity: 0.5;
+}
+
+.sidenav li>a:hover:before {
+    background-color: #fe743d !important;
+    opacity: 10%;
+}
 .logo {
     width: 100%;
     display: block !important;
@@ -21,7 +36,6 @@
     margin-right: 15px;
     margin-top: 5px;
     float: right;
-    /* overflow: hidden; */
 }
 
 .sidenav-trigger {
@@ -51,6 +65,11 @@
 }
 
 .closeBtn {
-    font-size: 20px !important;
+    font-size: 16px !important;
+}
+
+.xForNav {
+    margin-right: 4px !important;
+    font-size: 24px;
 }
 
