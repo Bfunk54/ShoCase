@@ -56,6 +56,28 @@
     margin-top: 10px;
 }
 
+.menuBar:hover {
+   color: #fed13d8d !important;
+}
+
+.addPlaylist:hover {
+    color: #fed13d8d !important;
+ }
+
+.addPlaylist {
+    display: inline-block;
+    font-size: 40px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.magnifyingGlass { 
+    display: flex;
+    font-size: 40px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
 .theNav {
    opacity: 80%;
    height: 85px !important;
