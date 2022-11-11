@@ -15,7 +15,7 @@ const animeData = [
     },
     {
         anime_title: 'Noragami',
-        anime_image: 'https://cdn.myanimelist.net/images/anime/10/73274l.jpg',
+        anime_image: 'https://cdn.myanimelist.net/images/anime/1886/128266l.jpg',
         watch_link: 'https://myanimelist.net/anime/20507/Noragami',
         api_id: 20507,
     },
