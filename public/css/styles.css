@@ -5,17 +5,21 @@
     margin-top: 10px !important;
     margin-bottom: 10px !important; 
 }
+
 .sidenav li>a {
     padding: 10px 32px !important;
     display: flex !important;
     align-items: center !important;
 }
+
 .sidenav li>a:hover {
     background-color: #fed13d35 !important;
 }
+
 .opacity {
     width: auto;
 }
+
 .opacity:hover {
     background-color: #fe743d !important;
     opacity: 0.5;
@@ -25,14 +29,15 @@
     background-color: #fe743d !important;
     opacity: 10%;
 }
+
 .logo {
     width: 100%;
     display: block !important;
 }
 
 .logoContainer {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 70px;
+    max-height: 70px;
     margin-right: 15px;
     margin-top: 5px;
     float: right;
@@ -46,14 +51,36 @@
 .menuBar {
     height: auto;
     width: 100%;
-    font-size: 45px;
+    font-size: 40px;
     margin: 15px;
-    margin-top: 25px;
+    margin-top: 10px;
+}
+
+.menuBar:hover {
+   color: #fed13d8d !important;
+}
+
+.addPlaylist:hover {
+    color: #fed13d8d !important;
+ }
+
+.addPlaylist {
+    display: inline-block;
+    font-size: 40px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.magnifyingGlass { 
+    display: flex;
+    font-size: 40px;
+    margin: 10px;
+    margin-top: 20px;
 }
 
 .theNav {
    opacity: 80%;
-   height: 115px !important;
+   height: 85px !important;
 }
 
 .navBarTitle {
@@ -73,3 +100,6 @@
     font-size: 24px;
 }
 
+.btn:hover {
+    background-color: #fee13de4 !important;
+}
