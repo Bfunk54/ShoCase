@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         // const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
 
         // Pass serialized data and session flag into template
-        res.render('all-posts', {
+        res.render('all-playlists', {
             // playlists,
             loggedIn: req.session.loggedIn
         });
