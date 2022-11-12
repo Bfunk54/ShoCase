@@ -16,6 +16,11 @@ const commentData = [
     user_id: 3,
     playlist_id: 1,
   },
+  {
+    content: 'these are alriiiiight. But have you seen Avatar the last Airbender!',
+    user_id: 2,
+    playlist_id: 1,
+  },
 ];
 
 const seedComments = () => Comment.bulkCreate(commentData);

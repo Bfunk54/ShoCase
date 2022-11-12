@@ -2,7 +2,7 @@ const commentFormHandler = async function (event) {
     event.preventDefault();
 
     const post_idString = document.querySelector('#post-id').innerHTML;
-    const post_id = +post_idString
+    const playlist_id = +post_idString
     const content = document.querySelector('#comment-body').value;
 
     if (content) {
@@ -10,7 +10,7 @@ const commentFormHandler = async function (event) {
             method: 'POST',
             body: JSON.stringify({
                 content,
-                post_id
+                playlist_id
             }),
             headers: {
                 'Content-Type': 'application/json'

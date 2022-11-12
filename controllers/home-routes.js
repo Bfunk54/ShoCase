@@ -26,17 +26,14 @@ router.get('/', async (req, res) => {
 // get single post
 router.get('/playlist/:id', withAuth, async (req, res) => {
     try {
-        const commentData = await Comment.findAll({
-            where: {
-                playlist_id: req.params.id 
-            },
-            include: [ { model: User }, { model: Playlist, include: [ { model: User }, { model: Anime } ] } ],
-        });
+        const playlistData = await Playlist.findByPk(req.params.id, {
+            include: [ { model: User }, {model: Anime}, {model:Comment, include: [{model:User}]} ]
+          });
 
-        const comments = commentData.map((comment) => comment.get({ plain: true }));
+          const playlist = playlistData.get({ plain: true });
 
         res.render('single-playlist', {
-            comments,
+            ...playlist,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
