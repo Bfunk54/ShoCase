@@ -1,23 +1,18 @@
 const router = require('express').Router();
-const { Playlist, Comment, User } = require('../models');
+const { Playlist, Comment, User, Favorites } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', withAuth, async (req, res) => {
     try {
-        // const playlistData = await Playlist.findAll({
-        //     where: {
-        //         user_id: req.session.user_id 
-        //     },
-        //     include: [ { model: User } ]
-        // });
+        const userData = await User.findByPk(req.session.user_id, {
+            include: [ { model: Playlist }, {model: Favorites, include: [{model:Playlist}]} ]
+          });
 
-        // // Serialize data so the template can read it
-        // const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
-
-        // Pass serialized data and session flag into template
+          const user = userData.get({ plain: true });
+          console.log(user)
         res.render('dashboard', {
-            playlists,
+            user,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {

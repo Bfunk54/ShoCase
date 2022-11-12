@@ -14,9 +14,10 @@ const userData = [
     avatar: 2,
   },
   {
-    username: 'mateowallace',
-    email: 'mateo@wallace.com',
-    password: 'mateowallace3',
+    username: 'tester',
+    email: 'test@test.com',
+    password: '$2b$10$AF2hAHz4o9rHl1PZzyG.DuYaKFyUDMHl4UFLzBCOpGPXB93MUAs76',
+    // password: 'testtest',
     avatar: 3,
   },
 ];
