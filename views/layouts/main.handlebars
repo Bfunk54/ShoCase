@@ -21,7 +21,7 @@
           <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
           <a href="#name"><span class="white-text name">John Doe</span></a>
           <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-          <button class="no-button mr-4 text-light navBtn" id="logout">logout</button>
+          <button class="amber-text navBtn" id="logout">logout</button>
         </div></li>
        {{else}}
         <br><li><a class="amber-text navBtn" href="/login">Login/Signup</a></li>
@@ -34,23 +34,23 @@
     <div class="logoContainer">
     <img class="logo" src="/images/better_s_logo.png">
     </div>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="menuBar grey-text text-darken-4 fa-solid fa-bars"></i></a>
-        <i class="addPlaylist grey-text text-darken-4 fa-solid fa-plus"></i>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="menuBar waves-effect waves-light grey-text text-darken-4 fa-solid fa-bars"></i></a>
+        <a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="addPlaylist grey-text text-darken-4 fa-solid fa-plus"></i></a>
+
+        <i class="magnifyingGlass grey-text text-darken-4 fa-solid fa-magnifying-glass"></i>
         <div class="input-field inline">
-          <form action="/api/playlists/search">
-            <input id="playlist-search" type="search" class="validate" name="term">
-            <i class="magnifyingGlass grey-text text-darken-4 fa-solid fa-magnifying-glass"></i>
-            <label for="playlist-search">Search</label>
-          </form>
+            <input id="search_inline" type="text" class="validate" name="term">  
+            <label for="search_inline">Search Animes/Playlists</label>
           </div>
       </nav>
   </header>
         <!-- Conditionally render login or logout links -->
         
         
-  <body class="grey lighten-2">     
+
         
     <main class="container container-fluid mt-5">
+          
           
           
       <!-- Render the sub layout -->
@@ -65,7 +65,7 @@
  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/js/mainPage.js"></script>
-   {{#if loggedIn}}
+   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>

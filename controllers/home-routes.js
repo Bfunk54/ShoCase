@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Playlist, Comment, User, Anime } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for homepage
+// get all playlists for homepage
 router.get('/', async (req, res) => {
     try {
         // Get all posts and JOIN with user data
@@ -23,7 +23,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-// get single post
+// get playlists by search
+router.get('/playlists/search', (req, res) => {
+    const term  = req.body.searchText;
+    Playlist.findAll({ where: { title: { [Op.like]: '%' + term + '%' } } })
+     .then(playlists => res.render('all-playlists', { playlists }))
+     .catch(err => console.log(err))
+});
+
+// get single playlist by id
 router.get('/playlist/:id', withAuth, async (req, res) => {
     try {
         const playlistData = await Playlist.findByPk(req.params.id, {

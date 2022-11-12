@@ -48,12 +48,6 @@ router.get('/:id', async (req, res) => {
 });
 
 //search playlists
-router.get('/search', (req, res) => {
-    const { term } = req.query;
-    Playlist.findAll({ where: { title: { [Op.like]: '%' + term + '%' } } })
-     .then(playlists => res.render('all-playlists', { playlists }))
-     .catch(err => console.log(err))
-});
 
 //edit playlist
 router.put('/edit/:id', withAuth, (req, res) => {
