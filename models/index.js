@@ -40,12 +40,30 @@ Playlist.belongsToMany(Anime, {
     through: AnimePlaylist
 });
 
-User.belongsToMany(Playlist, {
-    through: Favorites
+// User.belongsToMany(Playlist, {
+//     through: Favorites
+// });
+
+// Playlist.belongsToMany(User, {
+//     through: Favorites
+// });
+
+Playlist.hasMany(Favorites, {
+    foreignKey: 'playlist_id',
+    onDelete: 'CASCADE'
 });
 
-Playlist.belongsToMany(User, {
-    through: Favorites
+User.hasMany(Favorites, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+Favorites.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+Favorites.belongsTo(Playlist, {
+    foreignKey: 'playlist_id'
 });
 
 module.exports = { User, Playlist, Comment, Anime, Favorites, AnimePlaylist };
