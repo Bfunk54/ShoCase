@@ -9,8 +9,14 @@ const anime1Btn = document.getElementById('anime1_btn');
 const anime2Btn = document.getElementById('anime2_btn');
 const anime3Btn = document.getElementById('anime3_btn');
 const anime4Btn = document.getElementById('anime4_btn');
-const test2 = document.getElementById('test2Row');
+const anime1 = document.getElementById('animeRow1');
+const anime2 = document.getElementById('animeRow2');
+const anime3 = document.getElementById('animeRow3');
+const anime4 = document.getElementById('animeRow4');
+const anime1InputDiv = document.getElementById('anime1Input');
 const anime2InputDiv = document.getElementById('anime2Input');
+const anime3InputDiv = document.getElementById('anime3Input');
+const anime4InputDiv = document.getElementById('anime4Input');
 
 // Starts the search for anime
 async function startSearch(search) {
@@ -62,18 +68,30 @@ for (let i = 0; i < data.length; i++) {
   </div>
 </div>  `;
     // Append the divs to the page
-    test2.innerHTML += divTemplate;
-    console.log(test2);
+    switch (anime1 || anime2 || anime3 || anime4) {
+        case anime1: anime1.innerHTML += divTemplate; 
+            break;
+        case anime2: anime2.innerHTML += divTemplate;
+            break;
+        case anime3: anime3.innerHTML += divTemplate;
+            break;
+        case anime4: anime4.innerHTML += divTemplate;
+            break;
+    }
+
+    console.log(anime1);
     }
     
 }
 
 // Event listeners to search for animes when creating a playlist
+let anime1BtnClick = false;
 
 anime1Btn.addEventListener("click", e => {
     e.preventDefault();
     animeSearch = anime1Input.value.trim();
     console.log(animeSearch);
+    anime1InputDiv.classList.add('hide');
     if (!animeSearch) {
         alert("Please enter an anime name");
     } else {
@@ -81,12 +99,13 @@ anime1Btn.addEventListener("click", e => {
     }
 });
 
+let anime3BtnClick = false;
+
 anime2Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime2Input.value.trim();
   console.log(animeSearch);
   anime2InputDiv.classList.add('hide');
-  console.log(anime2InputDiv);
   if (!animeSearch) {
       alert("Please enter an anime name");
   } else {
@@ -94,9 +113,12 @@ anime2Btn.addEventListener("click", e => {
   }
 });
 
+let anime3BtnClick = false;
+
 anime3Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime3Input.value.trim();
+  anime3InputDiv.classList.add('hide');
     console.log(animeSearch);
   if (!animeSearch) {
       alert("Please enter an anime name");
@@ -105,10 +127,13 @@ anime3Btn.addEventListener("click", e => {
   }
 });
 
+let anime4BtnClick = false;
+
 anime4Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime4Input.value.trim();
   console.log(animeSearch);
+  anime4InputDiv.classList.add('hide');
   if (!animeSearch) {
       alert("Please enter an anime name");
   } else {
