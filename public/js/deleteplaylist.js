@@ -22,5 +22,7 @@ const handlePlaylistDelete = async (e) => {
   };
 
 
-
-document.getElementById('delete-btn').addEventListener('click', handlePlaylistDelete);
+const deleteBtn = document.getElementById('delete-btn')
+if(deleteBtn) {
+deleteBtn.addEventListener('click', handlePlaylistDelete);
+}
