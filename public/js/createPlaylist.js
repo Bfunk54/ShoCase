@@ -8,19 +8,20 @@ const anime1Btn = document.getElementById('anime1_btn');
 const anime2Btn = document.getElementById('anime2_btn');
 const anime3Btn = document.getElementById('anime3_btn');
 const anime4Btn = document.getElementById('anime4_btn');
-
+const test2 = document.getElementById('test2Row');
+const anime2InputDiv = document.getElementById('anime2Input');
 
 async function startSearch(search) {
 
     fetch('https://api.jikan.moe/v4/anime?q=' + search + '&sfw&limit=5&type=anime')
     .then(response => response.json())
-    .then(function (data) {
-        console.log(data);
-        for (let i = 0; i < data.length; i++) {
-            dataObj = { title: data[i].title, image: data[i].image_url }; 
-            animeTitleArray.push(dataObj);
-        }
+    .then(function (res) {
+        console.log(res);
         const animeArray = [];
+        for (let i = 0; i < res.data.length; i++) {
+            dataObj = { title: res.data[i].title, image: res.data[i].images.jpg.image_url }; 
+            animeArray.push(dataObj);
+        }
         console.log(animeArray);
         addDivs(animeArray);
     })
@@ -28,17 +29,22 @@ async function startSearch(search) {
 };
 
 function addDivs(data) {
+    console.log(data);
+for (let i = 0; i < data.length; i++) {
     divTemplate = `<div class="col s3">
     <div class="addPlaylistCard card">
       <div class="card-image">
-        <img class="addPlaylistCardImg" src="${data.img}">
+        <img class="addPlaylistCardImg" src="${data[i].image}">
         
         <a class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
-        <span class="card-title black-text">${data.title}</span>
+        <span class="card-title black-text">${data[i].title}</span>
   </div>
 </div>  `;
-for (let i = 0; i < data.results.length; i++) {
+    test2.innerHTML += divTemplate;
+    console.log(test2);
+    }
+    
 }
 
 anime1Btn.addEventListener("click", e => {
@@ -56,6 +62,8 @@ anime2Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime2Input.value.trim();
   console.log(animeSearch);
+  anime2InputDiv.classList.add('hide');
+  console.log(anime2InputDiv);
   if (!animeSearch) {
       alert("Please enter an anime name");
   } else {
