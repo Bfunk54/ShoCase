@@ -1,18 +1,18 @@
 const router = require('express').Router();
-const { Playlist, Comment, User, Favorites } = require('../models');
+const { Playlist, Comment, User, Favorites, Anime } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            include: [ { model: Playlist }, {model: Favorites, include: [{model:Playlist}]} ]
+            include: [ { model: Playlist, include: [{model:Anime}] }, {model: Favorites, include: [{model:Playlist, include: [{model:Anime}]}]} ]
           });
 
           const user = userData.get({ plain: true });
-          console.log(user)
+          console.log(user.favorites)
         res.render('dashboard', {
-            user,
+            ...user,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {

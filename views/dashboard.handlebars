@@ -1,35 +1,28 @@
-{{!-- {{#each playlists as |playlist| }}
-<div class="row mb-4 project">
-    <div class="col-md-5">
-        <h2>
-            <a href="/post/{{playlist.id}}">{{playlist.title}}</a>
-        </h2>
-        <p>Created by {{playlist.user.username}} on {{format_date playlist.date_created}}</p>
-    </div>
-    <div class="col-md-7">
-        <p>
-            {{playlist.content}}
-        </p>
-    </div>
-</div>
+{{!-- accessing user info --}}
+<h1>user info</h1>
+<h4>{{username}}</h4>
+<h4>{{email}}</h4>
 
-<p class="custom-hidden" id="{{playlist.id}}">{{playlist.id}}</p>
+{{!-- playlists owned by users --}}
+<h1>playlists</h1>
+{{#each playlists as |playlist|}}
+<h4>{{playlist.title}}</h4>
+
+    {{!-- animes within owned playlists --}}
+    {{#each playlist.animes as |anime|}}
+    <h6>{{anime.anime_title}}</h6>
+
+    {{/each}}
 {{/each}}
 
-<div class="row mb-4 project mt-5">
-    <div class="col-md-5">
-        <h2>Add A New Post</h2>
-    </div>
-    <div class="col-md-7">
-        <form>
-            <label>Post Title</label>
-            <input type="text" id="post-title" class="w-100 custom-input-height" required>
-            <label>Post Content</label>
-            <input type="text" id="post-body" class="w-100 custom-input-height" required>
-            <button id="new-post-form" class="mt-2 mb-2">Submit</button>
-        </form>
-    </div>
-</div>
+{{!-- favorites --}}
+<h1>favorited playlists</h1>
+{{#each favorites as |favorite|}}
+<h4>{{favorite.playlist.title}}</h4>
 
-<script src="/js/new.js"></script> --}}
-<h1>{{user.username}} {{user.id}} {{user.playlists}}</h1>
+    {{!-- animes within favorited playlists --}}
+    {{#each favorite.playlist.animes as |anime|}}
+    <h6>{{anime.anime_title}}</h6>
+
+    {{/each}}
+{{/each}}
