@@ -57,6 +57,14 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/create-playlists', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('create-playlists');
+});
+
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

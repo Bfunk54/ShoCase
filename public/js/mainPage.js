@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems, {inDuration: 450, outDuration: 350, draggable: true});
   });
 
+  var elem = document.querySelector('.tabs'); var instance = M.Tabs.init(elem, {});
+
   async function getAnimeName() {
     const response = await fetch(jikanUrl);
     const data = await response.json();
