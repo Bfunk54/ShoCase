@@ -1,5 +1,6 @@
 const jikanUrl = 'https://api.jikan.moe/v4/anime?q=';
 const jikanOptions = {limit: '&limit_10', min_score: '&min_score'};
+let jikanLimit = 4;
 const anime1Input = document.getElementById('anime1_inline');
 const anime2Input = document.getElementById('anime2_inline');
 const anime3Input = document.getElementById('anime3_inline');
@@ -11,13 +12,19 @@ const anime4Btn = document.getElementById('anime4_btn');
 const test2 = document.getElementById('test2Row');
 const anime2InputDiv = document.getElementById('anime2Input');
 
+// St
 async function startSearch(search) {
 
-    fetch('https://api.jikan.moe/v4/anime?q=' + search + '&sfw&limit=4&type=anime&min_score=4')
+    fetch('https://api.jikan.moe/v4/anime?q=' + search + '&sfw&limit=' + jikanLimit +'&type=anime&order_by=rating&sort=asc')
     .then(response => response.json())
     .then(function (res) {
-        console.log(res);
+        console.log(res.data);
         const animeArray = [];
+        res.data = res.data.filter( function checkData(search, index) {
+            console.log(search.images.jpg.image_url);
+            return search.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png';
+        });
+        console.log(res.data);
         for (let i = 0; i < res.data.length; i++) {
             if (res.data[i].title && res.data[i].images.jpg.image_url ) {
             dataObj = { title: res.data[i].title, image: res.data[i].images.jpg.image_url }; 
@@ -36,7 +43,7 @@ async function startSearch(search) {
 function addDivs(data) {
     console.log(data);
 for (let i = 0; i < data.length; i++) {
-    divTemplate = `<div class="col s3">
+    divTemplate = `<div class="addAnimeCard col s3">
     <div class="addPlaylistCard card">
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].image}">
