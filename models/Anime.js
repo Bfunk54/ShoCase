@@ -22,6 +22,9 @@ Anime.init(
         watch_link: {
             type: DataTypes.STRING,
         },
+        moreinfo: {
+            type: DataTypes.STRING,
+        },
         api_id: {
             type: DataTypes.BIGINT
         }
