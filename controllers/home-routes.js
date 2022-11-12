@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { Playlist, Comment, User, Anime } = require('../models');
 const withAuth = require('../utils/auth');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 
 // get all playlists for homepage
 router.get('/', async (req, res) => {
@@ -24,11 +27,14 @@ router.get('/', async (req, res) => {
 });
 
 // get playlists by search
-router.get('/playlists/search', (req, res) => {
-    const term  = req.body.searchText;
-    Playlist.findAll({ where: { title: { [Op.like]: '%' + term + '%' } } })
-     .then(playlists => res.render('all-playlists', { playlists }))
-     .catch(err => console.log(err))
+router.get('/playlists/search/:search', async (req, res) => {
+    try {
+    const playlistData = await Playlist.findAll({ where: { title: { [Op.like]: '%' + req.params.search + '%' } } })
+    const playlists = playlistData.map((playlist) => playlist.get({ plain: true }))
+     res.render('playlist-search', { playlists })
+    }catch(err) {
+        res.status(500).json(err);
+    }
 });
 
 // get single playlist by id
