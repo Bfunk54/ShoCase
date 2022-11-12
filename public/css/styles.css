@@ -82,7 +82,7 @@
     display: inline-block;
     font-size: 40px;
     margin-top: 3px !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 6px !important;
 }
 
 .wholeSearch {
@@ -102,9 +102,15 @@
 }
 
 .input-field {
-    margin-left: 10px !important;
+    margin-left: 25px !important;
     margin-top: 5px !important;
     margin-bottom: 20px !important;
+    height: 20px !important;
+}
+
+.validate {
+    height: 20px !important;
+    margin-bottom: -15px !important;
 }
 
 .theNav {
