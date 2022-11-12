@@ -160,7 +160,7 @@ main.container {
 
 .row {
     margin-top: 10px;
-    width: 100%;
+    width: 90%;
 }
 
 #profile-info {
@@ -169,4 +169,8 @@ main.container {
 
 .s12 .m .l .xl {
     width: 90%
+}
+
+.extraInfo {
+    padding: 0;
 }

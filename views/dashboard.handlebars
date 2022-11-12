@@ -19,11 +19,11 @@
     {{!-- Right side of page with playlists --}}
     <div class="container col s12 m8 l9">
         <h4>User Playlists</h4>
-        {{!-- Title 12s --}}
         {{#each playlists as |playlist|}}
         {{#each playlist.animes as |anime|}}
-        <span class="row">{{playlist.title}}</span>
-            <div class=" col s2 m6 l3 card" id="single-anime">
+        <span class="col s12">{{playlist.title}}</span>
+
+            <div class=" col s1 m5 l2 card" id="single-anime">
                 <div class="card-image waves-effect waves-block waves-light">
                     {{!-- Anime image --}}
                     <img class="activator" src={{anime.anime_image}}>
@@ -33,40 +33,42 @@
                     <span class="card-title activator grey-text text-darken-4">{{anime.anime_title}}
                         <i class="material-icons right">more_vert</i></span>
                     {{!-- Anime link --}}
-                    <p><a href="{{anime.watch_link}}">Watch this anime here!</a></p>
+                    <p><a href="{{anime.watch_link}}">Watch!</a></p>
                 </div>
                 {{!-- Info after clicking on anime picture --}}
-                <div class="container col s2 card-reveal">
+                <div class="container col s2 m6 l3 card-reveal extraInfo">
                     <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
                         <i class="material-icons right">close</i></span>
                     <p class="flow-text">{{anime.moreinfo}}</p>
                 </div>
             </div>
-        </div>
-        {{/each}}
-        {{/each}}
-        <h4>Favorited Playlists</h4>
-{{#each favorites as |favorite|}}
-<h4>{{favorite.playlist.title}}</h4>
-    {{!-- animes within favorited playlists --}}
-    {{#each favorite.playlist.animes as |anime|}}
-    <h6>{{anime.anime_title}}</h6>
-    {{/each}}
-{{/each}}
 
-<div class="row mb-4 project mt-5">
-    <div class="col-md-5">
-        <h2>Add A New Post</h2>
+        {{/each}}
+        {{/each}}
     </div>
-    <div class="col-md-7">
-        <form>
-            <label>Post Title</label>
-            <input type="text" id="post-title" class="w-100 custom-input-height" required>
-            <label>Post Content</label>
-            <input type="text" id="post-body" class="w-100 custom-input-height" required>
-            <button id="new-post-form" class="mt-2 mb-2">Submit</button>
-        </form>
+    <div class="container col s12 m8 l9">
+        <h4>Favorited Playlists</h4>
+        {{#each favorites as |favorite|}}
+        <span class="col s12">{{favorite.playlist.title}}</span>
+        {{!-- animes within favorited playlists --}}
+        {{#each favorite.playlist.animes as |anime|}}
+        <h6>{{anime.anime_title}}</h6>
+        {{/each}}
+        {{/each}}
+    </div>
+    <div class="container col s12 m8 l9">
+        <div class="row mb-4 project mt-5">
+            <div class="col-md-5">
+            <h2>Add A New Post</h2>
+        </div>
+        <div class="col-md-7">
+            <form>
+                <label>Post Title</label>
+                <input type="text" id="post-title" class="w-100 custom-input-height" required>
+                <label>Post Content</label>
+                <input type="text" id="post-body" class="w-100 custom-input-height" required>
+                <button id="new-post-form" class="mt-2 mb-2">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
-
-<script src="/js/new.js"></script> --}}
