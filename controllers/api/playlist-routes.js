@@ -58,7 +58,7 @@ router.put('/edit/:id', withAuth, (req, res) => {
 })
 
 //delete playlist
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
       const data = await Playlist.destroy({
         where: {

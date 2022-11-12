@@ -6,6 +6,7 @@
 {{!-- playlists owned by users --}}
 <h1>playlists</h1>
 {{#each playlists as |playlist|}}
+<div class="container">
 <h4>{{playlist.title}}</h4>
 
     {{!-- animes within owned playlists --}}
@@ -13,6 +14,10 @@
     <h6>{{anime.anime_title}}</h6>
 
     {{/each}}
+    <button>
+     <a class="btn-floating btn-large red" id="delete-btn" data-id="{{playlist.id}}"><i class="material-icons">remove</i></a>
+    </button>
+</div>
 {{/each}}
 
 {{!-- favorites --}}
@@ -26,3 +31,5 @@
 
     {{/each}}
 {{/each}}
+
+<script src="/js/deleteplaylist.js"></script>
