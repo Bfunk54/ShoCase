@@ -31,7 +31,7 @@ router.get('/playlists/search/:search', async (req, res) => {
     try {
     const playlistData = await Playlist.findAll({ where: { title: { [Op.like]: '%' + req.params.search + '%' } } })
     const playlists = playlistData.map((playlist) => playlist.get({ plain: true }))
-     res.render('playlist-search', { playlists })
+     res.render('playlist-search', { playlists, loggedIn: req.session.loggedIn })
     }catch(err) {
         res.status(500).json(err);
     }
