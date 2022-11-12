@@ -22,7 +22,7 @@ Anime.init(
         watch_link: {
             type: DataTypes.STRING,
         },
-        moreinfo: {
+        more_info: {
             type: DataTypes.STRING,
         },
         api_id: {
