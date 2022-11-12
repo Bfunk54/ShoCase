@@ -1,28 +1,57 @@
-{{!-- accessing user info --}}
-<h1>user info</h1>
-<h4>{{username}}</h4>
-<h4>{{email}}</h4>
+<div class="row">
 
-{{!-- playlists owned by users --}}
-<h1>playlists</h1>
-{{#each playlists as |playlist|}}
-<h4>{{playlist.title}}</h4>
 
-    {{!-- animes within owned playlists --}}
-    {{#each playlist.animes as |anime|}}
-    <h6>{{anime.anime_title}}</h6>
+    
+    {{!-- Left side of page --}}
+    <div class="container col s12 m4 l3" id="profile-info">
+            <div class="container" id="profile-info"> 
+                {{!-- Profile image --}}
+                <img src="{{avatar}}" alt="Profile image" class="circle responsive-img">
+                <p>{{username}}</p>
+                <p>{{email}}</p>                    
+            </div>
+    </div>
 
-    {{/each}}
-{{/each}}
 
-{{!-- favorites --}}
-<h1>favorited playlists</h1>
+
+
+
+    {{!-- Right side of page with playlists --}}
+    <div class="container col s12 m8 l9">
+        <h4>User Playlists</h4>
+        {{!-- Title 12s --}}
+        {{#each playlists as |playlist|}}
+        {{#each playlist.animes as |anime|}}
+        <span class="row">{{playlist.title}}</span>
+            <div class=" col s2 m6 l3 card" id="single-anime">
+                <div class="card-image waves-effect waves-block waves-light">
+                    {{!-- Anime image --}}
+                    <img class="activator" src={{anime.anime_image}}>
+                </div>
+                <div class="col s2 m6 l3 card-content">
+                    {{!-- anime title --}}
+                    <span class="card-title activator grey-text text-darken-4">{{anime.anime_title}}
+                        <i class="material-icons right">more_vert</i></span>
+                    {{!-- Anime link --}}
+                    <p><a href="{{anime.watch_link}}">Watch this anime here!</a></p>
+                </div>
+                {{!-- Info after clicking on anime picture --}}
+                <div class="container col s2 card-reveal">
+                    <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
+                        <i class="material-icons right">close</i></span>
+                    <p class="flow-text">{{anime.moreinfo}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{/each}}
+        <h4>Favorited Playlists</h4>
 {{#each favorites as |favorite|}}
 <h4>{{favorite.playlist.title}}</h4>
-
     {{!-- animes within favorited playlists --}}
     {{#each favorite.playlist.animes as |anime|}}
     <h6>{{anime.anime_title}}</h6>
-
     {{/each}}
 {{/each}}
+    </div>
+</div>
