@@ -47,8 +47,6 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-//search playlists
-
 //edit playlist
 router.put('/edit/:id', withAuth, (req, res) => {
     Playlist.update(req.body, {

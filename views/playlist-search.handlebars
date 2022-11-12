@@ -1,0 +1,21 @@
+<h2>RESULTS</h2>
+{{#each playlists as |playlist| }}
+<div class="row">
+  <div class="col-md-5">
+    <h2>
+      <a href="/playlist/{{playlist.id}}">{{playlist.title}}</a>
+    </h2>
+    <p>Created by {{playlist.user.username}} on {{format_date playlist.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{#each playlist.animes as |anime|}}
+      {{anime.anime_title}}
+
+      {{/each}}
+    </p>
+  </div>
+</div>
+{{/each}}
+
+<script src="/js/searchplaylists.js"></script>

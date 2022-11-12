@@ -1,21 +1,14 @@
+window.onload = function(){
+const searchInput = document.getElementById('search-submit');
+searchInput.addEventListener('submit', playlistSearchHandler);
+}
 
 
 const playlistSearchHandler = async (event) => {
     event.preventDefault();
-    const searchText = document.querySelector('#playlist-search').value.trim();
-
-    const response = await fetch('/api/playlists', {
-        method: 'GET',
-        body: JSON.stringify( { searchText } ),
-        headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-        console.log(response);
-    } else {
-        console.log(response.statusText)
-    }
+    const searchText = document.querySelector('#search_inline').value.trim();
+    console.log(searchText)
+    location.replace(`/playlists/search/${searchText}`)
 }
 
 
-document.querySelector('#playlist-search').addEventListener('submit', playlistSearchHandler);
