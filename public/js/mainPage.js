@@ -1,5 +1,5 @@
 const jikanUrl = 'https://api.jikan.moe/v4/anime?q=';
-const jikanOptions = {limit: '&10', min_score: '&min_score'};
+const jikanOptions = {limit: '&limit_10', min_score: '&min_score'};
 
 // Access the sidenav and add the javascript for it
 document.addEventListener('DOMContentLoaded', function() {
