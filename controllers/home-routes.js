@@ -1,21 +1,21 @@
 const router = require('express').Router();
-const { Playlist, Comment, User } = require('../models');
+const { Playlist, Comment, User, Anime } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
     try {
         // Get all posts and JOIN with user data
-        // const playlistData = await Playlist.findAll({
-        //     include: [ { model: User } ],
-        // });
+        const playlistData = await Playlist.findAll({
+            include: [ { model: User }, {model: Anime} ],
+        });
 
-        // // Serialize data so the template can read it
-        // const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+        // Serialize data so the template can read it
+        const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
 
         // Pass serialized data and session flag into template
         res.render('all-playlists', {
-            // playlists,
+            playlists,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
@@ -28,21 +28,14 @@ router.get('/playlist/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             where: {
-                post_id: req.params.id 
+                playlist_id: req.params.id 
             },
-            include: [ { model: User }, { model: Playlist }]
+            include: [ { model: User }, { model: Playlist, include: [ { model: User }, { model: Anime } ] } ],
         });
-
-        const playlistData = await Playlist.findByPk(req.params.id, {
-            include: [ { model: User } ],
-        });
-        
-        const playlist = playlistData.get({ plain: true });
 
         const comments = commentData.map((comment) => comment.get({ plain: true }));
 
-        res.render('single-post', {
-            ...playlist,
+        res.render('single-playlist', {
             comments,
             loggedIn: req.session.loggedIn
         });
