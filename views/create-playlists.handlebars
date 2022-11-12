@@ -8,15 +8,16 @@
     </div>
     <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">
-        <li class="tab"><a href="#test1">Test 1</a></li>
-        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+        <li class="tab"><a class="active" href="#test1">Test 1</a></li>
+        <li class="tab"><a href="#test2">Test 2</a></li>
         <li class="tab"><a href="#test3">Test 3</a></li>
-        <li class="tab"><a href="#test4">Test 3</a></li>
+        <li class="tab"><a href="#test4">Test 4</a></li>
       </ul>
     </div>
     <div class="card-content grey lighten-4">
       <div id="test1">  <div class="row center-align">
-    <div class="col s12 m6">
+    
+    <div class="hide col s12 m6">
       <div class="card">
         <div class="card-image">
 
@@ -24,7 +25,7 @@
             <input id="anime1_inline" type="text" class="validate" name="term">  
             <label for="anime1_inline">Search Animes</label>
           </div>
-          <a class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
+          <a id='anime1_btn' class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>
@@ -38,7 +39,7 @@
             <input id="anime2_inline" type="text" class="validate" name="term">  
             <label for="anime2_inline">Search Animes</label>
           </div>
-          <a class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
+          <a id='anime2_btn' class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>
@@ -52,7 +53,7 @@
             <input id="anime3_inline" type="text" class="validate" name="term">  
             <label for="anime3_inline">Search Animes</label>
           </div>
-          <a class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
+          <a id='anime3_btn' class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>
@@ -66,13 +67,15 @@
             <input id="anime4_inline" type="text" class="validate" name="term">  
             <label for="anime4_inline">Search Animes</label>
           </div>
-          <a class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
+          <a id='anime4_btn' class="btn-floating halfway-fab waves-effect waves-light red" type="submit"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>
   </div></div>
     </div>
   </div>
+
+  <script src="/js/createPlaylist.js"></script>
 
 
 

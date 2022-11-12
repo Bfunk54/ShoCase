@@ -1,3 +1,18 @@
+.addPlaylistCardImg {
+    height: 150px !important;
+    width: 120px !important;
+}
+
+.addPlaylistCard {
+    height: 150px !important;
+    width: 120px !important;
+}
+
+.addAnimeBtn {
+    margin-right: 70px !important;
+}
+
+
 .navBtn {
     font-size: 16px !important;
     padding-top: 3px;
