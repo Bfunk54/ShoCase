@@ -13,14 +13,19 @@ const anime2InputDiv = document.getElementById('anime2Input');
 
 async function startSearch(search) {
 
-    fetch('https://api.jikan.moe/v4/anime?q=' + search + '&sfw&limit=5&type=anime')
+    fetch('https://api.jikan.moe/v4/anime?q=' + search + '&sfw&limit=4&type=anime&min_score=4')
     .then(response => response.json())
     .then(function (res) {
         console.log(res);
         const animeArray = [];
         for (let i = 0; i < res.data.length; i++) {
+            if (res.data[i].title && res.data[i].images.jpg.image_url ) {
             dataObj = { title: res.data[i].title, image: res.data[i].images.jpg.image_url }; 
             animeArray.push(dataObj);
+            }
+            else{
+                animeArray.splice(i, 1);
+            }
         }
         console.log(animeArray);
         addDivs(animeArray);
