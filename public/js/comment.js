@@ -6,7 +6,7 @@ const commentFormHandler = async function (event) {
     const content = document.querySelector('#comment-body').value;
 
     if (content) {
-        await fetch('/api/comment', {
+        await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({
                 content,
