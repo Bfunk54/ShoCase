@@ -38,7 +38,7 @@ router.get('/playlists/search/:search', async (req, res) => {
 });
 
 // get single playlist by id
-router.get('/playlists/:id', withAuth, async (req, res) => {
+router.get('/playlist/:id', withAuth, async (req, res) => {
     try {
         const playlistData = await Playlist.findByPk(req.params.id, {
             include: [ { model: User }, {model: Anime}, {model:Comment, include: [{model:User}]} ]
