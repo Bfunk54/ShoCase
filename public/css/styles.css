@@ -54,9 +54,14 @@
 .modal_trigger {
     display: inline-block !important;
     /* width: fit-content; */
-    height: initial !important;
+    height: fit-content !important;
     line-height: normal !important;
     width: 10%;
+
+}
+.waves-effect {
+    height: 42px !important;
+    margin-bottom: 20px !important;
 }
 
 .menuBar {
@@ -82,30 +87,35 @@
     display: inline-block;
     font-size: 40px;
     margin-top: 3px !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 6px !important;
+    height: fit-content !important;
 }
 
-.wholeSearch {
+/* .wholeSearch {
     display: inline-block;
     /* margin-top: 10px; */
-    width: fit-content;
-   
-}
 
 .magnifyingGlass { 
     display: inline-block;
     height: auto;
     width: 3%;
     padding-left: 20px;
+    padding-right: 23px;
     font-size: 20px;
     margin-top: 30px !important;
 }
 
-.input-field {
-    margin-left: 10px !important;
+/* .input-field {
+    margin-left: 25px !important;
     margin-top: 5px !important;
     margin-bottom: 20px !important;
+    height: 20px !important;
+} */
+
+.helper-text {
+    height: 5px !important;
 }
+
 
 .theNav {
    opacity: 80%;
