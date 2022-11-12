@@ -39,10 +39,13 @@
         <a class="waves-effect waves-light modal-trigger" href="/create-playlists"><i class="addPlaylist grey-text text-darken-4 fa-solid fa-plus"></i></a>
 
         <i class="magnifyingGlass grey-text text-darken-4 fa-solid fa-magnifying-glass"></i>
+        <form type="submit" id="search-submit" class="input-field inline">
         <div class="input-field inline">
             <input id="search_inline" type="text" class="validate" name="term">  
             <label for="search_inline">Search Animes/Playlists</label>
           </div>
+          </form>
+          {{!-- <button type="submit" id="search-inline-btn">Search</button> --}}
       </nav>
   </header>
         <!-- Conditionally render login or logout links -->
@@ -50,7 +53,7 @@
         
 <body class="grey lighten-2">    
         
-    <main class="container container-fluid mt-5">
+    <main class="container">
           
       <!-- Render the sub layout -->
       {{{ body }}}

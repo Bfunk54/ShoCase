@@ -20,6 +20,10 @@
 }
 
 
+main {
+    display: box;
+}
+
 .navBtn {
     font-size: 16px !important;
     padding-top: 3px;
@@ -165,4 +169,30 @@
     background-color: #fee13de4 !important;
 }
 
+.container {
+    width: 95%;
 
+}
+
+main.container {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.row {
+    margin-top: 10px;
+    width: 90%;
+}
+
+#profile-info {
+    height: 100%
+}
+
+.s12 .m .l .xl {
+    width: 90%
+}
+
+.extraInfo {
+    padding: 0;
+}
