@@ -59,12 +59,12 @@ function addDivs(data) {
     // for loop to add the anime each to their own containers on the page
 for (let i = 0; i < data.length; i++) {
     // Template literal for anime divs
-    let divTemplate = `<div id="addAnimeCard${animeCnt}${[i]}" class="addAnimeCard${[i]} col s3">
+    let divTemplate = `<div id="addAnimeCard${[i]}${animeCnt}" class="addAnimeCard${[i]} col s3">
     <div class="addPlaylistCard card">
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].image}">
         
-        <a id='addAnimeBtn${animeCnt}${[i]}' data-action="addAnime${[i]}" class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
+        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i]}" class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
         <span class="card-title black-text">${data[i].title}</span>
   </div>
@@ -83,79 +83,63 @@ for (let i = 0; i < data.length; i++) {
 
     console.log(anime1);
     }
-    let add_AnimeBtn0 = [];
-    let add_AnimeBtn1 = [];
-    let add_AnimeBtn2 = [];
-    let add_AnimeBtn3 = [];
-    for (let i = 0; i < 4; i++) {
-        add_AnimeBtn0[i] = document.getElementById(`addAnimeBtn0${[i]}`);
-        this["add_AnimeBtn1"+i] = document.getElementById(`addAnimeBtn1${[i]}`);
-        this["add_AnimeBtn2"+i] = document.getElementById(`addAnimeBtn2${[i]}`);
-        this["add_AnimeBtn3"+i] = document.getElementById(`addAnimeBtn3${[i]}`);
-        this["animeDiv0"+i] = document.getElementById(`addAnimeCard0${[i]}`);
-        this["animeDiv1"+i] = document.getElementById(`addAnimeCard1${[i]}`);
-        this["animeDiv2"+i] = document.getElementById(`addAnimeCard2${[i]}`);
-        this["animeDiv3"+i] = document.getElementById(`addAnimeCard3${[i]}`);
-    }
-    
-    let animeBtn = {
-        0: 'add_AnimeBtn0' + animeCnt,
-        1: 'add_AnimeBtn1' + animeCnt,
-        2: 'add_AnimeBtn2' + animeCnt,
-        3: 'add_AnimeBtn3' + animeCnt
-    }
-    let aD0 = '0';
-    let aD1 = '1';
-    let aD2 = '2';
-    let aD3 = '3';
 
-    console.log(animeBtn[aD0]);
-    let animeButton0 = animeBtn[aD0];
-    console.log(animeButton0);
-    animeButton0.addEventListener("click", e => {
+    
+       let add_AnimeBtn0 = document.getElementById(`addAnimeBtn0${[animeCnt]}`);
+        let add_AnimeBtn1 = document.getElementById(`addAnimeBtn1${[animeCnt]}`);
+        let add_AnimeBtn2 = document.getElementById(`addAnimeBtn2${[animeCnt]}`);
+        let add_AnimeBtn3 = document.getElementById(`addAnimeBtn3${[animeCnt]}`);
+        let animeDiv0 = document.getElementById(`addAnimeCard0${[animeCnt]}`);
+        let animeDiv1 = document.getElementById(`addAnimeCard1${[animeCnt]}`);
+        let animeDiv2 = document.getElementById(`addAnimeCard2${[animeCnt]}`);
+        let animeDiv3 = document.getElementById(`addAnimeCard3${[animeCnt]}`);
+    
+
+    for (let i = 0; i < 4; i++) {
+        console.log(add_AnimeBtn1[i]);
+    add_AnimeBtn0.addEventListener("click", e => {
         e.stopPropagation();
         console.log("0 clicked");
-        ("add_AnimeBtn0"+ animeCnt).classList.add('hide');
-        ("animeDiv1"+ animeCnt).classList.add('hide');
-        ("animeDiv2"+ animeCnt).classList.add('hide');
-        ("animeDiv3"+ animeCnt).classList.add('hide');
+        add_AnimeBtn0.classList.add('hide');
+        animeDiv1.classList.add('hide');
+        animeDiv2.classList.add('hide');
+        animeDiv3.classList.add('hide');
         // playlistAnime= anime1Input.value.trim(); 
       });
-      let addBtn1 = ("add_AnimeBtn0"+ animeCnt);
-      console.log("add_AnimeBtn0"+ animeCnt);
-      (addBtn1.valueOf).addEventListener("click", e => {
+     
+      add_AnimeBtn1.addEventListener("click", e => {
         e.stopPropagation();
           console.log("1 clicked");
-          ("add_AnimeBtn1"+ animeCnt).classList.add('hide');
-          ("animeDiv0"+ animeCnt).classList.add('hide');
-          ("animeDiv2"+ animeCnt).classList.add('hide');
-          ("animeDiv3"+ animeCnt).classList.add('hide');
+          add_AnimeBtn1.classList.add('hide');
+          animeDiv0.classList.add('hide');
+          animeDiv2.classList.add('hide');
+          animeDiv3.classList.add('hide');
         //   playlistAnime= anime1Input.value.trim();
           
         });
         
-        ("add_AnimeBtn2"+ animeCnt).addEventListener("click", e => {
+        add_AnimeBtn2.addEventListener("click", e => {
         e.stopPropagation();
           console.log("2 clicked");
-          ("add_AnimeBtn2"+ animeCnt).classList.add('hide');
-          ("animeDiv0"+ animeCnt).classList.add('hide');
-          ("animeDiv1"+ animeCnt).classList.add('hide');
-          ("animeDiv3"+ animeCnt).classList.add('hide');
+          add_AnimeBtn2.classList.add('hide');
+          animeDiv0.classList.add('hide');
+          animeDiv1.classList.add('hide');
+          animeDiv3.classList.add('hide');
         //   playlistAnime= anime1Input.value.trim();
           
         });
 
-        ("add_AnimeBtn3"+ animeCnt).addEventListener("click", e => {
+        add_AnimeBtn3.addEventListener("click", e => {
           e.stopPropagation();
           console.log("3 clicked");
-          ("add_AnimeBtn3"+ animeCnt).classList.add('hide');
-          ("animeDiv0"+ animeCnt).classList.add('hide');
-          ("animeDiv1"+ animeCnt).classList.add('hide');
-          ("animeDiv2"+ animeCnt).classList.add('hide');
+          add_AnimeBtn3.classList.add('hide');
+          animeDiv0.classList.add('hide');
+          animeDiv1.classList.add('hide');
+          animeDiv2.classList.add('hide');
         //   playlistAnime= anime1Input.value.trim();
         });
 
-    
+    }
 
     
 
