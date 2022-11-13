@@ -19,32 +19,35 @@
     {{!-- Right side of page with playlists --}}
     <div class="container col s12 m8 l9">
         <h4>User Playlists</h4>
-        {{#each playlists as |playlist|}}
-        {{#each playlist.animes as |anime|}}
-        <span class="col s12">{{playlist.title}}</span>
 
-            <div class=" col s1 m5 l2 card" id="single-anime">
-                <div class="card-image waves-effect waves-block waves-light">
-                    {{!-- Anime image --}}
-                    <img class="activator" src={{anime.anime_image}}>
+        <div>
+            {{#each playlists as |playlist|}}  
+            <div>
+                <span class="col s12 flow-text">{{playlist.title}}</span>
+                {{#each playlist.animes as |anime|}}
+                <div class=" col s12 m6 l2 card" id="single-anime">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        {{!-- Anime image --}}
+                        <img class="activator" id="image_height" src={{anime.anime_image}}>
+                    </div>
+                    <div class="col s12 m6 l2 card-content">
+                        {{!-- anime title --}}
+                        <h6 class="card-title activator grey-text text-darken-4 flow-text title-nowrap">{{anime.anime_title}}
+                        <i class="material-icons right">more_vert</i></h6>
+                        {{!-- Anime link --}}
+                        <p><a href="{{anime.watch_link}}">Watch!</a></p>
+                    </div>
+                    {{!-- Info after clicking on anime picture --}}
+                    <div class="container col s12 m6 l3 card-reveal extraInfo">
+                        <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
+                            <i class="material-icons right">close</i></span>
+                        <p class="flow-text">{{anime.more_info}}</p>
+                    </div>
                 </div>
-                <div class="col s2 m6 l3 card-content">
-                    {{!-- anime title --}}
-                    <span class="card-title activator grey-text text-darken-4">{{anime.anime_title}}
-                        <i class="material-icons right">more_vert</i></span>
-                    {{!-- Anime link --}}
-                    <p><a href="{{anime.watch_link}}">Watch!</a></p>
-                </div>
-                {{!-- Info after clicking on anime picture --}}
-                <div class="container col s2 m6 l3 card-reveal extraInfo">
-                    <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
-                        <i class="material-icons right">close</i></span>
-                    <p class="flow-text">{{anime.moreinfo}}</p>
-                </div>
+                {{/each}}
             </div>
-
-        {{/each}}
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
     <div class="container col s12 m8 l9">
         <h4>Favorited Playlists</h4>
