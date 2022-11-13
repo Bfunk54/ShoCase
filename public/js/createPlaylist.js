@@ -17,6 +17,8 @@ const anime1InputDiv = document.getElementById('anime1Input');
 const anime2InputDiv = document.getElementById('anime2Input');
 const anime3InputDiv = document.getElementById('anime3Input');
 const anime4InputDiv = document.getElementById('anime4Input');
+const addAnimeBtn0 = document.querySelectorAll('.addAnimeBtn0');
+const addAnimeBtn1 = document.querySelectorAll('.addAnimeBtn0');
 
 // Starts the search for anime
 async function startSearch(search) {
@@ -62,7 +64,7 @@ for (let i = 0; i < data.length; i++) {
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].image}">
         
-        <a class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
+        <a class="addAnimeBtn${[i]} btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
         <span class="card-title black-text">${data[i].title}</span>
   </div>
@@ -154,3 +156,10 @@ anime4Btn.addEventListener("click", e => {
       startSearch(animeSearch);
   }
 });
+
+addAnimeBtn.addEventListener("click", e => {
+    e.preventDefault();
+    console.log("clicked");
+    add
+    
+  });
