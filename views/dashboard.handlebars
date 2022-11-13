@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" id="full-height">
 
 
 
     {{!-- Left side of page --}}
-    <div class="container col s12 m4 l3" id="profile-info">
-        <div class="container" id="profile-info">
+    <div class="container col s12 m4 l3" id="left-container">
+        <div class="container" id="profile-container">
             {{!-- Profile image --}}
             <img src="{{avatar}}" alt="Profile image" class="circle responsive-img">
             <p>{{username}}</p>
@@ -17,29 +17,38 @@
 
 
     {{!-- Right side of page with playlists --}}
-    <div class="container col s12 m8 l9">
+    <div class="container col s12 m8 l9" id="right-container">
         <h4>User Playlists</h4>
 
-        <div>
+        <div class="container s12" id="playlist">
             {{#each playlists as |playlist|}}  
-            <div>
-                <span class="row playlist-title" id="{{playlist.id}}">{{playlist.title}}</span>
+
+                <span class="col s12 flow-text playlist-title" id="{{playlist.id}}">{{playlist.title}}</span>
+
                 {{#each playlist.animes as |anime|}}
-                <div class=" col s12 m6 l2 card" id="single-anime">
+                <div class=" col s12 m6 l1 card" id="anime">
                     <div class="card-image waves-effect waves-block waves-light">
                         {{!-- Anime image --}}
                         <img class="activator" id="image_height" src={{anime.anime_image}}>
+                                           
+                    </div>    {{!-- Button --}}
+                    <div class="toolbar delete-toolbar">
+                        <a class="btn large red"><i class="material-icons">remove</i></a>
+                        <ul> 
+                            <li><a class="delete-btn btn red" data-id="{{playlist.id}}">Click to confirm</a></li>
+                        </ul>
                     </div>
-                    <div class="col s12 m6 l2 card-content">
+                    <div class="card-content card-padding">
                         {{!-- anime title --}}
                         <h6 class="card-title activator grey-text text-darken-4 flow-text title-nowrap">{{anime.anime_title}}
                         <i class="material-icons right">more_vert</i></h6>
                         {{!-- Anime link --}}
                         <p><a href="{{anime.watch_link}}">Watch!</a></p>
                     </div>
-                    {{!-- Info after clicking on anime picture --}}
-                    <div class="container col s12 m6 l3 card-reveal extraInfo">
-                        <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
+               
+                    {{!-- Info reveal after clicking on anime picture --}}
+                    <div class="card-reveal extraInfo">
+                        <span class="card-title grey-text text-darken-4">{{anime.anime_title}}
                             <i class="material-icons right">close</i></span>
                         <p class="flow-text">{{anime.more_info}}</p>
                     </div>
@@ -47,16 +56,9 @@
                 {{/each}}
             </div>
         </div>
-        <button><a class="edit-btn btn-floating" data-id="{{playlist.id}}"><i class="small material-icons">edit</i></a></button>
-        <a class="save-btn btn-floating hide" data-id="{{playlist.id}}"><i class="small material-icons">save</i></a>
-        <button>
-            <a class="btn-floating btn-large red delete-btn" data-id="{{playlist.id}}"><i
-                    class="material-icons">remove</i></a>
-        </button>
             {{/each}}
         </div>
     </div>
-    <div class="container col s12 m8 l9">
         <h4>Favorited Playlists</h4>
         {{#each favorites as |favorite|}}
         <span class="col s12">{{favorite.playlist.title}}</span>
@@ -65,7 +67,6 @@
         <h6>{{anime.anime_title}}</h6>
         {{/each}}
         {{/each}}
-    </div>
     <div class="container col s12 m8 l9">
         <div class="row mb-4 project mt-5">
             <div class="col-md-5">
