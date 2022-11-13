@@ -17,8 +17,14 @@ const anime1InputDiv = document.getElementById('anime1Input');
 const anime2InputDiv = document.getElementById('anime2Input');
 const anime3InputDiv = document.getElementById('anime3Input');
 const anime4InputDiv = document.getElementById('anime4Input');
-const addAnimeBtn0 = document.querySelectorAll('.addAnimeBtn0');
-const addAnimeBtn1 = document.querySelectorAll('.addAnimeBtn0');
+const add_AnimeBtn0 = document.getElementById('addAnimeBtn0');
+const addAnimeBtn1 = document.getElementById('addAnimeBtn1');
+const addAnimeBtn2 = document.getElementById('addAnimeBtn2');
+const addAnimeBtn3 = document.getElementById('addAnimeBtn3');
+const animeDiv0 = document.querySelector('addAnimeCard0');
+const animeDiv1 = document.querySelector('addAnimeCard1');
+const animeDiv2 = document.querySelector('addAnimeCard2');
+const animeDiv3 = document.querySelector('addAnimeCard3');
 
 // Starts the search for anime
 async function startSearch(search) {
@@ -59,19 +65,19 @@ function addDivs(data) {
     // for loop to add the anime each to their own containers on the page
 for (let i = 0; i < data.length; i++) {
     // Template literal for anime divs
-    divTemplate = `<div class="addAnimeCard col s3">
+    divTemplate = `<div class="addAnimeCard${[i]} col s3">
     <div class="addPlaylistCard card">
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].image}">
         
-        <a class="addAnimeBtn${[i]} btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
+        <a id='addAnimeBtn${[i]}' class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
         <span class="card-title black-text">${data[i].title}</span>
   </div>
 </div>  `;
     // Append the divs to the page
     switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
-        case anime1BtnClick: anime1.innerHTML += divTemplate; 
+        case anime1BtnClick: anime1.innerHTML += divTemplate; document.getElementsByTagName("BODY")[i].appendChild(anime1);
             break;
         case anime2BtnClick: anime2.innerHTML += divTemplate;
             break;
@@ -84,7 +90,7 @@ for (let i = 0; i < data.length; i++) {
     console.log(anime1);
     }
     switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
-        case anime1BtnClick: anime1BtnClick = false; 
+        case anime1BtnClick: anime1BtnClick = false;
             break;
         case anime2BtnClick: anime2BtnClick = false;
             break;
@@ -157,9 +163,14 @@ anime4Btn.addEventListener("click", e => {
   }
 });
 
-addAnimeBtn.addEventListener("click", e => {
+if (add_AnimeBtn0) {console.log(true)} else {console.log(false)};
+add_AnimeBtn0.addEventListener("click", e => {
     e.preventDefault();
     console.log("clicked");
-    add
+    add_AnimeBtn0.classList.add('hide');
+    animeDiv1.classList.add('hide');
+    animeDiv2.classList.add('hide');
+    animeDiv3.classList.add('hide');
+    playlistAnime= anime1Input.value.trim();
     
   });
