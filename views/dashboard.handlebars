@@ -28,21 +28,23 @@
                     <div class="card-image waves-effect waves-block waves-light">
                         {{!-- Anime image --}}
                         <img class="activator" id="image_height" src={{anime.anime_image}}>
-                        <div class="fixed-action-btn toolbar" id="delete-toolbar">
-                    <a class="btn large red"><i class="material-icons">remove</i></a>
-                    <ul> 
-                    <li><a class="delete-btn btn red" data-id="{{playlist.id}}">Click to confirm playlist deletion</a></li>
-                    </ul>
-        </div>
+                                           
+                    </div>    {{!-- Button --}}
+                    <div class="toolbar delete-toolbar">
+                        <a class="btn large red"><i class="material-icons">remove</i></a>
+                        <ul> 
+                            <li><a class="delete-btn btn red" data-id="{{playlist.id}}">Click to confirm</a></li>
+                        </ul>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content card-padding">
                         {{!-- anime title --}}
                         <h6 class="card-title activator grey-text text-darken-4 flow-text title-nowrap">{{anime.anime_title}}
                         <i class="material-icons right">more_vert</i></h6>
                         {{!-- Anime link --}}
                         <p><a href="{{anime.watch_link}}">Watch!</a></p>
                     </div>
-                    {{!-- Info after clicking on anime picture --}}
+               
+                    {{!-- Info reveal after clicking on anime picture --}}
                     <div class="card-reveal extraInfo">
                         <span class="card-title grey-text text-darken-4">{{anime.anime_title}}
                             <i class="material-icons right">close</i></span>
@@ -51,14 +53,8 @@
                 </div>
                 {{/each}}
             </div>
-            {{!-- Delete button --}}
-
         </div>
-
             {{/each}}
- 
- 
- 
         </div>
     </div>
         <h4>Favorited Playlists</h4>

@@ -114,6 +114,10 @@ main {
     margin-bottom: 20px !important;
 }
 
+.waves-effect #image-height {
+    height: 100px !important;
+}
+
 .menuBar {
     display: inline-block;
     font-size: 40px;
@@ -218,6 +222,9 @@ main.container {
     white-space: nowrap;
 }
 
+.card-padding {
+    padding: 5px !important;
+}
 /* ****************************** */
 /*          ID selectors          */
 /* ****************************** */
@@ -229,9 +236,15 @@ main.container {
     min-height: 100vh !important;
 }
 
+#delete-toolbar {
+    position: relative;
+    align-content: end;
+    z-index: 5;
+}
 
 #anime {
     min-width: 180px;
+    min-height: 100px;
     z-index: "-1" !important;
 }
 
