@@ -22,7 +22,9 @@
 
         <div class="container s12" id="playlist">
             {{#each playlists as |playlist|}}  
-                <span class="col s12 flow-text">{{playlist.title}}</span>
+
+                <span class="col s12 flow-text playlist-title" id="{{playlist.id}}">{{playlist.title}}</span>
+
                 {{#each playlist.animes as |anime|}}
                 <div class=" col s12 m6 l1 card" id="anime">
                     <div class="card-image waves-effect waves-block waves-light">
