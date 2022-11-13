@@ -83,8 +83,10 @@ router.post('/', async (req, res) => {
         api_id: anime.api_id
       };
     });
-    console.log(animesArr)
-    const animeData = await Anime.bulkCreate(animesArr);
+
+    const animeData = await Anime.bulkCreate(animesArr, {
+      updateOnDuplicate: ["api_id"]
+    });
 
     res.status(200).json(animeData);
   } catch (err) {

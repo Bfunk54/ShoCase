@@ -26,7 +26,8 @@ Anime.init(
             type: DataTypes.STRING,
         },
         api_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            unique: true
         }
     },
     {
