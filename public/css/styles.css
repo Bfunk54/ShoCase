@@ -205,3 +205,11 @@ main.container {
 #single-anime {
     min-width: 200px;
 }
+
+#playlist-title {
+    font-size: 40px;
+}
+
+.hide {
+    display: none;
+}
