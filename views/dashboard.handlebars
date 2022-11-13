@@ -20,17 +20,16 @@
     <div class="container col s12 m8 l9">
         <h4>User Playlists</h4>
 
-        <div>
+        <div class="container">
             {{#each playlists as |playlist|}}  
-            <div>
                 <span class="col s12 flow-text">{{playlist.title}}</span>
                 {{#each playlist.animes as |anime|}}
-                <div class=" col s12 m6 l2 card" id="single-anime">
+                <div class=" col s6 m6 l1 card" id="single-anime">
                     <div class="card-image waves-effect waves-block waves-light">
                         {{!-- Anime image --}}
                         <img class="activator" id="image_height" src={{anime.anime_image}}>
                     </div>
-                    <div class="col s12 m6 l2 card-content">
+                    <div class="card-content">
                         {{!-- anime title --}}
                         <h6 class="card-title activator grey-text text-darken-4 flow-text title-nowrap">{{anime.anime_title}}
                         <i class="material-icons right">more_vert</i></h6>
@@ -38,8 +37,8 @@
                         <p><a href="{{anime.watch_link}}">Watch!</a></p>
                     </div>
                     {{!-- Info after clicking on anime picture --}}
-                    <div class="container col s12 m6 l3 card-reveal extraInfo">
-                        <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
+                    <div class="card-reveal extraInfo">
+                        <span class="card-title grey-text text-darken-4">{{anime.anime_title}}
                             <i class="material-icons right">close</i></span>
                         <p class="flow-text">{{anime.more_info}}</p>
                     </div>
