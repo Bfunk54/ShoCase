@@ -23,7 +23,7 @@
         <div>
             {{#each playlists as |playlist|}}  
             <div>
-                <span class="col s12 flow-text">{{playlist.title}}</span>
+                <span class="row" id="playlist-title">{{playlist.title}}</span>
                 {{#each playlist.animes as |anime|}}
                 <div class=" col s12 m6 l2 card" id="single-anime">
                     <div class="card-image waves-effect waves-block waves-light">
@@ -47,6 +47,8 @@
                 {{/each}}
             </div>
         </div>
+        <button><a class="edit-btn btn-floating" data-id="{{playlist.id}}"><i class="small material-icons">edit</i></a></button>
+        <a class="save-btn btn-floating hide" data-id="{{playlist.id}}"><i class="small material-icons">save</i></a>
         <button>
             <a class="btn-floating btn-large red delete-btn" data-id="{{playlist.id}}"><i
                     class="material-icons">remove</i></a>
@@ -82,3 +84,4 @@
     </div>
 
     <script src="/js/deleteplaylist.js"></script>
+    <script src="/js/edit-playlist.js"></script>
