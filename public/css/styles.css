@@ -185,14 +185,23 @@ main.container {
     width: 90%;
 }
 
-#profile-info {
+/* #profile-info {
     height: 100%
-}
+} */
 
-.s12 .m .l .xl {
-    width: 90%
-}
+/* #single-anime {
+    min-width: 200px;
+} */
+
 
 .extraInfo {
     padding: 0;
+}
+
+.title-nowrap {
+    white-space: nowrap;
+}
+
+#single-anime {
+    min-width: 200px;
 }

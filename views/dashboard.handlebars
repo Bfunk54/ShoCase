@@ -1,15 +1,15 @@
 <div class="row">
 
 
-    
+
     {{!-- Left side of page --}}
     <div class="container col s12 m4 l3" id="profile-info">
-            <div class="container" id="profile-info"> 
-                {{!-- Profile image --}}
-                <img src="{{avatar}}" alt="Profile image" class="circle responsive-img">
-                <p>{{username}}</p>
-                <p>{{email}}</p>                    
-            </div>
+        <div class="container" id="profile-info">
+            {{!-- Profile image --}}
+            <img src="{{avatar}}" alt="Profile image" class="circle responsive-img">
+            <p>{{username}}</p>
+            <p>{{email}}</p>
+        </div>
     </div>
 
 
@@ -19,32 +19,40 @@
     {{!-- Right side of page with playlists --}}
     <div class="container col s12 m8 l9">
         <h4>User Playlists</h4>
-        {{#each playlists as |playlist|}}
-        {{#each playlist.animes as |anime|}}
-        <span class="col s12">{{playlist.title}}</span>
 
-            <div class=" col s1 m5 l2 card" id="single-anime">
-                <div class="card-image waves-effect waves-block waves-light">
-                    {{!-- Anime image --}}
-                    <img class="activator" src={{anime.anime_image}}>
+        <div>
+            {{#each playlists as |playlist|}}  
+            <div>
+                <span class="col s12 flow-text">{{playlist.title}}</span>
+                {{#each playlist.animes as |anime|}}
+                <div class=" col s12 m6 l2 card" id="single-anime">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        {{!-- Anime image --}}
+                        <img class="activator" id="image_height" src={{anime.anime_image}}>
+                    </div>
+                    <div class="col s12 m6 l2 card-content">
+                        {{!-- anime title --}}
+                        <h6 class="card-title activator grey-text text-darken-4 flow-text title-nowrap">{{anime.anime_title}}
+                        <i class="material-icons right">more_vert</i></h6>
+                        {{!-- Anime link --}}
+                        <p><a href="{{anime.watch_link}}">Watch!</a></p>
+                    </div>
+                    {{!-- Info after clicking on anime picture --}}
+                    <div class="container col s12 m6 l3 card-reveal extraInfo">
+                        <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
+                            <i class="material-icons right">close</i></span>
+                        <p class="flow-text">{{anime.more_info}}</p>
+                    </div>
                 </div>
-                <div class="col s2 m6 l3 card-content">
-                    {{!-- anime title --}}
-                    <span class="card-title activator grey-text text-darken-4">{{anime.anime_title}}
-                        <i class="material-icons right">more_vert</i></span>
-                    {{!-- Anime link --}}
-                    <p><a href="{{anime.watch_link}}">Watch!</a></p>
-                </div>
-                {{!-- Info after clicking on anime picture --}}
-                <div class="container col s2 m6 l3 card-reveal extraInfo">
-                    <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
-                        <i class="material-icons right">close</i></span>
-                    <p class="flow-text">{{anime.moreinfo}}</p>
-                </div>
+                {{/each}}
             </div>
-
-        {{/each}}
-        {{/each}}
+        </div>
+        <button>
+            <a class="btn-floating btn-large red delete-btn" data-id="{{playlist.id}}"><i
+                    class="material-icons">remove</i></a>
+        </button>
+            {{/each}}
+        </div>
     </div>
     <div class="container col s12 m8 l9">
         <h4>Favorited Playlists</h4>
@@ -59,16 +67,18 @@
     <div class="container col s12 m8 l9">
         <div class="row mb-4 project mt-5">
             <div class="col-md-5">
-            <h2>Add A New Post</h2>
-        </div>
-        <div class="col-md-7">
-            <form>
-                <label>Post Title</label>
-                <input type="text" id="post-title" class="w-100 custom-input-height" required>
-                <label>Post Content</label>
-                <input type="text" id="post-body" class="w-100 custom-input-height" required>
-                <button id="new-post-form" class="mt-2 mb-2">Submit</button>
-            </form>
+                <h2>Add A New Post</h2>
+            </div>
+            <div class="col-md-7">
+                <form>
+                    <label>Post Title</label>
+                    <input type="text" id="post-title" class="w-100 custom-input-height" required>
+                    <label>Post Content</label>
+                    <input type="text" id="post-body" class="w-100 custom-input-height" required>
+                    <button id="new-post-form" class="mt-2 mb-2">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+
+    <script src="/js/deleteplaylist.js"></script>
