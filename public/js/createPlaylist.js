@@ -17,18 +17,19 @@ const anime1InputDiv = document.getElementById('anime1Input');
 const anime2InputDiv = document.getElementById('anime2Input');
 const anime3InputDiv = document.getElementById('anime3Input');
 const anime4InputDiv = document.getElementById('anime4Input');
+const createPlaylist = document.getElementById('createPlaylist');
 
 
 
 
 // Starts the search for anime
 async function startSearch(search) {
-
+    const animeArray = [];
     fetch('https://api.jikan.moe/v4/anime?q=' + search + '&sfw&limit=' + jikanLimit +'&type=anime&order_by=members&sort=desc')
     .then(response => response.json())
     .then(function (res) {
         console.log(res.data);
-        const animeArray = [];
+        
 
         // Filter the anime to only show the ones that have an image
         res.data = res.data.filter( function checkData(search, index) {
@@ -64,7 +65,7 @@ for (let i = 0; i < data.length; i++) {
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].image}">
         
-        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i]}" class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
+        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i]}" class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
         <span class="card-title black-text">${data[i].title}</span>
   </div>
@@ -94,73 +95,105 @@ for (let i = 0; i < data.length; i++) {
         let animeDiv2 = document.getElementById(`addAnimeCard2${[animeCnt]}`);
         let animeDiv3 = document.getElementById(`addAnimeCard3${[animeCnt]}`);
     
-
+        let cnt0 = 0;
+        let cnt1 = 0;
+        let cnt2 = 0;
+        let cnt3 = 0;
     for (let i = 0; i < 4; i++) {
-        console.log(add_AnimeBtn1[i]);
     add_AnimeBtn0.addEventListener("click", e => {
-        e.stopPropagation();
-        console.log("0 clicked");
-        add_AnimeBtn0.classList.add('hide');
-        animeDiv1.classList.add('hide');
-        animeDiv2.classList.add('hide');
-        animeDiv3.classList.add('hide');
+        cnt0++;
+        if (cnt0 === 1) {
+            e.stopPropagation();
+            console.log("0 clicked");
+            add_AnimeBtn0.classList.add('hide');
+            animeDiv1.classList.add('hide');
+            animeDiv2.classList.add('hide');
+            animeDiv3.classList.add('hide');
+            data.splice(1, 3);
+            console.log(data);
+        }
         // playlistAnime= anime1Input.value.trim(); 
       });
      
       add_AnimeBtn1.addEventListener("click", e => {
+        cnt1++;
+        if (cnt1 === 1) {
         e.stopPropagation();
           console.log("1 clicked");
           add_AnimeBtn1.classList.add('hide');
           animeDiv0.classList.add('hide');
           animeDiv2.classList.add('hide');
           animeDiv3.classList.add('hide');
+          data.splice(0, 1);
+          data.splice(1, 2);
+          console.log(data);
+        }
         //   playlistAnime= anime1Input.value.trim();
           
         });
         
         add_AnimeBtn2.addEventListener("click", e => {
+            cnt2++;
+        if (cnt2 === 1) {
         e.stopPropagation();
           console.log("2 clicked");
           add_AnimeBtn2.classList.add('hide');
           animeDiv0.classList.add('hide');
           animeDiv1.classList.add('hide');
           animeDiv3.classList.add('hide');
+          data.splice(0, 2);
+          data.splice(1, 1);
+          console.log(data);
+        }
         //   playlistAnime= anime1Input.value.trim();
           
         });
 
         add_AnimeBtn3.addEventListener("click", e => {
+            cnt3++;
+        if (cnt3 === 1) {
           e.stopPropagation();
           console.log("3 clicked");
           add_AnimeBtn3.classList.add('hide');
           animeDiv0.classList.add('hide');
           animeDiv1.classList.add('hide');
           animeDiv2.classList.add('hide');
+          data.splice(0, 3);
+          console.log(data);
+        }
         //   playlistAnime= anime1Input.value.trim();
         });
 
     }
-
-    switch (anime1BtnClick && anime2BtnClick && anime3BtnClick && anime4BtnClick) {
-        case anime1BtnClick && anime2BtnClick && anime3BtnClick && anime4BtnClick: anime1BtnClick = false;
+    let addAnimeCtn = 0;
+    const addAnimeBtn = document.querySelectorAll('addAnimeBtn');
+    for (let i = 0; i < addAnimeBtn.length; i++) {
+    addAnimeBtn[i].addEventListener('click', e => {
+        e.stopPropagation();
+        addAnimeCtn++;
+        console.log(addAnimeCtn + "clicked");
+    });
+}
+    switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
+        case anime1BtnClick: anime1BtnClick = false; anime1BtnClicked = true;
+            break;
+        case anime2BtnClick: anime2BtnClick = false; anime2BtnClicked = true;
+            break;
+        case anime3BtnClick: anime3BtnClick = false; anime3BtnClicked = true;
+            break;
+        case anime4BtnClick: anime4BtnClick = false; anime4BtnClicked = true;
             break;
     }
 
-    // switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
-    //     case anime1BtnClick: anime1BtnClick = false;
-    //         break;
-    //     case anime2BtnClick: anime2BtnClick = false;
-    //         break;
-    //     case anime3BtnClick: anime3BtnClick = false;
-    //         break;
-    //     case anime4BtnClick: anime4BtnClick = false;
-    //         break;
-    // }
+    if((cnt0 + cnt1 + cnt2 + cnt3) === 4) {
+        savePlaylist();
+    }
     
 }
 
 // Event listeners to search for animes when creating a playlist
 let anime1BtnClick = false;
+let anime1BtnClicked = false;
 let animeCnt = 0;
 
 anime1Btn.addEventListener("click", e => {
@@ -178,6 +211,7 @@ anime1Btn.addEventListener("click", e => {
 });
 
 let anime2BtnClick = false;
+let anime2BtnClicked = false;
 
 anime2Btn.addEventListener("click", e => {
   e.preventDefault();
@@ -194,6 +228,7 @@ anime2Btn.addEventListener("click", e => {
 });
 
 let anime3BtnClick = false;
+let anime3BtnClicked = false;
 
 anime3Btn.addEventListener("click", e => {
   e.preventDefault();
@@ -210,6 +245,7 @@ anime3Btn.addEventListener("click", e => {
 });
 
 let anime4BtnClick = false;
+let anime4BtnClicked = false;
 
 anime4Btn.addEventListener("click", e => {
   e.preventDefault();
@@ -224,3 +260,12 @@ anime4Btn.addEventListener("click", e => {
       startSearch(animeSearch);
   }
 });
+
+function savePlaylist() {
+    switch (true) {
+        case anime1BtnClicked && anime2BtnClicked && anime3BtnClicked && anime4BtnClicked: createPlaylist.innerHTML += ` <a id='createPlaylistBtn' class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>`; console.log(anime1BtnClicked && anime2BtnClicked && anime3BtnClicked && anime4BtnClicked);
+            break;
+        default: console.log("nope");
+        break;
+        }
+    }
