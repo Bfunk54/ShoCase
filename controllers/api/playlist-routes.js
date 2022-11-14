@@ -121,14 +121,24 @@ router.get('/:id', async (req, res) => {
 });
 
 //edit playlist
-router.put('/edit/:id', withAuth, (req, res) => {
-  Playlist.update(req.body, {
-    where: {
-      id: req.params.id,
+router.put('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const updatePlaylistData = await Playlist.update({
+      title: req.body.newTitle
     },
-  });
-
-})
+      {
+        where: {
+          id: req.params.id,
+        }
+      });
+    if (!updatePlaylistData) {
+      res.status(404).json({ message: 'No category found with that ID' })
+    }
+    res.status(200).json( {updatePlaylistData, message: `Successfully updated playlist with the id ${req.params.id }`} );
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
 
 //delete playlist
 router.delete('/:id', async (req, res) => {
