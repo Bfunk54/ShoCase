@@ -99,27 +99,28 @@ for (let i = 0; i < data.length; i++) {
         let animeDiv3 = document.getElementById(`addAnimeCard3${[animeCnt]}`);
     
         
-    for (let i = 0; i < 4; i++) {
+  
     add_AnimeBtn0.addEventListener("click", e => {
             cnt0++;
             console.log(cnt0);
-            e.stopPropagation();
+            e.preventDefault();
             console.log("0 clicked");
             add_AnimeBtn0.classList.add('hide');
             animeDiv1.classList.add('hide');
             animeDiv2.classList.add('hide');
             animeDiv3.classList.add('hide');
             data.splice(1, 3);
-            console.log(data);
-            newPlaylistAnime.push(data);
-            if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
+            console.log(data[0]);
+            newPlaylistAnime.push(data[0]);
+            console.log(newPlaylistAnime);
+            if ((cnt0 + cnt1 + cnt2 + cnt3) === 4) { 
                     savePlaylist();
                 }
       });
      
       add_AnimeBtn1.addEventListener("click", e => {
           cnt1++;
-          e.stopPropagation();
+          e.preventDefault();
           console.log("1 clicked");
           add_AnimeBtn1.classList.add('hide');
           animeDiv0.classList.add('hide');
@@ -127,16 +128,17 @@ for (let i = 0; i < data.length; i++) {
           animeDiv3.classList.add('hide');
           data.splice(0, 1);
           data.splice(1, 2);
-          console.log(data);
-          newPlaylistAnime.push(data);
-          if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
+          console.log(data[0]);
+          newPlaylistAnime.push(data[0]);
+          console.log(newPlaylistAnime);
+          if ((cnt0 + cnt1 + cnt2 + cnt3) === 4) { 
                   savePlaylist();
               }
         });
         
         add_AnimeBtn2.addEventListener("click", e => {
             cnt2++;
-            e.stopPropagation();
+            e.preventDefault();
             console.log("2 clicked");
             add_AnimeBtn2.classList.add('hide');
             animeDiv0.classList.add('hide');
@@ -144,32 +146,34 @@ for (let i = 0; i < data.length; i++) {
             animeDiv3.classList.add('hide');
             data.splice(0, 2);
             data.splice(1, 1);
-            console.log(data);
-            newPlaylistAnime.push(data);
+            console.log(data[0]);
+            newPlaylistAnime.push(data[0]);
+            console.log(newPlaylistAnime);
             console.log(cnt0 + cnt1 + cnt2 + cnt3);
 
-            if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
+            if ((cnt0 + cnt1 + cnt2 + cnt3) === 4) { 
                     savePlaylist();
                 }
         });
 
         add_AnimeBtn3.addEventListener("click", e => {
             cnt3++;
-            e.stopPropagation();
+            e.preventDefault();
             console.log("3 clicked");
             add_AnimeBtn3.classList.add('hide');
             animeDiv0.classList.add('hide');
             animeDiv1.classList.add('hide');
             animeDiv2.classList.add('hide');
             data.splice(0, 3);
-            console.log(data);
-            newPlaylistAnime.push(data);
-            if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
+            console.log(data[0]);
+            newPlaylistAnime.push(data[0]);
+            console.log(newPlaylistAnime);
+            if ((cnt0 + cnt1 + cnt2 + cnt3) === 4) { 
                     savePlaylist();
                 }
         });
     
-    }
+    
 
     switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
         case anime1BtnClick: anime1BtnClick = false;
@@ -256,16 +260,18 @@ anime4Btn.addEventListener("click", e => {
 let newPlaylistAnime = [];
 
 function savePlaylist() {
-    switch ((cnt0 + cnt1 + cnt2 + cnt3) === 16) {
+    switch ((cnt0 + cnt1 + cnt2 + cnt3) === 4) {
         case true: createPlaylist.innerHTML += ` <a id='createPlaylistBtn' class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">save</i></a>`;
         let savePlaylistBtn = document.getElementById('createPlaylistBtn');
         savePlaylistBtn.addEventListener("click", e => {
+            e.preventDefault();
             let newPlaylistNameData = document.getElementById('create_playlist_inline');
             console.log(newPlaylistNameData.value);
             if (newPlaylistNameData.value) {
                 let newPlaylistName = newPlaylistNameData.value;
-                console.log('Your new playlist is called:' + newPlaylistName);
-                console.log('The anime in it are' + newPlaylistAnime);
+                console.log('Your new playlist is called: ' + newPlaylistName);
+                console.log('The anime in it are');
+                console.log(newPlaylistAnime);
             } else {
                 alert('Please enter a playlist name');
             }
