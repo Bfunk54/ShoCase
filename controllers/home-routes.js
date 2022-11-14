@@ -11,18 +11,26 @@ router.get('/', async (req, res) => {
         // Get all posts and JOIN with user data
         const playlistData = await Playlist.findAll({
             include: [{ model: User }, { model: Anime }, {model: Favorites}],
+            attributes: {
+                include: [
+                    [
+                        Sequelize.literal(`(
+                            SELECT COUNT(*)
+                            FROM Favorites AS favorites
+                            WHERE
+                                playlist.id = playlist_id
+                        )`),
+                        'favoritesCount'
+                    ]
+                ]
+            }
         });
 
         
         // Serialize data so the template can read it
         const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
 
-        const favorites = await Favorites.findAll({
-            where: {
-                
-            }
-        })
-
+     
         // Pass serialized data and session flag into template
         res.render('all-playlists', {
             playlists,
