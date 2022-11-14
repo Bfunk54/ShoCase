@@ -23,7 +23,7 @@ Anime.init(
             type: DataTypes.STRING,
         },
         more_info: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         api_id: {
             type: DataTypes.BIGINT,

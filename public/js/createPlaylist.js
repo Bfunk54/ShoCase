@@ -285,19 +285,19 @@ function savePlaylist() {
 
 const createPlaylistForm = async (playlistName) => {
     
-    var anime = newPlaylistAnime;
+    var animes = newPlaylistAnime;
     var title = playlistName;
-    console.log(JSON.stringify({ anime, title }));
+    console.log(JSON.stringify({ animes, title }));
             const response = await fetch('/api/playlists', {
                 method: 'POST',
-                body: JSON.stringify({ anime, title }),
+                body: JSON.stringify({ animes, title }),
                 headers: { 'Content-Type': 'application/json' },
             });
     
             if (response.ok) {
-                // document.location.replace('/');
+                document.location.replace('/dashboard');
             } else {
                 alert(response.statusText);
             }
-        };
+    };
 
