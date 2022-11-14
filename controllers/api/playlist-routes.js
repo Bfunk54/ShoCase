@@ -4,37 +4,7 @@ const withAuth = require('../../utils/auth');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-// router.post('/', (req, res) => {
-//   /* req.body should look like this...
-//     {
-//       "title": "Horror Anime",
-//       "user_id": 1,
-//       "anime_ids": [1, 2, 3, 4]
-//     }
-//   */
-//   Playlist.create(req.body)
-//     .then((playlist) => {
-//       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-//       if (req.body.anime_ids.length) {
-//         const animePlaylistIdArr = req.body.anime_ids.map((anime_id) => {
-//           return {
-//             playlist_id: playlist.id,
-//             anime_id,
-//           };
-//         });
-//         return AnimePlaylist.bulkCreate(animePlaylistIdArr);
-//       }
-//       // if no product tags, just respond
-//       res.status(200).json(product);
-//     })
-//     .then((animePlaylistIds) => res.status(200).json(animePlaylistIds))
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(400).json(err);
-//     });
-// });
-
-// anime post testing
+// post a new playlist
 router.post('/', async (req, res) => {
   /*  req.body should look like this...
   {
@@ -73,6 +43,7 @@ router.post('/', async (req, res) => {
   }
   */
   try {
+    // Compiles anime information to post new animes
     const animesArr = req.body.animes.map((anime) => {
       return {
         anime_title: anime.anime_title,
@@ -82,24 +53,24 @@ router.post('/', async (req, res) => {
         api_id: anime.api_id
       };
     });
-
+    // Posts new animes while checking if they already exist
     const animeData = await Anime.bulkCreate(animesArr, {
       updateOnDuplicate: ["api_id"]
     });
     animeData
 
-
-    console.log('literally anything')
-
+    // Create new playlist
     const playlistData = await Playlist.create({
       title: req.body.title,
       user_id: req.body.user_id
     })
     playlistData
 
+    // create array of my anime list ids
     const animesArrById = req.body.animes.map((anime) => {
       return anime.api_id
     });
+    // find all anime ids by my anime list ids
     const animeDataById = await Anime.findAll({
       where: {
         api_id: {
@@ -107,17 +78,16 @@ router.post('/', async (req, res) => {
         }
       },
     });
-
+    // organize data to send to animeplaylist table
     const animePlaylistIdArr = animeDataById.map((anime) => {
       return {
         playlist_id: playlistData.id,
         anime_id: anime.id
       };
     });
-
+    // create association between playlist and animes through animeplaylist table
     const animePlaylistData = await AnimePlaylist.bulkCreate(animePlaylistIdArr);
     res.status(200).json(animePlaylistData)
-
   } catch (err) {
     res.status(500).json(err)
   }
