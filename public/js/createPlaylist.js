@@ -39,7 +39,7 @@ async function startSearch(search) {
         console.log(res.data);
         for (let i = 0; i < res.data.length; i++) {
             if (res.data[i].title && res.data[i].images.jpg.image_url ) {
-            dataObj = { title: res.data[i].title, image: res.data[i].images.jpg.image_url }; 
+            dataObj = { anime_title: res.data[i].title, anime_image: res.data[i].images.jpg.image_url, watch_link: res.data[i].url, more_info: res.data[i].synopsis, api_id: res.data[i].mal_id};
             animeArray.push(dataObj);
             }
             else{
@@ -66,11 +66,11 @@ for (let i = 0; i < data.length; i++) {
     let divTemplate = `<div id="addAnimeCard${[i]}${animeCnt}" class="addAnimeCard${[i]} col s3">
     <div class="addPlaylistCard card">
       <div class="card-image">
-        <img class="addPlaylistCardImg" src="${data[i].image}">
+        <img class="addPlaylistCardImg" src="${data[i].anime_image}">
         
         <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i]}" class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
-        <span class="card-title black-text">${data[i].title}</span>
+        <span class="card-title black-text">${data[i].anime_title}</span>
   </div>
 </div>  `;
     // Append the divs to the page
@@ -272,6 +272,7 @@ function savePlaylist() {
                 console.log('Your new playlist is called: ' + newPlaylistName);
                 console.log('The anime in it are');
                 console.log(newPlaylistAnime);
+                createPlaylistForm(newPlaylistName);
             } else {
                 alert('Please enter a playlist name');
             }
@@ -281,3 +282,22 @@ function savePlaylist() {
         break;
         }
     }
+
+const createPlaylistForm = async (playlistName) => {
+    
+    var anime = newPlaylistAnime;
+    var title = playlistName;
+    console.log(JSON.stringify({ anime, title }));
+            const response = await fetch('/api/playlists', {
+                method: 'POST',
+                body: JSON.stringify({ anime, title }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+    
+            if (response.ok) {
+                // document.location.replace('/');
+            } else {
+                alert(response.statusText);
+            }
+        };
+
