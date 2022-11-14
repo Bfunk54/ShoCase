@@ -66,6 +66,10 @@ router.get('/login', (req, res) => {
 router.get('/create-playlists', withAuth, (req, res) => {
     res.render('create-playlists');
 });
+
+router.get('/about-us', (req, res) => {
+    res.render('about-us');
+});
  
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {

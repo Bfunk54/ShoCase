@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
     // Create new playlist
     const playlistData = await Playlist.create({
       title: req.body.title,
-      user_id: req.body.user_id
+      user_id: req.session.user_id
     })
     playlistData
 
