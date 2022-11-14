@@ -1,29 +1,51 @@
+/* Reminder: delete empty rulesets */
+
+/* ****************************** */
+/*       Universal selector       */
+/* ****************************** */
+* {
+
+}
+
+/* ****************************** */
+/*        Color selectors         */
+/* ****************************** */
+:root {
+--variableName: #000000;
+}
+
+/* ****************************** */
+/*       Element selectors        */
+/* ****************************** */
+
+main {
+    display: box;
+}
+
+/* ****************************** */
+/*        Class selectors         */
+/* ****************************** */
+
+/* Add playlist formatting */
 .addPlaylistCardImg {
     height: 150px !important;
     width: 120px !important;
 }
-
 .addPlaylistCard {
     height: 150px !important;
     width: 120px !important;
 }
+
+/* Add anime formatting */
 .addAnimeCard {
     margin: 0, 5px, 20px, 5px !important;
-}
-
-#test2 {
-    height: fit-content !important;
 }
 
 .addAnimeBtn {
     margin-right: 70px !important;
 }
 
-
-main {
-    display: box;
-}
-
+/* Nav formatting */
 .navBtn {
     font-size: 16px !important;
     padding-top: 3px;
@@ -31,37 +53,32 @@ main {
     margin-top: 10px !important;
     margin-bottom: 10px !important; 
 }
-
 .sidenav li>a {
     padding: 10px 32px !important;
     display: flex !important;
     align-items: center !important;
 }
-
 .sidenav li>a:hover {
     background-color: #fed13d35 !important;
 }
-
 .opacity {
     width: auto;
 }
-
 .opacity:hover {
     background-color: #fe743d !important;
     opacity: 0.5;
 }
-
 .sidenav li>a:hover:before {
     background-color: #fe743d !important;
     opacity: 10%;
 }
 
+/* Logo formatting */
 .logo {
     width: 100%;
     display: block !important;
     margin-bottom: 10px;
 }
-
 .logoContainer {
     max-width: 70px;
     max-height: 70px;
@@ -69,25 +86,26 @@ main {
     /* margin-top: 5px; */
     float: right;
 }
-
 .sidenav-trigger {
     display: inline-block !important;
     width: fit-content;
     height: auto !important;
     line-height: normal !important;
 }
-
 .modal_trigger {
     display: inline-block !important;
     /* width: fit-content; */
     height: fit-content !important;
     line-height: normal !important;
     width: 10%;
-
 }
 .waves-effect {
     height: 42px !important;
     margin-bottom: 20px !important;
+}
+
+.waves-effect #image-height {
+    height: 100px !important;
 }
 
 .menuBar {
@@ -100,15 +118,15 @@ main {
     height: auto !important;
     line-height: normal !important;
 }
-
 .menuBar:hover {
    color: #fed13d8d !important;
 }
 
+/* Add playlist formatting */
+
 .addPlaylist:hover {
     color: #fed13d8d !important;
  }
-
 .addPlaylist {
     display: inline-block;
     font-size: 40px;
@@ -116,11 +134,9 @@ main {
     margin-bottom: 6px !important;
     height: fit-content !important;
 }
-
 /* .wholeSearch {
     display: inline-block;
     /* margin-top: 10px; */
-
 .magnifyingGlass { 
     display: inline-block;
     height: auto;
@@ -130,86 +146,103 @@ main {
     font-size: 20px;
     margin-top: 30px !important;
 }
-
 /* .input-field {
     margin-left: 25px !important;
     margin-top: 5px !important;
     margin-bottom: 20px !important;
     height: 20px !important;
 } */
-
 .helper-text {
     height: 5px !important;
 }
 
-
 .theNav {
-   opacity: 80%;
-   height: 75px !important;
-}
-
-.navBarTitle {
-    font-family: "Yatra One", sans-serif;
-    font-size: 48px; 
-}
-.user-view {
-    margin-top: 20px;
-}
-
-.closeBtn {
-    font-size: 16px !important;
-}
-
-.xForNav {
-    margin-right: 4px !important;
-    font-size: 24px;
-}
-
-.btn:hover {
+    opacity: 80%;
+    height: 75px !important;
+ }
+ .navBarTitle {
+     font-family: "Yatra One", sans-serif;
+     font-size: 48px; 
+ }
+ .user-view {
+     margin-top: 20px;
+ }
+ .closeBtn {
+     font-size: 16px !important;
+ }
+ .xForNav {
+     margin-right: 4px !important;
+     font-size: 24px;
+ }
+ 
+ .btn:hover {
     background-color: #fee13de4 !important;
 }
 
+
 .container {
     width: 95%;
-
 }
-
 main.container {
     margin-top: 5px;
     margin-right: 5px;
     margin-left: 5px;
 }
-
 .row {
     margin-top: 10px;
     width: 90%;
 }
 
-/* #profile-info {
-    height: 100%
-} */
-
-/* #single-anime {
-    min-width: 200px;
-} */
-
-
 .extraInfo {
     padding: 0;
 }
-
 .title-nowrap {
     white-space: nowrap;
 }
 
-#single-anime {
-    min-width: 200px;
+.card-padding {
+    padding: 5px !important;
+}
+/* ****************************** */
+/*          ID selectors          */
+/* ****************************** */
+
+#full-height {
+    min-height: 100vh !important;
+}
+    
+#delete-toolbar {
+    position: relative;
+    align-content: end;
+    z-index: 5;
+}
+    
+#anime {
+    min-width: 180px;
+    min-height: 100px;
+    z-index: "-1" !important;
 }
 
-#playlist-title {
-    font-size: 40px;
+
+#test2 {
+    height: fit-content !important;
 }
 
-.hide {
-    display: none;
+/* ****************************** */
+/* Formatting for media inquiries */
+/* ****************************** */
+
+/* Laptop */
+@media screen and (max-width: 1024px) {
+
+}
+
+/* iPads and Tablets */
+@media screen and (max-width: 768px) {
+
+}
+
+/* Mobile devices */
+@media screen and (max-width: 480px) {
+
 }
