@@ -39,7 +39,7 @@ async function startSearch(search) {
         console.log(res.data);
         for (let i = 0; i < res.data.length; i++) {
             if (res.data[i].title && res.data[i].images.jpg.image_url ) {
-            dataObj = { anime_title: res.data[i].title, anime_image: res.data[i].images.jpg.image_url, watch_link: res.data[i].url, more_info: res.data[i].synopsis, api_id: res.data[i].mal_id};
+            dataObj = { anime_title: res.data[i].title, anime_image: res.data[i].images.jpg.image_url, watch_link: res.data[i].url, more_info: res.data[i].images.jpg.image_url, api_id: res.data[i].mal_id};
             animeArray.push(dataObj);
             }
             else{
@@ -285,12 +285,12 @@ function savePlaylist() {
 
 const createPlaylistForm = async (playlistName) => {
     
-    var anime = newPlaylistAnime;
+    var animes = newPlaylistAnime;
     var title = playlistName;
-    console.log(JSON.stringify({ anime, title }));
+    console.log(JSON.stringify({ animes, title }));
             const response = await fetch('/api/playlists', {
                 method: 'POST',
-                body: JSON.stringify({ anime, title }),
+                body: JSON.stringify({ animes, title }),
                 headers: { 'Content-Type': 'application/json' },
             });
     
