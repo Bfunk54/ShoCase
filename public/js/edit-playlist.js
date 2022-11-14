@@ -21,22 +21,18 @@ const handlePlaylistEdit = async (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
-
-
   const playlist = e.target;
   const playlistId = playlist.parentElement.getAttribute('data-id');
-  const saveBtn = playlist.parentElement.parentElement.nextElementSibling;
-  saveBtn.classList.remove('hide');
+  const originalTitleEl = document.getElementById(playlistId);
   const newInput = document.createElement(`input`);
+  const originalTitle = document.getElementById(playlistId).textContent;
+  const saveBtn = playlist.parentElement.parentElement.nextElementSibling;
+  
+  saveBtn.classList.remove('hide');
   newInput.setAttribute('id', 'newTitle')
-  const originalTitle = document.getElementById('playlist-title').textContent;
   newInput.value = originalTitle;
-  const originalTitleEl = document.getElementById('playlist-title');
   originalTitleEl.parentElement.insertBefore(newInput, originalTitleEl);
   originalTitleEl.remove();
-
-  const newTitle = document.getElementById('newTitle').value;
-  console.log(newTitle);
 };
 
 const handlePlaylistSave = async (e) => {
