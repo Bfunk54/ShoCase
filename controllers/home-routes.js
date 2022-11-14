@@ -13,25 +13,16 @@ router.get('/', async (req, res) => {
             include: [{ model: User }, { model: Anime }, {model: Favorites}],
         });
 
+        
         // Serialize data so the template can read it
-        const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+        const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
 
-            // const favorites = await Favorites.count({
-            //     where: { playlist_id: playlist.id }
-            // });
-            // playlist.get({ plain: true })
-            // const data =  {
-            //     id: something.id,
-            //     date_created: something.date_created,
-            //     title: something.title,
-            //     // user_id: playlist.user_id,
-            //     // favorites: favorites,
-            //     // user: playlist.user,
-            //     // animes: playlist.animes
-            // };
-            // return data;
+        const favorites = await Favorites.findAll({
+            where: {
+                
+            }
+        })
 
-console.log(playlists)
         // Pass serialized data and session flag into template
         res.render('all-playlists', {
             playlists,
