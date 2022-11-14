@@ -24,12 +24,3 @@ const handlePlaylistDelete = async (e) => {
 
 const deleteBtn = document.querySelectorAll('.delete-btn')
 deleteBtn.forEach((btn) => btn.addEventListener('click', handlePlaylistDelete));
-
-
-// Javascript for toolbar animation
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.delete-toolbar');
-  var instances = M.FloatingActionButton.init(elems, {
-    toolbarEnabled: true
-  });
-});

@@ -1,32 +1,3 @@
-/* Reminder: delete empty rulesets */
-
-/* ****************************** */
-/*       Universal selector       */
-/* ****************************** */
-* {
-
-}
-
-/* ****************************** */
-/*        Color selectors         */
-/* ****************************** */
-:root {
---variableName: #000000;
-}
-
-/* ****************************** */
-/*       Element selectors        */
-/* ****************************** */
-
-main {
-    display: box;
-}
-
-/* ****************************** */
-/*        Class selectors         */
-/* ****************************** */
-
-/* Add playlist formatting */
 .addPlaylistCardImg {
     height: 150px !important;
     width: 120px !important;
@@ -36,17 +7,23 @@ main {
     height: 150px !important;
     width: 120px !important;
 }
-
-/* Add anime formatting */
 .addAnimeCard {
     margin: 0, 5px, 20px, 5px !important;
+}
+
+#test2 {
+    height: fit-content !important;
 }
 
 .addAnimeBtn {
     margin-right: 70px !important;
 }
 
-/* Nav formatting */
+
+main {
+    display: box;
+}
+
 .navBtn {
     font-size: 16px !important;
     padding-top: 3px;
@@ -79,7 +56,6 @@ main {
     opacity: 10%;
 }
 
-/* Logo formatting */
 .logo {
     width: 100%;
     display: block !important;
@@ -114,10 +90,6 @@ main {
     margin-bottom: 20px !important;
 }
 
-.waves-effect #image-height {
-    height: 100px !important;
-}
-
 .menuBar {
     display: inline-block;
     font-size: 40px;
@@ -132,8 +104,6 @@ main {
 .menuBar:hover {
    color: #fed13d8d !important;
 }
-
-/* Add playlist formatting */
 
 .addPlaylist:hover {
     color: #fed13d8d !important;
@@ -172,6 +142,7 @@ main {
     height: 5px !important;
 }
 
+
 .theNav {
    opacity: 80%;
    height: 75px !important;
@@ -195,7 +166,7 @@ main {
 }
 
 .btn:hover {
-    background-color: #fe3dd4e4 !important;
+    background-color: #fee13de4 !important;
 }
 
 .container {
@@ -214,6 +185,15 @@ main.container {
     width: 90%;
 }
 
+/* #profile-info {
+    height: 100%
+} */
+
+/* #single-anime {
+    min-width: 200px;
+} */
+
+
 .extraInfo {
     padding: 0;
 }
@@ -222,51 +202,14 @@ main.container {
     white-space: nowrap;
 }
 
-.card-padding {
-    padding: 5px !important;
-}
-/* ****************************** */
-/*          ID selectors          */
-/* ****************************** */
-
-
-#full-height {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    min-height: 100vh !important;
+#single-anime {
+    min-width: 200px;
 }
 
-#delete-toolbar {
-    position: relative;
-    align-content: end;
-    z-index: 5;
+#playlist-title {
+    font-size: 40px;
 }
 
-#anime {
-    min-width: 180px;
-    min-height: 100px;
-    z-index: "-1" !important;
-}
-
-#test2 {
-    height: fit-content !important;
-}
-
-/* ****************************** */
-/* Formatting for media inquiries */
-/* ****************************** */
-
-/* Laptop */
-@media screen and (max-width: 1024px) {
-
-}
-
-/* iPads and Tablets */
-@media screen and (max-width: 768px) {
-
-}
-
-/* Mobile devices */
-@media screen and (max-width: 480px) {
-
+.hide {
+    display: none;
 }
