@@ -111,6 +111,7 @@ for (let i = 0; i < data.length; i++) {
             animeDiv3.classList.add('hide');
             data.splice(1, 3);
             console.log(data);
+            newPlaylistAnime.push(data);
             if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
                     savePlaylist();
                 }
@@ -127,6 +128,7 @@ for (let i = 0; i < data.length; i++) {
           data.splice(0, 1);
           data.splice(1, 2);
           console.log(data);
+          newPlaylistAnime.push(data);
           if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
                   savePlaylist();
               }
@@ -143,6 +145,7 @@ for (let i = 0; i < data.length; i++) {
             data.splice(0, 2);
             data.splice(1, 1);
             console.log(data);
+            newPlaylistAnime.push(data);
             console.log(cnt0 + cnt1 + cnt2 + cnt3);
 
             if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
@@ -160,6 +163,7 @@ for (let i = 0; i < data.length; i++) {
             animeDiv2.classList.add('hide');
             data.splice(0, 3);
             console.log(data);
+            newPlaylistAnime.push(data);
             if ((cnt0 + cnt1 + cnt2 + cnt3) === 16) { 
                     savePlaylist();
                 }
@@ -249,9 +253,23 @@ anime4Btn.addEventListener("click", e => {
   }
 });
 
+let newPlaylistAnime = [];
+
 function savePlaylist() {
     switch ((cnt0 + cnt1 + cnt2 + cnt3) === 16) {
-        case true: createPlaylist.innerHTML += ` <a id='createPlaylistBtn' class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>`;
+        case true: createPlaylist.innerHTML += ` <a id='createPlaylistBtn' class="btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">save</i></a>`;
+        let savePlaylistBtn = document.getElementById('createPlaylistBtn');
+        savePlaylistBtn.addEventListener("click", e => {
+            let newPlaylistNameData = document.getElementById('create_playlist_inline');
+            console.log(newPlaylistNameData.value);
+            if (newPlaylistNameData.value) {
+                let newPlaylistName = newPlaylistNameData.value;
+                console.log('Your new playlist is called:' + newPlaylistName);
+                console.log('The anime in it are' + newPlaylistAnime);
+            } else {
+                alert('Please enter a playlist name');
+            }
+        });
             break;
         default: console.log("nope");
         break;
