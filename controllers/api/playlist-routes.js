@@ -73,7 +73,6 @@ router.post('/', async (req, res) => {
   }
   */
   try {
-
     const animesArr = req.body.animes.map((anime) => {
       return {
         anime_title: anime.anime_title,
@@ -87,8 +86,38 @@ router.post('/', async (req, res) => {
     const animeData = await Anime.bulkCreate(animesArr, {
       updateOnDuplicate: ["api_id"]
     });
+    animeData
 
-    res.status(200).json(animeData);
+
+    console.log('literally anything')
+
+    const playlistData = await Playlist.create({
+      title: req.body.title,
+      user_id: req.body.user_id
+    })
+    playlistData
+
+    const animesArrById = req.body.animes.map((anime) => {
+      return anime.api_id
+    });
+    const animeDataById = await Anime.findAll({
+      where: {
+        api_id: {
+          [Op.or]: animesArrById
+        }
+      },
+    });
+
+    const animePlaylistIdArr = animeDataById.map((anime) => {
+      return {
+        playlist_id: playlistData.id,
+        anime_id: anime.id
+      };
+    });
+
+    const animePlaylistData = await AnimePlaylist.bulkCreate(animePlaylistIdArr);
+    res.status(200).json(animePlaylistData)
+
   } catch (err) {
     res.status(500).json(err)
   }
