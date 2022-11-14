@@ -141,18 +141,21 @@ for (let i = 0; i < data.length; i++) {
 
     }
 
-    
-
-    switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
-        case anime1BtnClick: anime1BtnClick = false;
-            break;
-        case anime2BtnClick: anime2BtnClick = false;
-            break;
-        case anime3BtnClick: anime3BtnClick = false;
-            break;
-        case anime4BtnClick: anime4BtnClick = false;
+    switch (anime1BtnClick && anime2BtnClick && anime3BtnClick && anime4BtnClick) {
+        case anime1BtnClick && anime2BtnClick && anime3BtnClick && anime4BtnClick: anime1BtnClick = false;
             break;
     }
+
+    // switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
+    //     case anime1BtnClick: anime1BtnClick = false;
+    //         break;
+    //     case anime2BtnClick: anime2BtnClick = false;
+    //         break;
+    //     case anime3BtnClick: anime3BtnClick = false;
+    //         break;
+    //     case anime4BtnClick: anime4BtnClick = false;
+    //         break;
+    // }
     
 }
 
@@ -164,12 +167,12 @@ anime1Btn.addEventListener("click", e => {
     e.preventDefault();
     animeSearch = anime1Input.value.trim();
     console.log(animeSearch);
-    animeCnt = 0;
-    anime1InputDiv.classList.add('hide');
-    anime1BtnClick = true;
     if (!animeSearch) {
         alert("Please enter an anime name");
     } else {
+        animeCnt = 0;
+        anime1InputDiv.classList.add('hide');
+        anime1BtnClick = true;
         startSearch(animeSearch);
     }
 });
@@ -180,12 +183,12 @@ anime2Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime2Input.value.trim();
   console.log(animeSearch);
-  animeCnt = 1;
-  anime2InputDiv.classList.add('hide');
-  anime2BtnClick = true;
   if (!animeSearch) {
       alert("Please enter an anime name");
   } else {
+    animeCnt = 1;
+    anime2InputDiv.classList.add('hide');
+    anime2BtnClick = true;
       startSearch(animeSearch);
   }
 });
@@ -195,13 +198,13 @@ let anime3BtnClick = false;
 anime3Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime3Input.value.trim();
-  anime3InputDiv.classList.add('hide');
-  anime3BtnClick = true;
-  animeCnt = 2;
-    console.log(animeSearch);
+  console.log(animeSearch);
   if (!animeSearch) {
       alert("Please enter an anime name");
   } else {
+    anime3InputDiv.classList.add('hide');
+    anime3BtnClick = true;
+    animeCnt = 2;
       startSearch(animeSearch);
   }
 });
@@ -212,48 +215,12 @@ anime4Btn.addEventListener("click", e => {
   e.preventDefault();
   animeSearch = anime4Input.value.trim();
   console.log(animeSearch);
-  anime4InputDiv.classList.add('hide');
-  anime4BtnClick = true;
-  animeCnt = 3;
   if (!animeSearch) {
       alert("Please enter an anime name");
   } else {
+    anime4InputDiv.classList.add('hide');
+    anime4BtnClick = true;
+    animeCnt = 3;
       startSearch(animeSearch);
   }
 });
-
-
-  class Menu {
-    constructor(elem) {
-      this._elem = elem;
-      elem.onclick = this.onClick.bind(this); // (*)
-    }
-
-    addAnime0() {
-      alert('saving');
-      e.preventDefault();
-    console.log("clicked");
-    add_AnimeBtn0.classList.add('hide');
-    animeDiv1.classList.add('hide');
-    animeDiv2.classList.add('hide');
-    animeDiv3.classList.add('hide');
-    playlistAnime= anime1Input.value.trim();
-    }
-
-    load() {
-      alert('loading');
-    }
-
-    search() {
-      alert('searching');
-    }
-
-    onClick(event) {
-      let action = event.target.dataset.action;
-      if (action) {
-        this[action]();
-      }
-    };
-  }
-
-  new Menu(anime1);
