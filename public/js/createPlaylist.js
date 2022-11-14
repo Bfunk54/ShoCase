@@ -39,7 +39,7 @@ async function startSearch(search) {
         console.log(res.data);
         for (let i = 0; i < res.data.length; i++) {
             if (res.data[i].title && res.data[i].images.jpg.image_url ) {
-            dataObj = { anime_title: res.data[i].title, anime_image: res.data[i].images.jpg.image_url, watch_link: res.data[i].url, more_info: res.data[i].images.jpg.image_url, api_id: res.data[i].mal_id};
+            dataObj = { anime_title: res.data[i].title, anime_image: res.data[i].images.jpg.image_url, watch_link: res.data[i].url, more_info: res.data[i].synopsis, api_id: res.data[i].mal_id};
             animeArray.push(dataObj);
             }
             else{
@@ -295,9 +295,9 @@ const createPlaylistForm = async (playlistName) => {
             });
     
             if (response.ok) {
-                // document.location.replace('/');
+                document.location.replace('/dashboard');
             } else {
                 alert(response.statusText);
             }
-        };
+    };
 
