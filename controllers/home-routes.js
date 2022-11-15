@@ -9,57 +9,72 @@ const Op = Sequelize.Op;
 router.get('/', async (req, res) => {
     try {
         // Get all posts and JOIN with user data
-        const playlistData = await Playlist.findAll({
-            include: [{ model: User }, { model: Anime }, { model: Favorites }],
-            attributes: {
-                include: [
-                    [
-                        Sequelize.literal(`(
+        if (req.session.user_id) {
+            const playlistData = await Playlist.findAll({
+                include: [{ model: User }, { model: Anime }, { model: Favorites }],
+                attributes: {
+                    include: [
+                        [
+                            Sequelize.literal(`(
+                                SELECT COUNT(*)
+                                FROM Favorites AS favorites
+                                WHERE
+                                    playlist.id = playlist_id
+                            )`),
+                            'favoritesCount'
+                        ],
+                        [
+                            Sequelize.literal(`(
+                                SELECT COUNT(*) FROM Favorites AS checks WHERE playlist.id = playlist_id AND ${req.session.user_id} = user_id
+                            )`),
+                            'hasFavorited'
+                        ]
+                    ]
+                }
+            });
+            const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+            const favoritesData = await Favorites.findAll({
+                where: {
+                    user_id: req.session.user_id
+                }
+            });
+
+
+            const favorites = favoritesData.map((favorite) => favorite.get({ plain: true }));
+
+
+            res.render('all-playlists', {
+                favorites,
+                playlists,
+                loggedIn: req.session.loggedIn
+            });
+        } else {
+            const playlistData = await Playlist.findAll({
+                include: [{ model: User }, { model: Anime }, { model: Favorites }],
+                attributes: {
+                    include: [
+                        [
+                            Sequelize.literal(`(
                             SELECT COUNT(*)
                             FROM Favorites AS favorites
                             WHERE
                                 playlist.id = playlist_id
                         )`),
-                        'favoritesCount'
-                    ],
-                    [
-                        Sequelize.literal(`(
-                            SELECT COUNT(*) FROM Favorites AS checks WHERE playlist.id = playlist_id AND ${req.session.user_id} = user_id
-                        )`),
-                        'hasFavorited'
+                            'favoritesCount'
+                        ],
                     ]
-                ]
-            }
-        });
-        const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
-        console.log(playlists)
+                }
+            })
+            const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+            console.log(playlists)
 
-        if (req.session.user_id) {
 
-        const favoritesData = await Favorites.findAll({
-            where: {
-                user_id: req.session.user_id
-            }
-        });
-        
+            res.render('all-playlists', {
+                playlists,
+                loggedIn: req.session.loggedIn
+            });
+        };
 
-        const favorites = favoritesData.map((favorite) => favorite.get({plain: true}));
-
-        // Pass serialized data and session flag into template
-
-        
-        res.render('all-playlists', {
-            favorites,
-            playlists,
-            loggedIn: req.session.loggedIn
-        });
-
-} else {
-    res.render('all-playlists', {
-        playlists,
-        loggedIn: req.session.loggedIn
-    });
-}
     } catch (err) {
         res.status(500).json(err);
     }

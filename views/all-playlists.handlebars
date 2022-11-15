@@ -38,6 +38,13 @@
   </div>
     {{/each}}
   </div>
+  {{!-- {{#if hasFavorited}}
+  <a class="already-favorited-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite</i></a><span
+    id="favorites-number">{{playlist.favoritesCount}}</span>
+    {{else}}
+  <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span
+    id="favorites-number">{{playlist.favoritesCount}}</span>
+    {{/if}} --}}
    <button class="btn1 btn-like" data-id="{{playlist.id}}">
             <span class="btn-icon btn--icon-default">
               <i class="material-icons">favorite_border</i>
@@ -57,6 +64,8 @@
 </div>
   {{/each}}
 </div>
+
+<script src="/js/favorites.js"></script>
 
 
 
