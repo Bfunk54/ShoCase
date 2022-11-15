@@ -153,4 +153,9 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/about-us', (req, res) => {
+    res.render('about-us', {
+        loggedIn: req.session.loggedIn
+    });
+});
 module.exports = router;
