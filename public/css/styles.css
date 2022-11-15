@@ -1,3 +1,9 @@
+:root {
+    --red: rgb(209, 3, 3);
+    --white: #fff;
+    --black: #000;
+}
+
 .addPlaylistCardImg {
     height: 150px !important;
     width: 120px !important;
@@ -7,8 +13,26 @@
     height: 45px !important;
     width: 120px !important;
     margin-bottom: 0 !important;
-    opacity: 0.8 !important;
+    opacity: 0.85 !important;
     padding: 0 !important;
+}
+
+.animeCardReveal {
+    padding: 4px !important;
+}
+
+.moreInfo {
+    margin: 8px !important;
+    /* padding: 18px !important; */
+    font-size: 14px !important;
+}
+
+.animeWatchLink {
+    float: left !important;
+    vertical-align: text-top !important;
+    padding: 2px !important;
+    font-size: 14px !important;
+    line-height: normal !important;
 }
 
 .animeTitle {
@@ -52,6 +76,99 @@
 }
 
 .reveal {
+}
+
+.btn1 {
+    width: 40px !important;; 
+    height: 28px !important;
+    outline: 0 !important;
+    border: 2px solid #ccc !important;
+    color: #000 !important;
+    cursor: pointer !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display:flex !important;
+    justify-content: space-between !important;
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.05) !important;
+    transition: 1.5s cubic-bezier(.21,.04,.26,.99) !important;
+    
+}
+
+.btn1:hover {
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.2) !important;
+    border-color: var(--red) !important;
+}
+
+.btn-like {
+    padding: .9rem .9rem .9rem 4.5rem !important;
+    font-size: 2rem !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    transition: 1.5s cubic-bezier(.21,.04,.26,.99) !important;
+}
+.btn-like.liked {
+    background: var(--red) !important;
+    border-color: var(--red) !important;
+}
+
+/*-- Button Icon -- */
+.btn-icon {
+    display: inline-block !important;
+    width: 8px !important;
+    height: 12px !important;
+    position: absolute !important;
+    bottom: 16px !important;
+    transition: 1s cubic-bezier(.21,.04,.26,.99) !important;
+    transform: rotate(0deg) !important;
+}
+.btn1:hover .btn-icon {
+    color: var(--red) !important;
+}
+.btn1.liked:hover .btn-icon {
+    color: var(--black) !important;
+}
+.liked .btn--icon-default {
+    transform: rotate(-90deg) !important;
+}
+.btn1:not(.liked).btn--icon-liked {
+    transform: rotate(-90deg) !important;
+}
+.liked .btn--icon-default,
+.btn--icon-liked {
+    opacity: 0 !important;
+    color: #fff !important;
+    position: absolute !important;
+}
+.btn--icon-default,
+.liked .btn--icon-liked {
+    opacity: 1 !important;
+    left: .6rem !important;
+}
+
+/*-- Button Content -- */
+.btn-content {
+    font-size: 12px;
+    left: 5px !important;
+    bottom: 5px !important;
+    transition: transform 0.1s ease !important;
+    display: inline-block !important;
+    position: relative !important;
+}
+.liked .btn-content {
+    color: var(--white) !important;
+    left: -25px !important;
+}
+.btn1:hover.liked .btn-content {
+    color: var(--black) !important;
+}
+.btn1:not(.liked) .btn-content--liked {
+    transform: translate(-120px) !important;
+}
+.btn1:not(.liked) .btn-content--default {
+    transform: translate(-60px) !important;
+}
+.liked .btn-content--default {
+    transform: translate(50px) !important;
 }
 
 
