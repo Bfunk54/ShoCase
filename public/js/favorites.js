@@ -14,6 +14,14 @@ const favoritePlaylist = async (id) => {
     .catch(err => console.log(err));
 }
 
+const removeFavorite = async (id) => {
+    await fetch(`/api/favorites/${id}`, {
+        method: `DELETE`
+    }).then(response => response.json())
+    .then(document.location.reload())
+    .catch(err => console.log(err));
+};
+
 
 
 
@@ -33,7 +41,21 @@ const handlePlaylistFavorite = async (e) => {
 
 };
 
+const handleRemoveFavorite = async (e) => {
+    e.stopPropagation();
+
+    const playlist = e.target;
+    const playlistId = playlist.parentElement.getAttribute('data-id');
+
+    const response = await removeFavorite(playlistId);
+
+    return response;
+}
+
 
 
 const favoriteBtn = document.querySelectorAll('.favorite-btn')
 favoriteBtn.forEach((btn) => btn.addEventListener('click', handlePlaylistFavorite));
+
+const alreadyFavoritedBtn = document.querySelectorAll('.already-favorited-btn')
+alreadyFavoritedBtn.forEach((btn) => btn.addEventListener('click', handleRemoveFavorite));
