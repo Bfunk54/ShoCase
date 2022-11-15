@@ -26,4 +26,5 @@ const handlePlaylistFavorite = async (e) => {
 
 
 const favoriteBtn = document.querySelectorAll('.favorite-btn')
+console.log(favoriteBtn);
 editBtn.forEach((btn) => btn.addEventListener('click', handlePlaylistFavorite));
