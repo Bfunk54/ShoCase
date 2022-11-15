@@ -1,15 +1,3 @@
-// const checkIfLiked = (favoritesArr) => {
-//     console.log(favoritesArr)
-//     // favoritesArr.forEach()
-//     // if (favorites.playlist_id = playlist.id) {
-//     //     return true;
-//     // } else {
-//     //     return false;
-//     // }
-// };
-
-
-
 const favoritePlaylist = async (id) => {
     playlist_id = id;
     await fetch(`/api/favorites`, {

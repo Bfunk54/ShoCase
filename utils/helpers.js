@@ -3,3 +3,4 @@ module.exports = {
         return `${(date).getMonth()}/${(date).getDate()}/${(date).getFullYear()}`;
     }
 }
+

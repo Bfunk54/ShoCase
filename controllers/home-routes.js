@@ -34,11 +34,13 @@ router.get('/', async (req, res) => {
                 user_id: req.session.user_id
             }
         });
+        
 
         const favorites = favoritesData.map((favorite) => favorite.get({plain: true}));
 
-        // console.log(favorites)
         // Pass serialized data and session flag into template
+
+        
         res.render('all-playlists', {
             favorites,
             playlists,
