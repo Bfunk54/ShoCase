@@ -29,7 +29,23 @@ async function startSearch(search) {
         .then(response => response.json())
         .then(function (res) {
             console.log(res.data);
+            res.data.forEach(anime => {
 
+            });
+            if (!res.ok)  {
+                alert('Enter a real anime name');
+                switch (anime1BtnClick || anime2BtnClick || anime3BtnClick || anime4BtnClick) {
+                    case anime1BtnClick: anime1InputDiv.classList.remove('hide');
+                        break;
+                    case anime2BtnClick: anime2InputDiv.classList.remove('hide');
+                        break;
+                    case anime3BtnClick: anime3InputDiv.classList.remove('hide');
+                        break;
+                    case anime4BtnClick: anime4InputDiv.classList.remove('hide');
+                        break;
+                }
+                throw res.statusText;
+            }
 
             // Filter the anime to only show the ones that have an image
             res.data = res.data.filter(function checkData(search, index) {
