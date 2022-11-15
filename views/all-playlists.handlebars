@@ -1,5 +1,39 @@
 <!-- Loop over each object in the projects array -->
-{{#each playlists as |playlist| }}
+<div class="container">
+  <h4>User Playlists</h4>
+
+
+  {{#each playlists as |playlist|}}
+  <div class="card hoverable">
+    <div class="card-content grey lighten-4">
+  <div class="row center-align">
+    <h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3>
+    {{#each playlist.animes as |anime|}}
+    <div id="mainPageCards" class="col s3">
+      <div class="addPlaylistCardMain card">
+        <div class="card-image activator addPlaylistCardImgMain">
+          <div class="animeImgDiv">
+          <img class="activator addPlaylistCardImgMain" src="{{anime.anime_image}}">
+          <div class="card-title titleDiv grey lighten-4"></div>
+          <h6 class="animeTitle grey-text text-darken-4">{{anime.anime_title}}</h6>
+          </div>
+        </div>
+        <div class="card-reveal reveal">
+          <span class="card-title grey darken-4">Card Title<i class="material-icons amber-text right">close</i></span>
+          <p><a href="{{anime.watch_link}}">Watch {{anime.anime_title}}!</a></p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+</div>
+  {{/each}}
+</div>
+
+
+
+{{!-- {{#each playlists as |playlist| }}
 <div class="row">
   <div class="col-md-5">
     <h2>
@@ -14,7 +48,29 @@
 
       {{/each}}
     </p>
-    <a class="btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
+    <a class="btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span
+      id="favorites-number">{{playlist.favoritesCount}}</span>
   </div>
 </div>
-{{/each}}
+{{/each}} --}}
+
+{{!-- <div class=" col s12 m6 l2 card" id="single-anime">
+  <div class="card-image waves-effect waves-block waves-light">
+    {{!-- Anime image --}}
+    <img class="activator" id="image_height" src={{anime.anime_image}}>
+  </div>
+  <div class="col s12 m6 l2 card-content">
+    {{!-- anime title --}}
+    <h6 class="card-title activator grey-text text-darken-4 flow-text title-nowrap">{{anime.anime_title}}
+      <i class="material-icons right">more_vert</i>
+    </h6>
+    {{!-- Anime link --}}
+    <p><a href="{{anime.watch_link}}">Watch {{anime.anime_title}}!</a></p>
+  </div>
+  {{!-- Info after clicking on anime picture --}}
+  <div class="container col s12 m6 l3 card-reveal extraInfo">
+    <span class="container col card-title grey-text text-darken-4">{{anime.anime_title}}
+      <i class="material-icons right">close</i></span>
+    <p class="flow-text">{{anime.more_info}}</p>
+  </div>
+</div> --}}
