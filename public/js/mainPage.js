@@ -24,16 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Modal.init(elems);
   });
 
-const button = document.querySelector('.btn1')
+// const button = document.querySelector('.btn1')
 
-// button.addEventListener('click', () => {
-//     button.classList.to('liked')
-// })
+// // button.addEventListener('click', () => {
+// //     button.classList.to('liked')
+// // })
 
-document.addEventListener('click',(e) => {
+// document.addEventListener('click',(e) => {
 
-    if(e.target.classList.contains('btn1')){
+//     if(e.target.classList.contains('btn1')){
        
-     e.target.classList.toggle('liked');
-    }
-  })
+//      e.target.classList.toggle('liked');
+//     }
+//   })
