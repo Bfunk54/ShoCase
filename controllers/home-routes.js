@@ -21,11 +21,18 @@ router.get('/', async (req, res) => {
                                 playlist.id = playlist_id
                         )`),
                         'favoritesCount'
+                    ],
+                    [
+                        Sequelize.literal(`(
+                            SELECT COUNT(*) FROM Favorites AS checks WHERE playlist.id = playlist_id AND ${req.session.user_id} = user_id
+                        )`),
+                        'hasFavorited'
                     ]
                 ]
             }
         });
         const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+        console.log(playlists)
 
         if (req.session.user_id) {
 

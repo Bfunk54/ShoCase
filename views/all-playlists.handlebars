@@ -15,7 +15,7 @@
       {{/each}}
     </p>
   </div>
-  {{#if (checkIfLiked)}}
+  {{#if hasFavorited}}
   <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite</i></a><span
     id="favorites-number">{{playlist.favoritesCount}}</span>
     {{else}}
