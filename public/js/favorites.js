@@ -1,5 +1,15 @@
-const favoritePlaylist = async (id) =>
- await fetch(`/api/`)
+// const favoritePlaylist = async (id) => {
+//     const playlist_id = id
+//     await fetch(`/api/favorites`, {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             playlist_id
+//         }),
+//     headers: {
+//             'Content-Type': ''
+//         }
+//     })
+// }
 
 
 
@@ -18,7 +28,7 @@ const handlePlaylistFavorite = async (e) => {
 
     if (response.ok) {
         document.location.reload();
-    }else {
+    } else {
         alert('failed to favorite playlist')
     }
 };
@@ -26,4 +36,4 @@ const handlePlaylistFavorite = async (e) => {
 
 
 const favoriteBtn = document.querySelectorAll('.favorite-btn')
-editBtn.forEach((btn) => btn.addEventListener('click', handlePlaylistFavorite));
+favoriteBtn.forEach((btn) => btn.addEventListener('click', handlePlaylistFavorite));

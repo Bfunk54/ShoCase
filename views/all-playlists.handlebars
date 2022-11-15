@@ -14,7 +14,9 @@
 
       {{/each}}
     </p>
-    <a class="btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
+    <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
   </div>
 </div>
 {{/each}}
+
+<script src="/js/favorites.js"></script>

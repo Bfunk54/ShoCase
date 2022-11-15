@@ -6,7 +6,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newFavorite = await Favorites.create({
             user_id: req.session.user_id,
-            
+            playlist_id: req.body.playlist_id
         });
         res.json(newFavorite);
     } catch (err) {
