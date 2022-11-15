@@ -90,4 +90,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/about-us', (req, res) => {
+    res.render('about-us');
+});
 module.exports = router;

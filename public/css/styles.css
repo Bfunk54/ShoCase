@@ -177,6 +177,13 @@
     height: 5px !important;
 }
 
+.custom-flex-wrap {
+    flex-wrap: wrap
+}
+
+.custom-flexbox {
+    display: flex;
+}
 
 .theNav {
    opacity: 80%;
