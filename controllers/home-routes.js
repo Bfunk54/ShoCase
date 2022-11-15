@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Playlist, Comment, User, Anime } = require('../models');
+const { Playlist, Comment, User, Anime, Favorites } = require('../models');
 const withAuth = require('../utils/auth');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -10,12 +10,27 @@ router.get('/', async (req, res) => {
     try {
         // Get all posts and JOIN with user data
         const playlistData = await Playlist.findAll({
-            include: [ { model: User }, {model: Anime} ],
+            include: [{ model: User }, { model: Anime }, {model: Favorites}],
+            attributes: {
+                include: [
+                    [
+                        Sequelize.literal(`(
+                            SELECT COUNT(*)
+                            FROM Favorites AS favorites
+                            WHERE
+                                playlist.id = playlist_id
+                        )`),
+                        'favoritesCount'
+                    ]
+                ]
+            }
         });
 
+        
         // Serialize data so the template can read it
-        const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
+        const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
 
+     
         // Pass serialized data and session flag into template
         res.render('all-playlists', {
             playlists,

@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
             include: [ { model: Playlist, include: [{model:Anime}] }, {model: Favorites, include: [{model:Playlist, include: [{model:Anime}]}]} ]
           });
 
-          const user = userData.get({ plain: true });
+          const user = userData.get({plain: true});
           console.log(user.favorites)
         res.render('dashboard', {
             ...user,
