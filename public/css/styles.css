@@ -124,12 +124,16 @@
 /*-- Button Icon -- */
 .btn-icon {
     display: inline-block !important;
-    width: 8px !important;
-    height: 12px !important;
+    width: 80px !important;
+    height: 26px !important;
     position: absolute !important;
-    bottom: 16px !important;
+    bottom: -2px !important;
+    right: 80px !important;
     transition: 1s cubic-bezier(.21,.04,.26,.99) !important;
     transform: rotate(0deg) !important;
+    text-align: left !important;
+    padding: 5px !important;
+    margin: 7px !important;
 }
 .btn1:hover .btn-icon {
     color: var(--red) !important;
@@ -152,7 +156,7 @@
 .btn--icon-default,
 .liked .btn--icon-liked {
     opacity: 1 !important;
-    left: .6rem !important;
+    left: -.6rem !important;
 }
 
 /*-- Button Content -- */
