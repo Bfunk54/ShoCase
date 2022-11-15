@@ -56,6 +56,5 @@ const handleRemoveFavorite = async (e) => {
 
 const favoriteBtn = document.querySelectorAll('.favorite-btn')
 favoriteBtn.forEach((btn) => btn.addEventListener('click', handlePlaylistFavorite));
-
 const alreadyFavoritedBtn = document.querySelectorAll('.already-favorited-btn')
 alreadyFavoritedBtn.forEach((btn) => btn.addEventListener('click', handleRemoveFavorite));
