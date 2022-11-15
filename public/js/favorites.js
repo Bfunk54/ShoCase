@@ -1,15 +1,18 @@
-// const favoritePlaylist = async (id) => {
-//     const playlist_id = id
-//     await fetch(`/api/favorites`, {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             playlist_id
-//         }),
-//     headers: {
-//             'Content-Type': ''
-//         }
-//     })
-// }
+const favoritePlaylist = async (id) => {
+    playlist_id = id;
+    await fetch(`/api/favorites`, {
+        method: 'POST',
+        body: JSON.stringify({
+            playlist_id
+        }),
+    headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(document.location.reload())
+    .catch(err => console.log(err));
+}
 
 
 
@@ -22,15 +25,13 @@ const handlePlaylistFavorite = async (e) => {
 
     const playlist = e.target;
     const playlistId = playlist.parentElement.getAttribute('data-id');
+    console.log(playlistId)
 
 
     const response = await favoritePlaylist(playlistId);
 
-    if (response.ok) {
-        document.location.reload();
-    } else {
-        alert('failed to favorite playlist')
-    }
+    return response;
+
 };
 
 
