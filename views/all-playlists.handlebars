@@ -75,11 +75,19 @@
 
       {{/each}}
     </p>
-    <a class="btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span
-      id="favorites-number">{{playlist.favoritesCount}}</span>
   </div>
+  {{#if hasFavorited}}
+  <a class="already-favorited-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite</i></a><span
+    id="favorites-number">{{playlist.favoritesCount}}</span>
+    {{else}}
+  <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span
+    id="favorites-number">{{playlist.favoritesCount}}</span>
+    {{/if}}
 </div>
-{{/each}} --}}
+{{/each}}
+
+<script src="/js/favorites.js"></script>
+{{/each}}
 
 {{!-- <div class=" col s12 m6 l2 card" id="single-anime">
   <div class="card-image waves-effect waves-block waves-light">
