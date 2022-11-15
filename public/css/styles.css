@@ -3,6 +3,12 @@
     width: 120px !important;
 }
 
+.custom-circle-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
 .titleDiv {
     height: 45px !important;
     width: 120px !important;
