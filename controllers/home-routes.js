@@ -91,6 +91,8 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/about-us', (req, res) => {
-    res.render('about-us');
+    res.render('about-us', {
+        loggedIn: req.session.loggedIn
+    });
 });
 module.exports = router;
