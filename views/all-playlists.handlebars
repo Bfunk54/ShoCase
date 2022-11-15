@@ -45,7 +45,8 @@
   <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span
     id="favorites-number">{{playlist.favoritesCount}}</span>
     {{/if}} --}}
-   <button class="btn1 btn-like" data-id="{{playlist.id}}">
+    {{#if hasFavorited}}
+   <button class="btn1 btn-like liked already-favorited-btn" data-id="{{playlist.id}}">
             <span class="btn-icon btn--icon-default">
               <i class="material-icons">favorite_border</i>
             </span>
@@ -53,12 +54,28 @@
               <i class="material-icons">favorite</i>
             </span>
             <span class="btn-content  btn-content--liked">
-              Liked
+              Un-Fav
             </span>
             <span class="btn-content btn-content--default">
-              Like
+              Fav
             </span>
         </button>
+        {{else}}
+        <button class="btn1 btn-like favorite-btn" data-id="{{playlist.id}}">
+            <span class="btn-icon btn--icon-default">
+              <i class="material-icons">favorite_border</i>
+            </span>
+            <span class="btn-icon btn--icon-liked">
+              <i class="material-icons">favorite</i>
+            </span>
+            <span class="btn-content  btn-content--liked">
+              Un-Fav
+            </span>
+            <span class="btn-content btn-content--default">
+              Fav
+            </span>
+        </button>
+        {{/if}}
   <span id="favorites-number">{{playlist.favoritesCount}}</span>
 </div>
 </div>
