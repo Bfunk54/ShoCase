@@ -16,6 +16,15 @@ const favoritePlaylist = async (id) => {
         document.location.replace("/login");
       }
     })
+
+    .then(response => { 
+        if(response.user_id) {
+        response.json() 
+        } else {
+            document.location.replace('/login')
+        }
+    })
+
     .then(document.location.reload())
     .catch((err) => console.log(err));
 };

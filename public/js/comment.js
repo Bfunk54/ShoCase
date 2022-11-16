@@ -6,7 +6,7 @@ const commentFormHandler = async function (event) {
     const content = document.querySelector('#comment-body').value;
 
     if (content) {
-        await fetch('/api/comments', {
+        const response = await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({
                 content,
@@ -16,8 +16,11 @@ const commentFormHandler = async function (event) {
                 'Content-Type': 'application/json'
             }
         });
-
-        document.location.reload();
+        if (response.ok) {
+            document.location.reload();
+        } else {
+            response.json()
+        }
     }
 };
 

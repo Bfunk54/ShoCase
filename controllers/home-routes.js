@@ -61,6 +61,7 @@ router.get("/", async (req, res) => {
                             WHERE
                                 playlist.id = playlist_id
                         )`),
+
               "favoritesCount",
             ],
           ],
@@ -74,7 +75,7 @@ router.get("/", async (req, res) => {
         playlists,
         loggedIn: req.session.loggedIn,
       });
-    }
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -99,25 +100,58 @@ router.get("/playlists/search/:search", async (req, res) => {
 });
 
 // get single playlist by id
-router.get("/playlist/:id", withAuth, async (req, res) => {
-  try {
-    const playlistData = await Playlist.findByPk(req.params.id, {
-      include: [
-        { model: User },
-        { model: Anime },
-        { model: Comment, include: [{ model: User }] },
-      ],
-    });
+router.get('/playlist/:id', withAuth, async (req, res) => {
+    try {
+        // const playlistData = await Playlist.findByPk(req.params.id, {
+        //     include: [{ model: User }, { model: Anime }, { model: Comment, include: [{ model: User }] }]
+        // });
 
-    const playlist = playlistData.get({ plain: true });
+        // const playlist = playlistData.get({ plain: true });
 
-    res.render("single-playlist", {
-      ...playlist,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+        // res.render('single-playlist', {
+        //     playlist,
+        //     loggedIn: req.session.loggedIn
+        // });
+        const playlistData = await Playlist.findByPk(req.params.id, {
+            include: [{ model: User }, { model: Anime }, { model: Favorites }, { model: Comment, include: [{ model: User }] }],
+            attributes: {
+                include: [
+                    [
+                        Sequelize.literal(`(
+                                SELECT COUNT(*)
+                                FROM Favorites AS favorites
+                                WHERE
+                                    playlist.id = playlist_id
+                            )`),
+                        'favoritesCount'
+                    ],
+                    [
+                        Sequelize.literal(`(
+                                SELECT COUNT(*) FROM Favorites AS checks WHERE playlist.id = playlist_id AND ${req.session.user_id} = user_id
+                            )`),
+                        'hasFavorited'
+                    ]
+                ]
+            }
+        });
+        const playlist = playlistData.get({ plain: true });
+
+        const favoritesData = await Favorites.findAll({
+            where: {
+                user_id: req.session.user_id
+            }
+        });
+        const favorites = favoritesData.map((favorite) => favorite.get({ plain: true }));
+
+        res.render('single-playlist', {
+            favorites,
+            playlist,
+            loggedIn: req.session.loggedIn
+        });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 //get all favorites
