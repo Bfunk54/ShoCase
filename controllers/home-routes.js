@@ -44,7 +44,15 @@ router.get("/", async (req, res) => {
         favorite.get({ plain: true })
       );
 
+      const currentUser = {
+        user_id: req.session.user_id,
+        email: req.session.email,
+        avatar: req.session.avatar,
+        username: req.session.username
+      }
+
       res.render("all-playlists", {
+        currentUser,
         favorites,
         playlists,
         loggedIn: req.session.loggedIn,
@@ -75,22 +83,51 @@ router.get("/", async (req, res) => {
         playlists,
         loggedIn: req.session.loggedIn,
       });
-
+    }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // get playlists by search
-router.get("/playlists/search/:search", async (req, res) => {
+router.get("/playlists/search/:search", withAuth, async (req, res) => {
   try {
     const playlistData = await Playlist.findAll({
       where: { title: { [Op.like]: "%" + req.params.search + "%" } },
+      include: [{ model: User }, { model: Anime }, { model: Favorites }],
+        attributes: {
+          include: [
+            [
+              Sequelize.literal(`(
+                                SELECT COUNT(*)
+                                FROM Favorites AS favorites
+                                WHERE
+                                    playlist.id = playlist_id
+                            )`),
+              "favoritesCount",
+            ],
+            [
+              Sequelize.literal(`(
+                                SELECT COUNT(*) FROM Favorites AS checks WHERE playlist.id = playlist_id AND ${req.session.user_id} = user_id
+                            )`),
+              "hasFavorited",
+            ],
+          ],
+        },
     });
     const playlists = playlistData.map((playlist) =>
       playlist.get({ plain: true })
     );
+
+    const currentUser = {
+      user_id: req.session.user_id,
+      email: req.session.email,
+      avatar: req.session.avatar,
+      username: req.session.username
+    }
+
     res.render("playlist-search", {
+      currentUser,
       playlists,
       loggedIn: req.session.loggedIn,
     });

@@ -17,13 +17,14 @@
           <a href="/" class="amber-text text-darken-1 navBarTitle">ShoCase</a>
           {{#if loggedIn}}
           <div class="background">
-            <img src="images/office.jpg">
+            {{!-- WE NEED TO DECIDE ON A BACKGROUND FOR THE PROFILE --}}
+            <img src="">
           </div>
-          <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-          <a href="#name"><span class="white-text name">John Doe</span></a>
-          <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-          <button class="amber-text navBtn" id="logout">logout</button>
+          <a><img class="circle" src="/images/test_avatar_{{currentUser.avatar}}.png"></a>
+          <a><span class="white-text name">{{currentUser.username}}</span></a>
+          <a><span class="white-text email">{{currentUser.email}}</span></a>
         </div></li>
+        <li><a class="amber-text navBtn" id="logout" href="/">Logout</a></li>
        {{else}}
         <br><li><a class="amber-text navBtn" href="/login">Login/Signup</a></li>
         {{/if}}
@@ -68,6 +69,7 @@
  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/js/mainPage.js"></script>
+  <script src="/js/searchplaylists.js"></script>
    {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
