@@ -212,6 +212,8 @@ router.get('/playlist/:id', withAuth, async (req, res) => {
 //     }
 // });
 
+//get liked playlists
+
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
