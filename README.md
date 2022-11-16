@@ -102,7 +102,7 @@ For any further questions feel free to contact us via:
 
 - Mateo Wallace - [GitHub](https://github.com/Mateo-Wallace) - [Email](mailto:mateo.t.wallace@gmail.com) - [LinkedIn](https://www.linkedin.com/in/mateo-wallace-57931b254/)
 
-- Dylan Crowley - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
+- Dylan Crowley - [GitHub](https://github.com/dcrowdev) - [Email](mailto:dcrowdev1025@gmail.com) - [LinkedIn](https://www.linkedin.com/in/dylan-crowley-3974b8252/)
 
 - Benjamin Fein - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
 
