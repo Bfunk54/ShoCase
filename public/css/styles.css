@@ -81,8 +81,8 @@
   margin-right: 70px !important;
 }
 
-.reveal {
-}
+/* .reveal {
+} */
 
 .custom-margin-top {
   margin-top: 30px;
@@ -300,6 +300,18 @@
   height: fit-content !important;
 }
 
+.addPlaylistMini {
+  display: inline-block;
+  font-size: 15px;
+  margin-top: 3px !important;
+  margin-bottom: 6px !important;
+  height: fit-content !important;
+}
+
+.addPlaylistMini:hover {
+  color: #c5a3328d !important;
+}
+
 .magnifyingGlass {
   display: inline-block;
   height: auto;
@@ -461,9 +473,9 @@ align-items: center;
 }
 
 @media screen and (max-width: 645px) {
-  .mainRow {
+  /* .mainRow {
 
-  }
+  } */
 
 #mainPageCards {
   display: flex;
@@ -471,10 +483,11 @@ align-items: center;
   align-items: center;
 }
 
-.eachPlaylistCard {
-  /* display: flex;
+/* .eachPlaylistCard {
+  display: flex;
   justify-content: center;
-  align-items: center; */
-  /* height: 70% !important;
-  width: 60% !important; */
+  align-items: center; 
+  height: 70% !important;
+  width: 60% !important;
+} */
 }
