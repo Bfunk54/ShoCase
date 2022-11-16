@@ -300,10 +300,6 @@
   height: fit-content !important;
 }
 
-/* .wholeSearch {
-    display: inline-block;
-    /* margin-top: 10px; */
-
 .magnifyingGlass {
   display: inline-block;
   height: auto;
@@ -315,13 +311,14 @@
 }
 
 #createPlaylistBtn {
-  height: 56px !important;
-  width: 50px !important;
+  height: 45px !important;
+  width: 45px !important;
   top: 200px !important;
 }
 
 .createPlaylistBtn  {
-  font-size: 42px !important;
+  margin-top: 2px !important;
+  font-size: 38px !important;
 }
 
 /* .input-field {
