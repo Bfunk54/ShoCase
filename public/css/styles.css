@@ -180,17 +180,17 @@
 }
 
 #favorites-number-unlike {
-    font-size: 12px !important;
-    bottom: 14px !important;
-    position: absolute !important;
-    margin-left: 8px !important;
+  font-size: 12px !important;
+  bottom: 14px !important;
+  position: absolute !important;
+  margin-left: 8px !important;
 }
 
 #favorites-number-like {
-    font-size: 12px !important;
-    bottom: 16px !important;
-    position: absolute !important;
-    margin-left: 8px !important;
+  font-size: 12px !important;
+  bottom: 16px !important;
+  position: absolute !important;
+  margin-left: 8px !important;
 }
 
 .navBtn {
@@ -404,4 +404,34 @@ main.container {
 
 .hide {
   display: none;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+
+}
+
+.profile-avatar:hover {
+  cursor: pointer;
+}
+
+avatar-row-1 {
+align-items: center;
+}
+
+avatar-row-2 {
+align-items: center;
+
+}
+
+.custom-flexbox-avatar {
+  display: flex !important;
+  vertical-align: middle !important;
+  justify-content: space-evenly !important;
+  align-content: center !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  margin-top: 5px !important;
+  z-index: 99999 !important;
 }
