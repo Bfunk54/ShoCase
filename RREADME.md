@@ -28,9 +28,31 @@ While building this project we learned to:
 
 ## Installation
 
-ShoCase™ is a deployed website. Simply navigate to [test.herokuapp.com](#)
+ShoCase™ is a deployed web application. Most users must simply navigate to [INSERT URL HERE](#)
 
-![example deployed site](./assets/exampleDeployed.png)
+![example deployed site](./public/images/website_screencap.png)
+
+Should you wish to download the project locally you must:
+
+1. Open your terminal and clone the repo
+    ```
+    SSH:
+    git clone git@github.com:Bfunk54/ShoCase.git
+
+    HTTPS:
+    git clone https://github.com/Bfunk54/ShoCase.git
+    ```
+2. Install NPM packages
+    ```
+    npm i
+    ```
+3. Create a `.env` and input
+    ```
+    DB_NAME= 'shocase_db'
+    DB_USER= 'YOUR-USER-NAME'
+    DB_PASSWORD= 'YOUR-PASSWORD'
+    ```
+4. Run the `schema` housed within the db folder
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -43,6 +65,17 @@ If you already have an account enter your information into `login`. If it is you
 Once logged in you can select a post to either see all comments or create a comment of your own. 
 
 You may also now click on `dashboard` in the navbar to see all posts you have made and to create new posts yourself.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contributing
+
+If you have a suggestion that would make the repo better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
