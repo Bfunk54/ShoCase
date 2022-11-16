@@ -11,7 +11,7 @@ router.get('/', withAuth, async (req, res) => {
             where: {
                 user_id: req.session.user_id
             },
-            include: [{ model: User, include: [{ model: Favorites, include: [{ model: Playlist }] }] }, { model: Anime }, {model: Favorites}],
+            include: [{ model: User, include: [{ model: Favorites, include: [{ model: Playlist }] }] }, { model: Anime }, { model: Favorites }],
             attributes: {
                 include: [
                     [
@@ -28,18 +28,12 @@ router.get('/', withAuth, async (req, res) => {
                                           SELECT COUNT(*) FROM Favorites AS checks WHERE playlist.id = playlist_id AND ${req.session.user_id} = user_id
                                       )`),
                         "hasFavorited",
-                      ]
+                    ]
                 ]
             }
         });
-        console.log({...playlistData})
 
-        if (!playlistData) {
-            res.render('about-us')
-        }
-
-
-        const playlistsU = playlistData.map((playlist) => playlist.get({plain: true}));
+        const playlistsU = playlistData.map((playlist) => playlist.get({ plain: true }));
         const playlists = playlistsU.reverse()
         const user = playlists[0].user;
 
@@ -48,7 +42,7 @@ router.get('/', withAuth, async (req, res) => {
             email: req.session.email,
             avatar: req.session.avatar,
             username: req.session.username
-          }
+        }
 
         res.render('dashboard', {
             currentUser,
@@ -57,7 +51,21 @@ router.get('/', withAuth, async (req, res) => {
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
-        res.status(500).json(err);
+        try {
+            const currentUser = {
+                user_id: req.session.user_id,
+                email: req.session.email,
+                avatar: req.session.avatar,
+                username: req.session.username
+            }
+            
+            res.render('dashboard', {
+                currentUser,
+                loggedIn: req.session.loggedIn
+            })
+        } catch (err) {
+            res.status(500).json(err);
+        }
     }
 });
 
