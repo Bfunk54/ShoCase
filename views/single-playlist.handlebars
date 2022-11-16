@@ -80,9 +80,7 @@
     </div>
   </div>
 
-
-
-
+  {{!-- Comments card --}}
   <div class="card hoverable">
     <div class="card-content grey lighten-4">
       <div class="row center-align">
@@ -103,7 +101,24 @@
     </div>
   </div>
 
+  {{!-- Add a Comment Card --}}
+  <div class="card hoverable">
+    <div class="card-content grey lighten-4">
+      <div class="row center-align">
+        <h3 class="playlist-title left-align" id="">Add A Comment</h3>
 
+        <div class="col-md-7">
+          <form class="left-align">
+            <input type="text" id="comment-body" class="w-100 custom-input-height">
+            <button class="btn amber darken-1 custom-margin-top" id="new-comment-form">Submit</button>
+            <p id="post-id" class="hide">{{playlist.id}}</p>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 
 
 
@@ -113,14 +128,15 @@
 
 
 </div>
+
+
 <script src="/js/favorites.js"></script>
-
-<script src="/js/favorites.js"></script>
-
+<script src="/js/comment.js"></script>
 
 
 
-<div class="row mb-4 project mt-5">
+
+{{!-- <div class="row mb-4 project mt-5">
   <div class="col-md-5">
     <h2>Add A Comment</h2>
   </div>
@@ -131,6 +147,4 @@
       <p id="post-id" class="hide">{{id}}</p>
     </form>
   </div>
-</div>
-
-<script src="/js/comment.js"></script>
+</div> --}}
