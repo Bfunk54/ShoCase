@@ -1,6 +1,6 @@
 <p id="readme-top"></p>
 
-[![License Shield](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](./LICENSE) [![LinkedIn Shield](https://img.shields.io/badge/LinkedIn-555555?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mateo-wallace/)
+[![License Shield](https://img.shields.io/github/license/Bfunk54/ShoCase.svg?style=for-the-badge)](./LICENSE) [![Contributors](https://img.shields.io/github/contributors/Bfunk54/ShoCase.svg?style=for-the-badge)](https://github.com/Bfunk54/ShoCase/graphs/contributors) [![Issues](https://img.shields.io/github/issues/Bfunk54/ShoCase.svg?style=for-the-badge)](https://github.com/Bfunk54/ShoCase/issues) [![KanBan Shield](https://img.shields.io/badge/Kanban_Board-555555?style=for-the-badge)](https://github.com/users/Bfunk54/projects/1/views/1)
 
 # ShoCase
 
