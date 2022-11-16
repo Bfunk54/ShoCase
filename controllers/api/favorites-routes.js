@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
     try {
-
+      
        const found = await Favorites.findOne({
             where: {
                 user_id: req.session.user_id,

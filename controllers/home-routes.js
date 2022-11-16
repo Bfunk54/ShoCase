@@ -66,10 +66,8 @@ router.get('/', async (req, res) => {
                 }
             })
             const playlists = playlistData.map((playlist) => playlist.get({ plain: true }));
-            console.log(playlists)
 
-
-            res.render('all-playlists', {
+             res.render('all-playlists', {
                 playlists,
                 loggedIn: req.session.loggedIn
             });
