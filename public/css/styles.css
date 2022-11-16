@@ -239,6 +239,21 @@
   float: right;
 }
 
+.homeContainer {
+  margin-right: 15px;
+  text-align: center;
+  /* margin-top: 5px; */
+  float: right;
+}
+
+#homeIcon {
+  /* height: 35px !important; */
+  margin-bottom: 0px !important;
+  margin-top: 10px !important;
+  font-size: 45px !important;
+  text-align: center;
+}
+
 .sidenav-trigger {
   display: inline-block !important;
   width: fit-content;
