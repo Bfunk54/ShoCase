@@ -1,4 +1,8 @@
-<div class="row">
+      <div class="modal custom-flexbox-avatar" id="avatar-container">
+<div class="avatar-row-1"></div>
+<div class="avatar-row-2"></div>
+      </div>
+      <div class="row">
   <div class="col-md-6">
     <h2>Login</h2>
 
@@ -32,6 +36,12 @@
         <label for="password-signup">password:</label>
         <input class="form-input" type="password" id="password-signup" />
       </div>
+      <button
+        class="modal-trigger"
+        href="#avatar-container"
+        id="choose-avatar"
+      >Choose Avatar</button>
+
       <div class="form-group">
         <button class="btn amber darken-1" type="submit">signup</button>
       </div>
@@ -40,3 +50,4 @@
 </div>
 
 <script src="./js/login.js"></script>
+<script src="./js/editProfile.js"></script>
