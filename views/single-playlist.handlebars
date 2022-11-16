@@ -2,18 +2,20 @@
   <h4>Single Playlist</h4>
 
   {{!-- Single Playlist Card --}}
-  <div class="card hoverable">
+  <div class="eachPlaylistCard card hoverable">
     <div class="card-content grey lighten-4">
-      <div class="row center-align">
+      <div class="mainRow row center-align">
         <a href="/playlist/{{playlist.id}}">
           <h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3>
         </a>
+        <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
+        <h6 class="playlist-author" id="{{playlist.id}}">Date Created: {{format_date playlist.date_created}}</h6>
         {{#each playlist.animes as |anime|}}
-        <div id="mainPageCards" class="col s3">
+        <div id="mainPageCards" class="mainPageCards col s12 m3 l3">
           <div class="addPlaylistCardMain card">
             <div class="card-image activator addPlaylistCardImgMain">
               <div class="animeImgDiv">
-                <img class="activator addPlaylistCardImgMain" src="{{anime.anime_image}}">
+                <img class="activator addPlaylistCardImgMain" src="{{anime.anime_image}}" />
                 <div class="card-title titleDiv grey lighten-4"></div>
                 <h6 class="animeTitle grey-text text-darken-4">{{anime.anime_title}}</h6>
               </div>
@@ -29,7 +31,9 @@
         <div id="{{anime.anime_title}}" class="modal">
           <div class="modal-content">
             <h4>{{anime.anime_title}}</h4>
-            <a class="animeWatchLink" href="{{anime.watch_link}}">Click Here to watch {{anime.anime_title}}!</a>
+            <a class="animeWatchLink" href="{{anime.watch_link}}">Click Here
+              to watch
+              {{anime.anime_title}}!</a>
             <p>{{anime.more_info}}</p>
 
           </div>
@@ -39,47 +43,43 @@
         </div>
         {{/each}}
       </div>
-      {{!-- {{#if hasFavorited}}
-      <a class="already-favorited-btn btn-floating" data-id="{{playlist.id}}"><i
-          class="material-icons">favorite</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
-      {{else}}
-      <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i
-          class="material-icons">favorite_border</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
-      {{/if}} --}}
       {{#if playlist.hasFavorited}}
-      <button class="btn1 btn-like liked already-favorited-btn" data-id="{{playlist.id}}">
+      <button class="btn1 btn-like liked" data-id="{{playlist.id}}">
         <span class="btn-icon btn--icon-default">
           <i class="material-icons">favorite_border</i>
+          <span class="btn-content btn-content--liked">
+            Unlike
+          </span>
         </span>
-        <span class="btn-icon btn--icon-liked">
+
+        <span class="btn-icon btn--icon-liked already-favorited-btn">
+          <span id="favorites-number-like" class="black-text">{{playlist.favoritesCount}}</span>
           <i class="material-icons">favorite</i>
-        </span>
-        <span class="btn-content  btn-content--liked">
-          Un-Fav
-        </span>
-        <span class="btn-content btn-content--default">
-          Fav
+          <span class="btn-content btn-content--default">
+            Unlike
+          </span>
         </span>
       </button>
       {{else}}
-      <button class="btn1 btn-like favorite-btn" data-id="{{playlist.id}}">
-        <span class="btn-icon btn--icon-default">
+      <button class="btn1 btn-like" data-id="{{playlist.id}}">
+        <span class="btn-icon btn--icon-default favorite-btn">
           <i class="material-icons">favorite_border</i>
+          <span class="btn-content btn-content--liked">
+            Like
+            {{playlist.favoritesCount}}
+          </span>
         </span>
         <span class="btn-icon btn--icon-liked">
           <i class="material-icons">favorite</i>
-        </span>
-        <span class="btn-content  btn-content--liked">
-          Un-Fav
-        </span>
-        <span class="btn-content btn-content--default">
-          Fav
+          <span class="btn-content btn-content--default">
+            Like
+          </span>
         </span>
       </button>
       {{/if}}
-      <span id="favorites-number">{{playlist.favoritesCount}}</span>
     </div>
   </div>
+
 
   {{!-- Comments card --}}
   <div class="card hoverable">
@@ -107,7 +107,6 @@
     <div class="card-content grey lighten-4">
       <div class="row center-align">
         <h3 class="playlist-title left-align" id="">Add A Comment</h3>
-
         <div class="col-md-7">
           <form class="left-align">
             <input type="text" id="comment-body" class="w-100 custom-input-height">
@@ -115,8 +114,6 @@
             <p id="post-id" class="hide">{{playlist.id}}</p>
           </form>
         </div>
-
-
       </div>
     </div>
   </div>
