@@ -417,6 +417,13 @@ main.container {
   font-size: 40px;
 }
 
+#delete-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .hide {
   display: none;
 }

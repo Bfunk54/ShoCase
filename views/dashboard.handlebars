@@ -20,7 +20,6 @@
     <div class="container col s12 m8 l9">
         <h4 class="center-align">My Playlists</h4>
 
-
         {{#each playlists as |playlist|}}
         <div class="card hoverable">
             <div class="card-content grey lighten-4">
@@ -110,15 +109,20 @@
                                 class="small material-icons">edit</i></a>
                         <a class="save-btn btn-floating hide small-margin" data-id="{{playlist.id}}"><i
                                 class="small material-icons">save</i></a>
-                        <a class="btn-floating red delete-btn small-margin" data-id="{{playlist.id}}"><i
+                        <a class="btn-floating red modal-trigger small-margin" href="#modal-container" data-id="{{playlist.id}}"><i
                                 class="small material-icons">remove</i></a>
+
+                        <div class="modal" id="modal-container">
+                            <div class="modal-content" id="delete-modal">
+                            <h3>Please click to confirm you want to delete your playlist:</h3><br><br><h2>{{playlist.title}}</h2>
+                            <button class="btn-large red delete-btn small-margin" data-id="{{playlist.id}}">DELETE</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         {{/each}}
-
-
     </div>
 </div>
 

@@ -32,6 +32,12 @@ router.get('/', withAuth, async (req, res) => {
                 ]
             }
         });
+        console.log({...playlistData})
+
+        if (!playlistData) {
+            res.render('about-us')
+        }
+
 
         const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
         const user = playlists[0].user;
