@@ -31,9 +31,12 @@ router.get("/", async (req, res) => {
           ],
         },
       });
-      const playlists = playlistData.map((playlist) =>
+      const playlistsU = playlistData.map((playlist) =>
         playlist.get({ plain: true })
       );
+
+      const playlists = playlistsU.reverse()
+
       const favoritesData = await Favorites.findAll({
         where: {
           user_id: req.session.user_id,
@@ -75,9 +78,11 @@ router.get("/", async (req, res) => {
           ],
         },
       });
-      const playlists = playlistData.map((playlist) =>
+      const playlistsU = playlistData.map((playlist) =>
         playlist.get({ plain: true })
       );
+
+      const playlists = playlistsU.reverse()
 
       res.render("all-playlists", {
         playlists,
@@ -115,9 +120,11 @@ router.get("/playlists/search/:search", withAuth, async (req, res) => {
           ],
         },
     });
-    const playlists = playlistData.map((playlist) =>
+    const playlistsU = playlistData.map((playlist) =>
       playlist.get({ plain: true })
     );
+
+    const playlists = playlistsU.reverse()
 
     const currentUser = {
       user_id: req.session.user_id,

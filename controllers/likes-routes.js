@@ -36,8 +36,8 @@ router.get('/', withAuth, async (req, res) => {
             }
         });
 
-        const playlists = playlistData.map((playlist) => playlist.get({plain: true}));  
-        
+        const playlistsU = playlistData.map((playlist) => playlist.get({plain: true}));  
+        const playlists = playlistsU.reverse()
         const currentUser = {
             user_id: req.session.user_id,
             email: req.session.email,

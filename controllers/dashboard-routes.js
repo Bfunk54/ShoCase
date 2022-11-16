@@ -27,7 +27,8 @@ router.get('/', withAuth, async (req, res) => {
             }
         });
 
-        const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
+        const playlistsU = playlistData.map((playlist) => playlist.get({plain: true}));
+        const playlists = playlistsU.reverse()
         const user = playlists[0].user;
 
         const currentUser = {
