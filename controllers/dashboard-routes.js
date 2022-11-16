@@ -30,7 +30,15 @@ router.get('/', withAuth, async (req, res) => {
         const playlists = playlistData.map((playlist) => playlist.get({plain: true}));
         const user = playlists[0].user;
 
+        const currentUser = {
+            user_id: req.session.user_id,
+            email: req.session.email,
+            avatar: req.session.avatar,
+            username: req.session.username
+          }
+
         res.render('dashboard', {
+            currentUser,
             playlists,
             user,
             loggedIn: req.session.loggedIn
@@ -39,33 +47,5 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-// get single post
-// router.get('/post/:id', withAuth, async (req, res) => {
-//     try {
-//         const commentData = await Comment.findAll({
-//             where: {
-//                 post_id: req.params.id 
-//             },
-//             include: [ { model: User }, { model: Post }]
-//         });
-
-//         const postData = await Post.findByPk(req.params.id, {
-//             include: [ { model: User } ],
-//         });
-
-//         const post = postData.get({ plain: true });
-
-//         const comments = commentData.map((comment) => comment.get({ plain: true }));
-
-//         res.render('single-post', {
-//             ...post,
-//             comments,
-//             loggedIn: req.session.loggedIn
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
 module.exports = router;

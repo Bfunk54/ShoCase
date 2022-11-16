@@ -139,16 +139,6 @@ router.get("/playlists/search/:search", withAuth, async (req, res) => {
 // get single playlist by id
 router.get('/playlist/:id', withAuth, async (req, res) => {
     try {
-        // const playlistData = await Playlist.findByPk(req.params.id, {
-        //     include: [{ model: User }, { model: Anime }, { model: Comment, include: [{ model: User }] }]
-        // });
-
-        // const playlist = playlistData.get({ plain: true });
-
-        // res.render('single-playlist', {
-        //     playlist,
-        //     loggedIn: req.session.loggedIn
-        // });
         const playlistData = await Playlist.findByPk(req.params.id, {
             include: [{ model: User }, { model: Anime }, { model: Favorites }, { model: Comment, include: [{ model: User }] }],
             attributes: {
@@ -180,7 +170,15 @@ router.get('/playlist/:id', withAuth, async (req, res) => {
         });
         const favorites = favoritesData.map((favorite) => favorite.get({ plain: true }));
 
+        const currentUser = {
+          user_id: req.session.user_id,
+          email: req.session.email,
+          avatar: req.session.avatar,
+          username: req.session.username
+        }
+
         res.render('single-playlist', {
+            currentUser,
             favorites,
             playlist,
             loggedIn: req.session.loggedIn
@@ -191,29 +189,6 @@ router.get('/playlist/:id', withAuth, async (req, res) => {
     }
 });
 
-//get all favorites
-// router.get('/', async (req, res) => {
-//     try {
-//         // Get all posts and JOIN with user data
-//         const favoritesData = await Favorites.findAll({
-//             include: [{ model: User }, { model: Anime }, { model: Favorites }],
-//         });
-
-//         // Serialize data so the template can read it
-//         const favorites = favoritesData.map((playlist) => playlist.get({ plain: true }));
-
-//         // Pass serialized data and session flag into template
-//         res.render('all-playlists', {
-//             playlists,
-//             loggedIn: req.session.loggedIn
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-//get liked playlists
-
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -223,19 +198,31 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/create-playlists", withAuth, (req, res) => {
-  res.render("create-playlists");
-});
 
-router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
+  const currentUser = {
+    user_id: req.session.user_id,
+    email: req.session.email,
+    avatar: req.session.avatar,
+    username: req.session.username
   }
-  res.render("signup");
+
+  res.render("create-playlists", {
+    currentUser,
+    loggedIn: req.session.loggedIn
+  });
 });
 
 router.get("/about-us", (req, res) => {
+
+  const currentUser = {
+    user_id: req.session.user_id,
+    email: req.session.email,
+    avatar: req.session.avatar,
+    username: req.session.username
+  }
+
   res.render("about-us", {
+    currentUser,
     loggedIn: req.session.loggedIn,
   });
 });
