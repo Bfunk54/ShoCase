@@ -9,22 +9,7 @@ const favoritePlaylist = async (id) => {
       "Content-Type": "application/json",
     },
   })
-    .then((response) => {
-      if (response.user_id) {
-        response.json();
-      } else {
-        document.location.replace("/login");
-      }
-    })
-
-    .then(response => { 
-        if(response.user_id) {
-        response.json() 
-        } else {
-            document.location.replace('/login')
-        }
-    })
-
+    .then((response) => response.json())
     .then(document.location.reload())
     .catch((err) => console.log(err));
 };

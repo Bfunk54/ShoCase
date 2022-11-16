@@ -22,7 +22,7 @@ const handlePlaylistEdit = async (e) => {
   const originalTitleEl = document.getElementById(playlistId);
   const newInput = document.createElement(`input`);
   const originalTitle = document.getElementById(playlistId).textContent;
-  const saveBtn = playlist.parentElement.parentElement.nextElementSibling;
+  const saveBtn = playlist.parentElement.nextElementSibling;
 
   saveBtn.classList.remove("hide");
   newInput.setAttribute("id", "newTitle");
