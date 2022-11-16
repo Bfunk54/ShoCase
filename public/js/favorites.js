@@ -20,6 +20,7 @@ const favoritePlaylist = async (id) => {
     .then(response => { 
         if(response.user_id) {
         response.json() 
+        console.log(document.location);
         } else {
             document.location.replace('/login')
         }
@@ -60,6 +61,8 @@ const handleRemoveFavorite = async (e) => {
 
   return response;
 };
+
+console.log(document.cookie);
 
 const favoriteBtn = document.querySelectorAll(".favorite-btn");
 favoriteBtn.forEach((btn) =>

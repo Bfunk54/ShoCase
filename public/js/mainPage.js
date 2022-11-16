@@ -28,6 +28,35 @@ document.addEventListener("DOMContentLoaded", function () {
   var instances = M.Modal.init(elems);
 });
 
+
+
+function cardsOnResize() {
+   
+        if (window.innerWidth <= 645) {
+          var mainCards = document.querySelectorAll(".mainPageCards");
+          mainCards.forEach((btn) => {
+          console.log(window.innerWidth);
+          btn.classList.add("row");
+          btn.classList.remove("col");
+          });
+        } else { 
+          var mainCards = document.querySelectorAll(".mainPageCards");
+          mainCards.forEach((btn) => {
+          btn.classList.remove("row");
+        btn.classList.add("col");
+        });
+      }
+    };
+  
+
+  window.addEventListener('resize', function() {
+    console.log('addEventListener - resize');
+    cardsOnResize();
+}, true);
+
+
+  
+
 // const button = document.querySelector('.btn1')
 
 // button.addEventListener('click', () => {
