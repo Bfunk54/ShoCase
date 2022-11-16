@@ -28,6 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
   var instances = M.Modal.init(elems);
 });
 
+var mainCards = document.querySelectorAll(".mainPageCards");
+
+window.onresize = function () {
+  if (window.innerWidth <= 645) {
+    mainCards.classList.add("row");
+    mainCards.classList.remove("col");
+  } else {
+  }
+};
+
 // const button = document.querySelector('.btn1')
 
 // button.addEventListener('click', () => {
