@@ -6,10 +6,9 @@
     <div class="eachPlaylistCard card hoverable">
       <div class="card-content grey lighten-4">
         <div class="mainRow row center-align">
-          <a href="/playlist/{{playlist.id}}"><h3
-              class="playlist-title"
-              id="{{playlist.id}}"
-            >{{playlist.title}}</h3></a>
+          <a href="/playlist/{{playlist.id}}"><h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3></a>
+          <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
+          <h6 class="playlist-author" id="{{playlist.id}}">Date Created: {{format_date playlist.date_created}}</h6>
           {{#each playlist.animes as |anime|}}
             <div id="mainPageCards" class="mainPageCards col s12 m3 l3">
               <div class="addPlaylistCardMain card">
@@ -63,6 +62,9 @@
                 Unlike
               </span>
             </span>
+             {{!-- {{#unless loggedIn}}
+            <a class="modal-trigger" href="#needToSignIn">
+              {{/unless}} --}}
             <span class="btn-icon btn--icon-liked already-favorited-btn">
               <span
                 id="favorites-number-like"
@@ -74,17 +76,26 @@
               </span>
 
             </span>
+             {{!-- {{#unless loggedIn}}
+            </a>
+            {{/unless}} --}}
 
           </button>
         {{else}}
           <button class="btn1 btn-like" data-id="{{playlist.id}}">
-            <span class="btn-icon btn--icon-default favorite-btn">
+            {{!-- {{#if loggedIn}}
+            <a class="modal-trigger" href="#needToSignIn">
+              {{/if}} --}}
+              <span class="btn-icon btn--icon-default favorite-btn">
               <i class="material-icons">favorite_border</i>
               <span class="btn-content btn-content--liked">
                 Like
                 {{playlist.favoritesCount}}
               </span>
             </span>
+              {{!-- {{#unless loggedIn}}
+            </a>
+            {{/unless}} --}}
             <span class="btn-icon btn--icon-liked">
               <i class="material-icons">favorite</i>
               <span class="btn-content btn-content--default">
@@ -98,3 +109,20 @@
   {{/each}}
 </div>
 <script src="/js/favorites.js"></script>
+
+{{!-- <div id="needToSignIn" class="modal">
+              <div class="modal-content">
+                <h4>{{anime.anime_title}}</h4>
+                <a class="animeWatchLink" href="{{anime.watch_link}}">Click Here
+                  to watch
+                  {{anime.anime_title}}!</a>
+                <p>{{anime.more_info}}</p>
+
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                >Close</a>
+              </div>
+            </div> --}}

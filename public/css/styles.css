@@ -315,7 +315,13 @@
 }
 
 #createPlaylistBtn {
+  height: 56px !important;
+  width: 50px !important;
   top: 200px !important;
+}
+
+.createPlaylistBtn  {
+  font-size: 42px !important;
 }
 
 /* .input-field {
@@ -420,6 +426,10 @@ main.container {
 }
 
 .eachPlaylistCard {
-  
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* height: 70% !important;
+  width: 60% !important; */
 }
-  
+}
