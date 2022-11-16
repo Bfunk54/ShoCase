@@ -193,10 +193,6 @@
     margin-left: 8px !important;
 }
 
-#mainPageCards {
-  margin: 5px !important;
-}
-
 .navBtn {
   font-size: 16px !important;
   padding-top: 3px;
@@ -410,7 +406,20 @@ main.container {
   display: none;
 }
 
-@media screen and (max-width: 645px) {
 
+
+@media screen and (max-width: 645px) {
+  .mainRow {
+
+  }
+
+#mainPageCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eachPlaylistCard {
+  
 }
   

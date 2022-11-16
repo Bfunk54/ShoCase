@@ -3,15 +3,15 @@
   <h4>All Playlists</h4>
 
   {{#each playlists as |playlist|}}
-    <div class="card hoverable">
+    <div class="eachPlaylistCard card hoverable">
       <div class="card-content grey lighten-4">
-        <div class="row center-align">
+        <div class="mainRow row center-align">
           <a href="/playlist/{{playlist.id}}"><h3
               class="playlist-title"
               id="{{playlist.id}}"
             >{{playlist.title}}</h3></a>
           {{#each playlist.animes as |anime|}}
-            <div id="mainPageCards" class="mainPageCards col s3">
+            <div id="mainPageCards" class="mainPageCards col s12 m3 l3">
               <div class="addPlaylistCardMain card">
                 <div class="card-image activator addPlaylistCardImgMain">
                   <div class="animeImgDiv">

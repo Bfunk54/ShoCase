@@ -28,15 +28,34 @@ document.addEventListener("DOMContentLoaded", function () {
   var instances = M.Modal.init(elems);
 });
 
-var mainCards = document.querySelectorAll(".mainPageCards");
 
-window.onresize = function () {
-  if (window.innerWidth <= 645) {
-    mainCards.classList.add("row");
-    mainCards.classList.remove("col");
-  } else {
-  }
-};
+
+function cardsOnResize() {
+   
+        if (window.innerWidth <= 645) {
+          var mainCards = document.querySelectorAll(".mainPageCards");
+          mainCards.forEach((btn) => {
+          console.log(window.innerWidth);
+          btn.classList.add("row");
+          btn.classList.remove("col");
+          });
+        } else { 
+          var mainCards = document.querySelectorAll(".mainPageCards");
+          mainCards.forEach((btn) => {
+          btn.classList.remove("row");
+        btn.classList.add("col");
+        });
+      }
+    };
+  
+
+  window.addEventListener('resize', function() {
+    console.log('addEventListener - resize');
+    cardsOnResize();
+}, true);
+
+
+  
 
 // const button = document.querySelector('.btn1')
 
