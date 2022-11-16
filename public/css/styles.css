@@ -401,8 +401,30 @@ main.container {
   min-width: 200px;
 }
 
+#db-all-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#db-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.small-margin {
+  margin-left: 10px;
+}
+
 #playlist-title {
   font-size: 40px;
+}
+
+#delete-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hide {

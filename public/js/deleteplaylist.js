@@ -1,7 +1,10 @@
 const deletePlaylist = async (id) =>
   await fetch(`/api/playlists/${id}`, {
     method: 'DELETE'
-  });
+  })
+  .then(response => response.json())
+  .then(document.location.reload())
+  .catch(err => console.log(err))
 
 
 
@@ -10,15 +13,12 @@ const handlePlaylistDelete = async (e) => {
     e.stopPropagation();
   
     const playlist = e.target;
-    const playlistId = playlist.parentElement.getAttribute('data-id');
+    const playlistId = playlist.getAttribute('data-id');
+    console.log(playlistId)
 
     const response = await deletePlaylist(playlistId);
 
-    if (response.ok) {
-      document.location.reload();
-    } else {
-      alert('failed to delete playlist')
-    }
+    return response;
   };
 
 

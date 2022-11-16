@@ -36,9 +36,9 @@ router.delete('/:id', withAuth, async (req, res) => {
         },
       });
       if (!data) {
-        res.status(404).json({ message: 'No category found with that ID' })
+        res.status(404).json({ message: 'No favorite found with that ID' })
       }
-      res.status(200).json({ data, message: `Successfully deleted product with id ${req.params.id}` })
+      res.status(200).json({ data, message: `Successfully deleted favorite with id ${req.params.id}` })
     } catch (err) {
       res.status(500).json(err)
     }
