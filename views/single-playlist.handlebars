@@ -79,6 +79,39 @@
       <span id="favorites-number">{{playlist.favoritesCount}}</span>
     </div>
   </div>
+
+
+
+
+  <div class="card hoverable">
+    <div class="card-content grey lighten-4">
+      <div class="row center-align">
+        <h3 class="playlist-title left-align" id="">Comments</h3>
+        {{#each playlist.comments as |comment| }}
+        <div class="row mb-4 project left-align">
+          <div class="col-md-5">
+            <p class="blue-text">{{comment.user.username}} on {{format_date comment.date_created}}</p>
+          </div>
+          <div class="col-md-7">
+            <p>
+              {{comment.content}}
+            </p>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
 </div>
 <script src="/js/favorites.js"></script>
 
@@ -86,22 +119,6 @@
 
 
 
-
-
-
-{{!-- Loop over each object in the comments array --}}
-{{#each playlist.comments as |comment| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <p>Comment by {{comment.user.username}} on {{format_date comment.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{comment.content}}
-    </p>
-  </div>
-</div>
-{{/each}}
 
 <div class="row mb-4 project mt-5">
   <div class="col-md-5">
