@@ -386,18 +386,8 @@ main.container {
 /*          ID selectors          */
 /* ****************************** */
 
-#full-height {
-    min-height: 100vh !important;
-}
-
 #left-container {
-    min-height: 100vh !important
-}
-    
-#delete-toolbar {
-    position: relative;
-    align-content: end;
-    z-index: 5;
+    min-height: 100vh !important;
 }
     
 #anime {
@@ -448,6 +438,22 @@ main.container {
     height: 50px;
 }
 
+#edit-button {
+    display: block !important;
+    z-index: 9999 !important;
+}
+
+#full-height {
+    display: flex;
+    min-width: 100%;
+    margin: 5px !important;
+}
+
+#profile-avatar {
+    width: 50px;
+    height: 50px;
+}
+
 /* ****************************** */
 /* Formatting for media inquiries */
 /* ****************************** */
@@ -459,17 +465,10 @@ main.container {
 
 /* iPads and Tablets */
 @media screen and (max-width: 993px) {
-    
-    width: 100% !important;
-    margin-top: 5px !important;
-    margin-right: 5px !important;
-    margin-left: 5px !important;
+
 }
 
 /* Mobile devices */
 @media screen and (max-width: 601px) {
-    width: 100% !important;
-    margin-top: 5px !important;
-    margin-right: 5px !important;
-    margin-left: 5px !important;
+    
 }
