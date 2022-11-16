@@ -180,17 +180,17 @@
 }
 
 #favorites-number-unlike {
-    font-size: 12px !important;
-    bottom: 14px !important;
-    position: absolute !important;
-    margin-left: 8px !important;
+  font-size: 12px !important;
+  bottom: 14px !important;
+  position: absolute !important;
+  margin-left: 8px !important;
 }
 
 #favorites-number-like {
-    font-size: 12px !important;
-    bottom: 16px !important;
-    position: absolute !important;
-    margin-left: 8px !important;
+  font-size: 12px !important;
+  bottom: 16px !important;
+  position: absolute !important;
+  margin-left: 8px !important;
 }
 
 .navBtn {
@@ -300,10 +300,6 @@
   height: fit-content !important;
 }
 
-/* .wholeSearch {
-    display: inline-block;
-    /* margin-top: 10px; */
-
 .magnifyingGlass {
   display: inline-block;
   height: auto;
@@ -315,7 +311,14 @@
 }
 
 #createPlaylistBtn {
+  height: 45px !important;
+  width: 45px !important;
   top: 200px !important;
+}
+
+.createPlaylistBtn  {
+  margin-top: 2px !important;
+  font-size: 38px !important;
 }
 
 /* .input-field {
@@ -426,4 +429,52 @@ main.container {
 
 .hide {
   display: none;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+
+}
+
+.profile-avatar:hover {
+  cursor: pointer;
+}
+
+avatar-row-1 {
+align-items: center;
+}
+
+avatar-row-2 {
+align-items: center;
+}
+
+.custom-flexbox-avatar {
+  display: flex !important;
+  vertical-align: middle !important;
+  justify-content: space-evenly !important;
+  align-content: center !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  margin-top: 5px !important;
+  z-index: 99999 !important;
+}
+
+@media screen and (max-width: 645px) {
+  .mainRow {
+
+  }
+
+#mainPageCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eachPlaylistCard {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* height: 70% !important;
+  width: 60% !important; */
 }
