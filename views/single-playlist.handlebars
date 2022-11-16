@@ -1,45 +1,127 @@
-<div class="row">
-  <div class="col-md-5">
-    <h2>
-      <a href="/playlist/{{id}}">{{title}}</a>
-    </h2>
-    <p>Created by {{user.username}} on {{format_date date_created}}</p>
+<div class="container">
+  <h4>Single Playlist</h4>
+
+  {{!-- Single Playlist Card --}}
+  <div class="card hoverable">
+    <div class="card-content grey lighten-4">
+      <div class="row center-align">
+        <a href="/playlist/{{playlist.id}}">
+          <h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3>
+        </a>
+        {{#each playlist.animes as |anime|}}
+        <div id="mainPageCards" class="col s3">
+          <div class="addPlaylistCardMain card">
+            <div class="card-image activator addPlaylistCardImgMain">
+              <div class="animeImgDiv">
+                <img class="activator addPlaylistCardImgMain" src="{{anime.anime_image}}">
+                <div class="card-title titleDiv grey lighten-4"></div>
+                <h6 class="animeTitle grey-text text-darken-4">{{anime.anime_title}}</h6>
+              </div>
+            </div>
+            <div class="animeCardReveal card-reveal reveal">
+              <span class="card-title"><i class="material-icons amber-text right">close</i></span>
+              <a class="moreInfo btn amber waves-effect waves-light modal-trigger" href="#{{anime.anime_title}}">More
+                Info</a>
+
+            </div>
+          </div>
+        </div>
+        <div id="{{anime.anime_title}}" class="modal">
+          <div class="modal-content">
+            <h4>{{anime.anime_title}}</h4>
+            <a class="animeWatchLink" href="{{anime.watch_link}}">Click Here to watch {{anime.anime_title}}!</a>
+            <p>{{anime.more_info}}</p>
+
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{!-- {{#if hasFavorited}}
+      <a class="already-favorited-btn btn-floating" data-id="{{playlist.id}}"><i
+          class="material-icons">favorite</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
+      {{else}}
+      <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i
+          class="material-icons">favorite_border</i></a><span id="favorites-number">{{playlist.favoritesCount}}</span>
+      {{/if}} --}}
+      {{#if playlist.hasFavorited}}
+      <button class="btn1 btn-like liked already-favorited-btn" data-id="{{playlist.id}}">
+        <span class="btn-icon btn--icon-default">
+          <i class="material-icons">favorite_border</i>
+        </span>
+        <span class="btn-icon btn--icon-liked">
+          <i class="material-icons">favorite</i>
+        </span>
+        <span class="btn-content  btn-content--liked">
+          Un-Fav
+        </span>
+        <span class="btn-content btn-content--default">
+          Fav
+        </span>
+      </button>
+      {{else}}
+      <button class="btn1 btn-like favorite-btn" data-id="{{playlist.id}}">
+        <span class="btn-icon btn--icon-default">
+          <i class="material-icons">favorite_border</i>
+        </span>
+        <span class="btn-icon btn--icon-liked">
+          <i class="material-icons">favorite</i>
+        </span>
+        <span class="btn-content  btn-content--liked">
+          Un-Fav
+        </span>
+        <span class="btn-content btn-content--default">
+          Fav
+        </span>
+      </button>
+      {{/if}}
+      <span id="favorites-number">{{playlist.favoritesCount}}</span>
+    </div>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{#each animes as |anime|}}
-      {{anime.anime_title}}
 
-      {{/each}}
-    </p>
+  {{!-- Comments card --}}
+  <div class="card hoverable">
+    <div class="card-content grey lighten-4">
+      <div class="row center-align">
+        <h3 class="playlist-title left-align" id="">Comments</h3>
+        {{#each playlist.comments as |comment| }}
+        <div class="row mb-4 project left-align">
+          <div class="col-md-5">
+            <p class="blue-text">{{comment.user.username}} on {{format_date comment.date_created}}</p>
+          </div>
+          <div class="col-md-7">
+            <p>
+              {{comment.content}}
+            </p>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
   </div>
-</div>
 
-{{!-- Loop over each object in the comments array --}}
-{{#each comments as |comment| }}
-<div class="row mb-4 project">
-    <div class="col-md-5">
-        <p>Comment by {{comment.user.username}} on {{format_date comment.date_created}}</p>
-    </div>
-    <div class="col-md-7">
-        <p>
-            {{comment.content}}
-        </p>
-    </div>
-</div>
-{{/each}}
+  {{!-- Add a Comment Card --}}
+  <div class="card hoverable mb-4">
+    <div class="card-content grey lighten-4">
+      <div class="row center-align">
+        <h3 class="playlist-title left-align" id="">Add A Comment</h3>
 
-<div class="row mb-4 project mt-5">
-    <div class="col-md-5">
-        <h2>Add A Comment</h2>
-    </div>
-    <div class="col-md-7">
-        <form>
+        <div class="col-md-7">
+          <form class="left-align">
             <input type="text" id="comment-body" class="w-100 custom-input-height">
-            <button id="new-comment-form" class="mt-2 mb-2">Submit</button>
-            <p id="post-id" class="hide">{{id}}</p>
-        </form>
+            <button class="btn amber darken-1 custom-margin-top" id="new-comment-form">Submit</button>
+            <p id="post-id" class="hide">{{playlist.id}}</p>
+          </form>
+        </div>
+
+
+      </div>
     </div>
+  </div>
+
 </div>
 
+<script src="/js/favorites.js"></script>
 <script src="/js/comment.js"></script>
