@@ -17,11 +17,12 @@
           <a href="/" class="amber-text text-darken-1 navBarTitle">ShoCase</a>
           {{#if loggedIn}}
           <div class="background">
+            {{!-- WE NEED TO DECIDE ON A BACKGROUND FOR THE PROFILE --}}
             <img src="">
           </div>
-          <a href="#user"><img class="circle" src="/images/test_avatar_{{currentUser.avatar}}.png"></a>
-          <a href="#name"><span class="white-text name">{{currentUser.username}}</span></a>
-          <a href="#email"><span class="white-text email">{{currentUser.email}}</span></a>
+          <a><img class="circle" src="/images/test_avatar_{{currentUser.avatar}}.png"></a>
+          <a><span class="white-text name">{{currentUser.username}}</span></a>
+          <a><span class="white-text email">{{currentUser.email}}</span></a>
         </div></li>
         <li><a class="amber-text navBtn" id="logout" href="/">Logout</a></li>
        {{else}}
