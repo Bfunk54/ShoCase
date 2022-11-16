@@ -8,6 +8,9 @@ const Op = Sequelize.Op;
 router.get('/', withAuth, async (req, res) => {
     try {
         const playlistData = await Playlist.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
             include: [{ model: User, include: [{ model: Favorites, include: [{ model: Playlist }] }] }, { model: Anime }, {model: Favorites}],
             attributes: {
                 include: [

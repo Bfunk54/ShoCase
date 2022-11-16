@@ -45,45 +45,49 @@
   <a class="favorite-btn btn-floating" data-id="{{playlist.id}}"><i class="material-icons">favorite_border</i></a><span
     id="favorites-number">{{playlist.favoritesCount}}</span>
     {{/if}} --}}
-    {{#if hasFavorited}}
-   <button class="btn1 btn-like liked already-favorited-btn" data-id="{{playlist.id}}">
+    {{#if playlist.hasFavorited}}
+   <button class="btn1 btn-like liked" data-id="{{playlist.id}}">
             <span class="btn-icon btn--icon-default">
               <i class="material-icons">favorite_border</i>
+              <span class="btn-content  btn-content--liked">
+              Unlike
             </span>
-            <span class="btn-icon btn--icon-liked">
+            </span>
+            <span class="btn-icon btn--icon-liked already-favorited-btn">
+              <span id="favorites-number-like" class="black-text">{{playlist.favoritesCount}}</span>
               <i class="material-icons">favorite</i>
+              <span class="btn-content btn-content--default">
+              Unlike
             </span>
-            <span class="btn-content  btn-content--liked">
-              Un-Fav
+            
             </span>
-            <span class="btn-content btn-content--default">
-              Fav
-            </span>
+          
+            
         </button>
+        {{!-- <button class="already-favorited-btn"><i class="material-icons">favorite</i></button> --}}
         {{else}}
-        <button class="btn1 btn-like favorite-btn" data-id="{{playlist.id}}">
-            <span class="btn-icon btn--icon-default">
+        <button class="btn1 btn-like" data-id="{{playlist.id}}">
+            <span class="btn-icon btn--icon-default favorite-btn">
               <i class="material-icons">favorite_border</i>
+              <span class="btn-content btn-content--liked">
+              Like {{playlist.favoritesCount}}
+            </span>
             </span>
             <span class="btn-icon btn--icon-liked">
               <i class="material-icons">favorite</i>
+              <span class="btn-content btn-content--default">
+              Like
             </span>
-            <span class="btn-content  btn-content--liked">
-              Un-Fav
-            </span>
-            <span class="btn-content btn-content--default">
-              Fav
             </span>
         </button>
+        {{!-- <button class="favorite-btn"><i class="material-icons">favorite_border</i></button> --}}
         {{/if}}
-  <span id="favorites-number">{{playlist.favoritesCount}}</span>
 </div>
 </div>
   {{/each}}
 </div>
 <script src="/js/favorites.js"></script>
 
-<script src="/js/favorites.js"></script>
 
 
 
