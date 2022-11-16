@@ -44,7 +44,15 @@ router.get("/", async (req, res) => {
         favorite.get({ plain: true })
       );
 
+      const currentUser = {
+        user_id: req.session.user_id,
+        email: req.session.email,
+        avatar: req.session.avatar,
+        username: req.session.username
+      }
+
       res.render("all-playlists", {
+        currentUser,
         favorites,
         playlists,
         loggedIn: req.session.loggedIn,
