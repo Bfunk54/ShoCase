@@ -78,6 +78,14 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+      res.render("all-playlists", {
+        playlists,
+        loggedIn: req.session.loggedIn,
+      });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // get playlists by search

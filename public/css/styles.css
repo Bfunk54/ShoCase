@@ -382,3 +382,8 @@ main.container {
 .hide {
     display: none;
 }
+
+.avatar-sizing {
+    width: 222px;
+    height: 223px;
+}
