@@ -1,139 +1,131 @@
+<p id="readme-top"></p>
+
+[![License Shield](https://img.shields.io/github/license/Bfunk54/ShoCase.svg?style=for-the-badge)](./LICENSE) [![Contributors](https://img.shields.io/github/contributors/Bfunk54/ShoCase.svg?style=for-the-badge)](https://github.com/Bfunk54/ShoCase/graphs/contributors) [![Issues](https://img.shields.io/github/issues/Bfunk54/ShoCase.svg?style=for-the-badge)](https://github.com/Bfunk54/ShoCase/issues) [![KanBan Shield](https://img.shields.io/badge/Kanban_Board-555555?style=for-the-badge)](https://github.com/users/Bfunk54/projects/1/views/1)
+
 # ShoCase
 
-# 16 Project 2: Interactive Full-Stack Application
+## Description
 
-Projects play a key role in your journey to becoming a full-stack web developer. As you enter the last phase of the boot camp, you’ll begin to apply for development jobs. If you want to land interviews, your portfolio must feature high-quality deployed examples of your work—-and you can use your finished projects for that very purpose.
+ShoCase™ is a full stack web application that serves as a social media platform for sharing anime reccomendations through a playlist format. The user is able to make playlists of 4 animes, comment on other users playlists, and save playlists within their liked page. 
 
-As your first opportunity to show employers your collaborative skills and coding abilities, this particular project will be a focal point of your portfolio. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
+The project utilizes an Express backend, RESTFUL api, mySQL database, and a third party API.
 
-## Project Requirements
+While building this project we learned to:
+- Make various calls to a database model and serve them to the front end
+- Utilize handlebars to display multiple unique pages for our app
+- Create Models, associate them too each other, and seed those Models with data
+- Organize third party API responses into a request body in order to store that information in our database
 
-You and your group will use everything you’ve learned over the past six modules to create a real-world full-stack application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+### Built With
 
-- Use Node.js and Express.js to create a RESTful API.
+[![Express Shield](https://img.shields.io/badge/Express-000000?&style=for-the-badge&logo=express&logoColor=white)](http://expressjs.com/) [![Sequelize Shield](https://img.shields.io/badge/Sequelize-52B0E7?&style=for-the-badge&logo=sequelize&logoColor=white)](https://sequelize.org/) [![mySQL Shield](https://img.shields.io/badge/mySQL-4479A1?&style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) [![Heroku Shield](https://img.shields.io/badge/Heroku-430098?&style=for-the-badge&logo=heroku&logoColor=white)](https://www.heroku.com/what) [![Handlebars Shield](https://img.shields.io/badge/Handlebars-E34F26?&style=for-the-badge&logo=handlebars.js&logoColor=white)](https://handlebarsjs.com/) [![Materialize Shield](https://img.shields.io/badge/Materialize_CSS-eb7374?&style=for-the-badge&logo=matomo&logoColor=white)](https://materializecss.com/) [![Node.js Shield](https://img.shields.io/badge/Node.js-339933?&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/) [![JavaScript Shield](https://img.shields.io/badge/JavaScript-F7DF1E?&style=for-the-badge&logo=javascript&logoColor=272727)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![HTML Shield](https://img.shields.io/badge/HTML5-E34F26?&style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5) [![CSS Shield](https://img.shields.io/badge/CSS-1572B6?&style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-- Use Handlebars.js as the template engine.
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact & Contributors](#contact-and-contributors)
+- [Acknowledgments](#acknowledgments)
 
-- Use MySQL and the Sequelize ORM for the database.
+## Installation
 
-- Have both GET and POST routes for retrieving and adding new data.
+ShoCase™ is a deployed web application. Most users must simply navigate to [INSERT URL HERE](#)
 
-- Use at least one new library, package, or technology that we haven’t discussed.
+![example deployed site](./public/images/website_screencap.png)
 
-- Have a folder structure that meets the MVC paradigm.
+Should you wish to download the project locally you must:
 
-- Include authentication (express-session and cookies).
+1. Open your terminal and clone the repo
+    ```
+    SSH:
+    git clone git@github.com:Bfunk54/ShoCase.git
 
-- Protect API keys and sensitive information with environment variables.
+    HTTPS:
+    git clone https://github.com/Bfunk54/ShoCase.git
+    ```
+2. Install NPM packages
+    ```
+    npm i
+    ```
+3. Create a `.env` and input
+    ```
+    DB_NAME= 'shocase_db'
+    DB_USER= 'YOUR-USER-NAME'
+    DB_PASSWORD= 'YOUR-PASSWORD'
+    ```
+4. Run the `schema` housed within the db folder
 
-- Be deployed using Heroku (with data).
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Have a polished UI.
+## Usage
 
-- Be responsive.
+When navigating to the homepage you will be greeted with all playlists other users have made. Before being able to interact you must first either `Login` or `Signup`. In order to do this click on the hamburger icon within the Nav Bar. You will be redirected to the login page.
 
-- Be interactive (i.e., accept and respond to user input).
+![example login page](./public/images/website_login.png)
 
-- Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+Once logged in you can finally interact with our page! To list a few functions of our webstie, you can:
 
-- Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
+- Search for a specific playlist using the `search bar` at the top of the screen
+- Create a new playlist using the `+` button at the top of the screen
+- Like a playlist by clicking the `Like Button` and unlike by clicking the `Unlike Button`
+- Select a playlist by clicking on its title to be brought to a `Comments` page where you can view other comments and create comments of your own
+- View all of your created playlists by opening the navbar and selecting `Profile`
+- View all playlists you have liked by opening the navbar and selecting `Likes`
+- `Update` and `Delete` your playlists once you are on your Profile
 
-## Presentation Requirements
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following:
+## Contributing
 
-- Elevator pitch: a one minute description of your application
+If you have a suggestion that would make the repo better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
-- Concept: What is your user story? What was your motivation for development?
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
-- Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Demo: Show your stuff!
+## License
 
-- Directions for Future Development
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
-- Links to the deployed application and the GitHub repository. Use the [Guide to Deploy with Heroku and MySQL](https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql) on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Grading Requirements
+## Contact And Contributors
 
-> **Note**: If a project submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> - A repository that has no code
->
-> - A repository that includes a unique name but nothing else
->
-> - A repository that includes only a README file but nothing else
->
-> - A repository that only includes starter code
+For any further questions feel free to contact us via:
 
-This project is graded based on the following criteria:
+- Project Link: [github.com/Bfunk54/ShoCase](https://github.com/Bfunk54/ShoCase)
 
-### Technical Acceptance Criteria: 25%
+- Mateo Wallace - [GitHub](https://github.com/Mateo-Wallace) - [Email](mailto:mateo.t.wallace@gmail.com) - [LinkedIn](https://www.linkedin.com/in/mateo-wallace-57931b254/)
 
-- Satisfies the following code requirements:
+- Dylan Crowley - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
 
-  - Application uses a Node.js and Express.js back end and uses both GET and POST routes for retrieving and adding new data.
+- Benjamin Fein - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
 
-  - Application has a folder structure that meets the MVC paradigm and uses Handlebars.js as the template engine.
+- Mary Elenius - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
 
-  - Application is backed by a MySQL database with a Sequelize ORM and protects API keys and sensitive information with environment variables.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-  - Application includes user authentication (express-session and cookies).
+## Acknowledgments
 
-  - Application uses at least one new library, package, or technology not covered in class.
+Special thanks to these resources. You have proven invaluable to creating this project:
 
-### Concept 10%
+- [Jikan API](https://jikan.moe/)
 
-- Application should be a unique and novel idea.
+- [MyAnimeList](https://myanimelist.net/)
 
-- Your group should clearly and concisely articulate your project idea.
+- [THE ARTIST FOR OUR AVATARS](#)
 
-### Deployment: 20%
+**Fair Use**
 
-- Application deployed at live URL on Heroku and loads with no errors.
+_Copyright Disclaimer under section 107 of the Copyright Act of 1976 allows fair use of copyrighted material for purposes such as "teaching... or research._
 
-- Application GitHub URL submitted.
+_Fair use allows limited use of copyrighted material without requiring permission from the rights holders. It provides for the legal, non-licensed citation or incorporation of copyrighted material in another author's work under a four-factor balancing test. To find out more information about the Fair Use Act, please click [here](https://www.copyright.gov/title17/92chap1.html#107)._
 
-### Repository Quality: 10%
+_For information on each resource used on this project, please click the resource name below._
 
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for class/id-naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-- Application user experience is intuitive and easy to navigate.
-
-- Application user interface style is clean and polished.
-
-- Application is responsive.
-
-### Presentation 10%
-
-- Your group should present using a slide deck.
-
-- Every group member should speak during the presentation.
-
-- Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-- There are no major disparities in the number of GitHub contributions between group members.
-
-## How to Submit Your Interactive Full-Stack Project
-
-**Each member of your group** is required to submit the following for review:
-
-- The URL of the deployed application.
-
-- The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
