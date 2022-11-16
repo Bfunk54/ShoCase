@@ -110,7 +110,16 @@ router.get("/playlists/search/:search", withAuth, async (req, res) => {
     const playlists = playlistData.map((playlist) =>
       playlist.get({ plain: true })
     );
+
+    const currentUser = {
+      user_id: req.session.user_id,
+      email: req.session.email,
+      avatar: req.session.avatar,
+      username: req.session.username
+    }
+
     res.render("playlist-search", {
+      currentUser,
       playlists,
       loggedIn: req.session.loggedIn,
     });
