@@ -18,6 +18,8 @@ const handlePlaylistEdit = async (e) => {
   e.stopPropagation();
 
   const playlist = e.target;
+  const playlistName = document.querySelector(".titleLink");
+  playlistName.href = "#";
   const playlistId = playlist.parentElement.getAttribute("data-id");
   const originalTitleEl = document.getElementById(playlistId);
   const newInput = document.createElement(`input`);
