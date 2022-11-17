@@ -8,6 +8,12 @@ body {
   background-image: url("/images/amber_light.png");
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1030;
+}
+
 .addPlaylistCardImg {
   height: 150px !important;
   width: 120px !important;
