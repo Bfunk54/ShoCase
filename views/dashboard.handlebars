@@ -26,7 +26,7 @@
 
 
     {{!-- Right side of page with playlists --}}
-    <div class="container col s12 m8 l9">
+    <div class="wholePage container">
         <h4 class="center-align">My Playlists</h4>
 
         {{!-- Displays Alert When User Has No Playlists --}}
@@ -45,16 +45,20 @@
         </div>
         {{/unless}}
 
-        {{#each playlists as |playlist|}}
-        <div class="card hoverable">
-            <div class="card-content grey lighten-4">
-                <div class="row center-align">
-                    <h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3>
-                    <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
+       <div class="container wholePageDashboard">
+
+  {{#each playlists as |playlist|}}
+    <div class="eachPlaylistCard eachPlaylistCardDashboard card hoverable">
+      <div class="card-content grey lighten-4">
+        <div class="mainRow row center-align">
+          <a href="/playlist/{{playlist.id}}"><h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3></a>
+          <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
           <h6 class="playlist-author" id="{{playlist.id}}">Date Created: {{format_date playlist.date_created}}</h6>
-                    {{#each playlist.animes as |anime|}}
-                    <div id="mainPageCards" class="mainPageCards col s12 m3 l3">
-              <div class="addPlaylistCardMain card">
+  <div class="animeCardsDiv animeCardsDivDashboard">
+          {{#each playlist.animes as |anime|}}
+          
+            <div id="dashboardPageCards" class="mainPageCards dashboardCards col">
+              <div class="addPlaylistCardMain dashboardPageCards card">
                 <div class="card-image activator addPlaylistCardImgMain">
                   <div class="animeImgDiv">
                     <img
@@ -95,8 +99,9 @@
                 >Close</a>
               </div>
             </div>
-                    {{/each}}
-                </div>
+          {{/each}}
+          </div>
+        </div>
                 {{!-- {{#if hasFavorited}}
                 <a class="already-favorited-btn btn-floating" data-id="{{playlist.id}}"><i
                         class="material-icons">favorite</i></a><span

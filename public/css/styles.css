@@ -503,6 +503,7 @@ align-items: center;
 }
 
 .wholePage {
+  width: 90% !important;
   display: flex !important;
   align-items: center !important;
   align-content: space-evenly !important;
@@ -510,8 +511,30 @@ align-items: center;
 }
 
 .eachPlaylistCard {
-  width: 90% !important;
+    width: 90% !important;
 }
+.dashboardCards {
+}
+
+ {
+
+}
+
+@media screen and (max-width: 1025px) {
+  .animeCardsDivDashboard {
+    flex-direction: column !important;
+  }
+    
+    .wholePageDashboard {
+      display: flex !important;
+      align-items: center !important;
+      align-content: space-evenly !important;
+      flex-direction: column !important;
+    }
+    #dashboardPageCards {
+      display: flex;
+      justify-content: center;
+    }
 
 @media screen and (max-width: 725px) {
   /* .mainRow {
@@ -525,10 +548,6 @@ align-items: center;
     display: flex !important;
     align-items: center !important;
     align-content: space-evenly !important;
-    flex-direction: column !important;
-  }
-
-  .animeCardsDiv {
     flex-direction: column !important;
   }
   
