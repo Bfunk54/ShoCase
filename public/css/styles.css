@@ -408,7 +408,7 @@ nav {
 
 .theNav {
   opacity: 87%;
-  height: 75px !important;
+  height: 75px;
 }
 
 .navBarTitle {
