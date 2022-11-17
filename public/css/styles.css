@@ -519,6 +519,25 @@ align-items: center;
  {
 
 }
+.wholePageDashboard {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+.trueWholePageDash {
+  width: 70% !important;
+}
+
+.wholeDashboard {
+  display: flex !important;
+  /* align-items: center !important; */
+  align-content: space-evenly !important;
+}
+
+#profile-info {
+  margin-top: 7px !important;
+}
 
 @media screen and (max-width: 1025px) {
   .animeCardsDivDashboard {
@@ -539,6 +558,17 @@ align-items: center;
 @media screen and (max-width: 725px) {
   /* .mainRow {
   } */
+.wholeDashboard {
+  flex-direction: column !important;
+}
+
+#profile-info {
+  width: 95% !important;
+}
+
+.trueWholePageDash {
+  width: 100% !important;
+}
 
 .animeCardsDiv {
   flex-direction: column !important;
