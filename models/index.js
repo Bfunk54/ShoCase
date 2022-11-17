@@ -3,7 +3,7 @@ const Playlist = require('./Playlist');
 const Comment = require('./Comment');
 const Anime = require('./Anime');
 const Favorites = require('./Favorites');
-const AnimePlaylist = require('./Animeplaylist');
+const AnimePlaylist = require('./AnimePlaylist');
 
 User.hasMany(Playlist, {
     foreignKey: 'user_id',
