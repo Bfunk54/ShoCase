@@ -1,83 +1,115 @@
 <!-- Loop over each object in the projects array -->
-<div class="container">
+<div class="container wholePage">
   <h4>My Liked Playlists</h4>
 
 
   {{#each playlists as |playlist|}}
-  <div class="eachPlaylistCard card hoverable">
-    <div class="card-content grey lighten-4">
-      <div class="mainRow row center-align">
-        <a href="/playlist/{{playlist.id}}">
-          <h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3>
-        </a>
-        <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
-        <h6 class="playlist-author" id="{{playlist.id}}">Date Created: {{format_date playlist.date_created}}</h6>
-        {{#each playlist.animes as |anime|}}
-        <div id="mainPageCards" class="mainPageCards col s12 m3 l3">
-          <div class="addPlaylistCardMain card">
-            <div class="card-image activator addPlaylistCardImgMain">
-              <div class="animeImgDiv">
-                <img class="activator addPlaylistCardImgMain" src="{{anime.anime_image}}" />
-                <div class="card-title titleDiv grey lighten-4"></div>
-                <h6 class="animeTitle grey-text text-darken-4">{{anime.anime_title}}</h6>
+    <div class="eachPlaylistCard card hoverable">
+      <div class="card-content grey lighten-4">
+        <div class="mainRow row center-align">
+          <a href="/playlist/{{playlist.id}}"><h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3></a>
+          <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
+          <h6 class="playlist-author" id="{{playlist.id}}">Date Created: {{format_date playlist.date_created}}</h6>
+  <div class="animeCardsDiv">
+          {{#each playlist.animes as |anime|}}
+          
+            <div id="mainPageCards" class="mainPageCards col">
+              <div class="addPlaylistCardMain card">
+                <div class="card-image activator addPlaylistCardImgMain">
+                  <div class="animeImgDiv">
+                    <img
+                      class="activator addPlaylistCardImgMain"
+                      src="{{anime.anime_image}}"
+                    />
+                    <div class="card-title titleDiv grey lighten-4"></div>
+                    <h6
+                      class="animeTitle grey-text text-darken-4"
+                    >{{anime.anime_title}}</h6>
+                  </div>
+                </div>
+                <div class="animeCardReveal card-reveal reveal">
+                  <span class="card-title"><i
+                      class="material-icons amber-text right"
+                    >close</i></span>
+                  <a
+                    class="moreInfo btn amber waves-effect waves-light modal-trigger"
+                    href="#{{anime.anime_title}}"
+                  >More Info</a>
+
+                </div>
               </div>
             </div>
-            <div class="animeCardReveal card-reveal reveal">
-              <span class="card-title"><i class="material-icons amber-text right">close</i></span>
-              <a class="moreInfo btn amber waves-effect waves-light modal-trigger" href="#{{anime.anime_title}}">More
-                Info</a>
+            <div id="{{anime.anime_title}}" class="modal">
+              <div class="modal-content">
+                <h4>{{anime.anime_title}}</h4>
+                <a class="animeWatchLink" href="{{anime.watch_link}}">Click Here
+                  to watch
+                  {{anime.anime_title}}!</a>
+                <p>{{anime.more_info}}</p>
+
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                >Close</a>
+              </div>
             </div>
+          {{/each}}
           </div>
         </div>
-        <div id="{{anime.anime_title}}" class="modal">
-          <div class="modal-content">
-            <h4>{{anime.anime_title}}</h4>
-            <a class="animeWatchLink" href="{{anime.watch_link}}">Click Here
-              to watch
-              {{anime.anime_title}}!</a>
-            <p>{{anime.more_info}}</p>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-          </div>
-        </div>
-        {{/each}}
+        {{#if playlist.hasFavorited}}
+          <button class="btn1 btn-like liked" data-id="{{playlist.id}}">
+            <span class="btn-icon btn--icon-default">
+              <i class="material-icons">favorite_border</i>
+              <span class="btn-content btn-content--liked">
+                Unlike
+              </span>
+            </span>
+             {{!-- {{#unless loggedIn}}
+            <a class="modal-trigger" href="#needToSignIn">
+              {{/unless}} --}}
+            <span class="btn-icon btn--icon-liked already-favorited-btn">
+              <span
+                id="favorites-number-like"
+                class="black-text"
+              >{{playlist.favoritesCount}}</span>
+              <i class="material-icons">favorite</i>
+              <span class="btn-content btn-content--default">
+                Unlike
+              </span>
+
+            </span>
+             {{!-- {{#unless loggedIn}}
+            </a>
+            {{/unless}} --}}
+
+          </button>
+        {{else}}
+          <button class="btn1 btn-like" data-id="{{playlist.id}}">
+            {{!-- {{#if loggedIn}}
+            <a class="modal-trigger" href="#needToSignIn">
+              {{/if}} --}}
+              <span class="btn-icon btn--icon-default favorite-btn">
+              <i class="material-icons">favorite_border</i>
+              <span class="btn-content btn-content--liked">
+                Like
+                {{playlist.favoritesCount}}
+              </span>
+            </span>
+              {{!-- {{#unless loggedIn}}
+            </a>
+            {{/unless}} --}}
+            <span class="btn-icon btn--icon-liked">
+              <i class="material-icons">favorite</i>
+              <span class="btn-content btn-content--default">
+                Like
+              </span>
+            </span>
+          </button>
+        {{/if}}
       </div>
-      {{#if playlist.hasFavorited}}
-      <button class="btn1 btn-like liked" data-id="{{playlist.id}}">
-        <span class="btn-icon btn--icon-default">
-          <i class="material-icons">favorite_border</i>
-          <span class="btn-content btn-content--liked">
-            Unlike
-          </span>
-        </span>
-        <span class="btn-icon btn--icon-liked already-favorited-btn">
-          <span id="favorites-number-like" class="black-text">{{playlist.favoritesCount}}</span>
-          <i class="material-icons">favorite</i>
-          <span class="btn-content btn-content--default">
-            Unlike
-          </span>
-        </span>
-      </button>
-      {{else}}
-      <button class="btn1 btn-like" data-id="{{playlist.id}}">
-        <span class="btn-icon btn--icon-default favorite-btn">
-          <i class="material-icons">favorite_border</i>
-          <span class="btn-content btn-content--liked">
-            Like
-            {{playlist.favoritesCount}}
-          </span>
-        </span>
-        <span class="btn-icon btn--icon-liked">
-          <i class="material-icons">favorite</i>
-          <span class="btn-content btn-content--default">
-            Like
-          </span>
-        </span>
-      </button>
-      {{/if}}
     </div>
-  </div>
   {{/each}}
 </div>
 <script src="/js/favorites.js"></script>
