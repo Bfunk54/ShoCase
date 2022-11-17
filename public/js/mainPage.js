@@ -61,6 +61,14 @@ function cardsOnResize() {
 }, true);
 
 
+
+
+
+
+// searchBtn = document.getElementById('search-btn');
+// searchBtn.addEventListener('click', )
+
+
   
 
 // const button = document.querySelector('.btn1')

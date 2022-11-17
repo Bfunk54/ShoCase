@@ -520,3 +520,14 @@ align-items: center;
   width: 60% !important;
 } */
 }
+
+@media screen and (max-width: 520px) {
+  .search-submit-class {
+    display: none !important;
+  }
+  .magnifyingGlass{
+    font-size: 32px;
+    margin-left: 5px;
+    margin-top: 15px !important;
+  }
+}
