@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function cardsOnResize() {
    
-        if (window.innerWidth <= 645) {
+        if (window.innerWidth <= 725) {
           var mainCards = document.querySelectorAll(".mainPageCards");
           mainCards.forEach((btn) => {
           console.log(window.innerWidth);

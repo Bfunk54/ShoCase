@@ -482,10 +482,29 @@ align-items: center;
   align-content: space-evenly !important;
 }
 
-@media screen and (max-width: 645px) {
+#mainPageCards {
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+}
+
+.eachPlaylistCard {
+  width: 90% !important;
+}
+
+.wholePage {
+  display: flex !important;
+  align-items: center !important;
+  align-content: space-evenly !important;
+  flex-direction: column !important;
+}
+@media screen and (max-width: 725px) {
   /* .mainRow {
 
   } */
+
+.animeCardsDiv {
+  flex-direction: column !important;
+}
 
 #mainPageCards {
   display: flex;
