@@ -3,6 +3,22 @@
   --white: #fff;
   --black: #000;
 }
+/* * {
+  color: #fe743d;
+} */
+body {
+  background-image: url("/images/amber_light.png") !important;
+}
+
+.form-input {
+  border-bottom: 1px solid #fe743d !important;
+}  
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1030;
+}
 
 .addPlaylistCardImg {
   height: 150px !important;
@@ -256,11 +272,25 @@
   text-align: center;
 }
 
+.loginContainer {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.moveLoginDown {
+  height: 75px !important;
+}
+
 .sidenav-trigger {
   display: inline-block !important;
   width: fit-content;
   height: auto !important;
   line-height: normal !important;
+  margin-right: 16px !important;;
+}
+
+.loginDiv {
+  color:#ccc;
 }
 
 .modal_trigger {
@@ -278,7 +308,8 @@
 .menuBar {
   display: inline-block;
   font-size: 40px;
-  margin: 0 8px !important;
+  margin: 0 8px;
+  margin-left: 0px !important;
   padding-top: 15px;
   display: inline-block !important;
   width: fit-content;
@@ -297,8 +328,8 @@
 .addPlaylist {
   display: inline-block;
   font-size: 40px;
-  margin-top: 3px !important;
-  margin-bottom: 6px !important;
+  margin-left: 0px !important;
+  margin-top: 1px !important;
   height: fit-content !important;
 }
 
@@ -345,7 +376,6 @@
 } 
 
 .wholeCreate {
-  width: auto !important;
   display: flex !important;
   justify-content: center !important;
 }
@@ -396,14 +426,48 @@
 }
 
 .theNav {
-  opacity: 80%;
-  height: 75px !important;
+  opacity: 87%;
+  height: 75px;
+}
+
+#slide-out {
+  z-index: 1040 !important;
 }
 
 .navBarTitle {
   font-family: "Yatra One", sans-serif;
   font-size: 48px;
 }
+
+.signup-form-input {
+  background-color: #000000b1 !important;
+  border-radius: 4px !important;
+}
+
+.login-form-input {
+  background-color: #00000063 !important;
+  border-radius: 4px !important;
+}
+
+.signup-form-input:focus {
+  border-bottom: 1px solid #fe743d !important;
+}
+
+.loginBtns {
+  margin-top: 4px !important;
+  border: double 2.5px #000 !important;
+}
+
+.signupText {
+  background-color: #0000009d;
+  font-size: 14px !important;
+  border-radius: 4px;
+}
+
+.loginText {
+  font-size: 14px !important;
+}
+
 .user-view {
   margin-top: 20px;
 }
@@ -638,7 +702,7 @@ align-items: center;
   .magnifyingGlass{
     font-size: 32px;
     margin-left: 5px;
-    margin-top: 15px !important;
+    margin-top: 21px !important;
   }
 }
 }
