@@ -350,18 +350,15 @@
 }
 
 .animeDiv {
-  width: 80% !important;
-  /* display: flex !important;
-  justify-content: center !important;
-  text-align: center !important;
-  align-items: center !important;
-  align-content: space-evenly !important; */
+  width: 110% !important;
+  margin-right: 20px;
 }
 
-#anime1Input {
-  display: inline-block;
-  margin-left: 45px !important;
+.animeDivInput {
+  width: 110% !important;
 }
+
+
 
 .animeInput {
   display: flex !important;
