@@ -106,7 +106,7 @@ function addDivs(data) {
         <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i
     ]}" class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
-        <span class="card-title black-text">${data[i].anime_title}</span>
+        <span class="animeNameText card-title black-text">${data[i].anime_title}</span>
   </div>
 </div>  `;
     // Append the divs to the page
