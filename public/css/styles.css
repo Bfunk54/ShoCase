@@ -440,6 +440,25 @@ nav {
   font-size: 48px;
 }
 
+.signup-form-input {
+  background-color: #000000b1 !important;
+  border-radius: 4px !important;
+}
+
+.login-form-input {
+  background-color: #00000063 !important;
+  border-radius: 4px !important;
+}
+
+.signup-form-input:focus {
+  border-bottom: 1px solid #fe743d !important;
+}
+
+.loginBtns {
+  margin-top: 4px !important;
+  border: double 2.5px #000 !important;
+}
+
 .signupText {
   background-color: #0000009d;
   font-size: 14px !important;
