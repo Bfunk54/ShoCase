@@ -3,10 +3,16 @@
   --white: #fff;
   --black: #000;
 }
-
+/* * {
+  color: #fe743d;
+} */
 body {
-  background-image: url("/images/amber_light.png");
+  background-image: url("/images/amber_light.png") !important;
 }
+
+.form-input {
+  border-bottom: 1px solid #fe743d !important;
+}  
 
 nav {
   position: fixed;
@@ -429,12 +435,21 @@ nav {
   z-index: 1040 !important;
 }
 
-.sidenav-trigger
-
 .navBarTitle {
   font-family: "Yatra One", sans-serif;
   font-size: 48px;
 }
+
+.signupText {
+  background-color: #0000009d;
+  font-size: 14px !important;
+  border-radius: 4px;
+}
+
+.loginText {
+  font-size: 14px !important;
+}
+
 .user-view {
   margin-top: 20px;
 }
