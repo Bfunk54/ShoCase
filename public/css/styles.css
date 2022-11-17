@@ -8,7 +8,7 @@
   color: #fe743d;
 } */
 body {
-  background-image: url("/images/amber_light.png") !important;
+  background-image: url("/images/amber_background.jpeg") !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -18,6 +18,13 @@ body {
 .form-input {
   border-bottom: 1px solid #fe743d !important;
 }
+
+.headings {
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
 
 nav {
   position: fixed;
