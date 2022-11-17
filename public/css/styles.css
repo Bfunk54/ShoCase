@@ -69,12 +69,14 @@
   height: 150px !important;
   width: 120px !important;
 }
+
 .addAnimeCard {
-  margin: 0, 5px, 20px, 5px !important;
+  margin-right: 5px !important;
+  margin-left: 5px !important;
 }
 
-#test2 {
-  height: fit-content !important;
+.addAnimeCard {
+  margin: 0, 5px, 20px, 5px !important;
 }
 
 .addAnimeBtn {
@@ -333,6 +335,39 @@
   font-size: 38px !important;
 }
 
+.createPlaylistCard {
+  display: inline-block !important;
+  width: 80% !important;
+  text-align: center !important;
+  /* justify-content: center;
+  align-items: center; */
+} 
+
+.animeDivLast {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.animeDiv {
+  width: 80% !important;
+  /* display: flex !important;
+  justify-content: center !important;
+  text-align: center !important;
+  align-items: center !important;
+  align-content: space-evenly !important; */
+}
+
+#anime1Input {
+  display: inline-block;
+  margin-left: 45px !important;
+}
+
+.animeInput {
+  display: flex !important;
+  justify-content: center !important;
+  /* margin-left: 50px !important; */
+}
 /* .input-field {
     margin-left: 25px !important;
     margin-top: 5px !important;
@@ -513,12 +548,7 @@ align-items: center;
 .eachPlaylistCard {
     width: 90% !important;
 }
-.dashboardCards {
-}
 
- {
-
-}
 .wholePageDashboard {
   display: flex !important;
   align-items: center !important;
