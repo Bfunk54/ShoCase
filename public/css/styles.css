@@ -288,7 +288,8 @@ nav {
 .menuBar {
   display: inline-block;
   font-size: 40px;
-  margin: 0 8px !important;
+  margin: 0 8px;
+  margin-left: 0px !important;
   padding-top: 15px;
   display: inline-block !important;
   width: fit-content;
@@ -307,8 +308,8 @@ nav {
 .addPlaylist {
   display: inline-block;
   font-size: 40px;
-  margin-top: 3px !important;
-  margin-bottom: 6px !important;
+  margin-left: 0px !important;
+  margin-top: 1px !important;
   height: fit-content !important;
 }
 
@@ -406,7 +407,7 @@ nav {
 }
 
 .theNav {
-  opacity: 80%;
+  opacity: 87%;
   height: 75px !important;
 }
 
