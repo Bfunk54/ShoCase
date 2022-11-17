@@ -266,11 +266,25 @@ nav {
   text-align: center;
 }
 
+.loginContainer {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.moveLoginDown {
+  height: 75px !important;
+}
+
 .sidenav-trigger {
   display: inline-block !important;
   width: fit-content;
   height: auto !important;
   line-height: normal !important;
+  margin-right: 16px !important;;
+}
+
+.loginDiv {
+  color:#ccc;
 }
 
 .modal_trigger {
@@ -414,6 +428,8 @@ nav {
 #slide-out {
   z-index: 1040 !important;
 }
+
+.sidenav-trigger
 
 .navBarTitle {
   font-family: "Yatra One", sans-serif;
