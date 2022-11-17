@@ -503,6 +503,7 @@ align-items: center;
 }
 
 .wholePage {
+  width: 90% !important;
   display: flex !important;
   align-items: center !important;
   align-content: space-evenly !important;
@@ -510,12 +511,64 @@ align-items: center;
 }
 
 .eachPlaylistCard {
-  width: 90% !important;
+    width: 90% !important;
 }
+.dashboardCards {
+}
+
+ {
+
+}
+.wholePageDashboard {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+.trueWholePageDash {
+  width: 70% !important;
+}
+
+.wholeDashboard {
+  display: flex !important;
+  /* align-items: center !important; */
+  align-content: space-evenly !important;
+}
+
+#profile-info {
+  margin-top: 7px !important;
+}
+
+@media screen and (max-width: 1025px) {
+  .animeCardsDivDashboard {
+    flex-direction: column !important;
+  }
+    
+    .wholePageDashboard {
+      display: flex !important;
+      align-items: center !important;
+      align-content: space-evenly !important;
+      flex-direction: column !important;
+    }
+    #dashboardPageCards {
+      display: flex;
+      justify-content: center;
+    }
 
 @media screen and (max-width: 725px) {
   /* .mainRow {
   } */
+.wholeDashboard {
+  flex-direction: column !important;
+}
+
+#profile-info {
+  width: 95% !important;
+}
+
+.trueWholePageDash {
+  width: 100% !important;
+}
 
 .animeCardsDiv {
   flex-direction: column !important;
@@ -525,10 +578,6 @@ align-items: center;
     display: flex !important;
     align-items: center !important;
     align-content: space-evenly !important;
-    flex-direction: column !important;
-  }
-
-  .animeCardsDiv {
     flex-direction: column !important;
   }
   
