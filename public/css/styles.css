@@ -472,18 +472,39 @@ align-items: center;
   z-index: 99999 !important;
 }
 
-#search-btn {
-  display: none;
+.animeCardsDiv {
+  height: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  text-align: center !important;
+  align-items: center !important;
+  align-content: space-evenly !important;
 }
 
-.modal {
-  top: 5% !important;
+#mainPageCards {
+  margin-right: 10px !important;
+  margin-left: 10px !important;
 }
 
-@media screen and (max-width: 645px) {
+.eachPlaylistCard {
+  width: 90% !important;
+}
+
+.wholePage {
+  display: flex !important;
+  align-items: center !important;
+  align-content: space-evenly !important;
+  flex-direction: column !important;
+}
+@media screen and (max-width: 725px) {
   /* .mainRow {
 
   } */
+
+.animeCardsDiv {
+  flex-direction: column !important;
+}
 
 #mainPageCards {
   display: flex;
