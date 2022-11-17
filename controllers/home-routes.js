@@ -120,6 +120,7 @@ router.get("/playlists/search/:search", withAuth, async (req, res) => {
           ],
         },
     });
+    console.log(playlistData)
     const playlistsU = playlistData.map((playlist) =>
       playlist.get({ plain: true })
     );
