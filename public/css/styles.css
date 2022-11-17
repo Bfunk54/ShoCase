@@ -71,13 +71,13 @@
 }
 
 .addAnimeCard {
+  margin-top: 8px !important;
   margin-right: 5px !important;
   margin-left: 5px !important;
+  flex-wrap: wrap;
 }
 
-.addAnimeCard {
-  margin: 0, 5px, 20px, 5px !important;
-}
+
 
 .addAnimeBtn {
   margin-right: 70px !important;
@@ -366,6 +366,7 @@
 .animeInput {
   display: flex !important;
   justify-content: center !important;
+  flex-wrap: wrap;
   /* margin-left: 50px !important; */
 }
 /* .input-field {
