@@ -3,16 +3,25 @@
   --white: #fff;
   --black: #000;
 }
+
 /* * {
   color: #fe743d;
 } */
 body {
   background-image: url("/images/amber_light.png") !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+/* .custom-margin-top {
+  margin-top: 50px !important;
+} */
 
 .form-input {
   border-bottom: 1px solid #fe743d !important;
-}  
+}
 
 nav {
   position: fixed;
@@ -76,6 +85,7 @@ nav {
   height: 150px !important;
   width: 120px !important;
 }
+
 .addPlaylistCardMain {
   height: 150px !important;
   width: 120px !important;
@@ -133,6 +143,7 @@ nav {
   background: #fff !important;
   transition: 1.5s cubic-bezier(0.21, 0.04, 0.26, 0.99) !important;
 }
+
 .btn-like.liked {
   background: var(--red) !important;
   border-color: var(--red) !important;
@@ -150,24 +161,30 @@ nav {
   transform: rotate(0deg) !important;
   text-align: left !important;
 }
+
 .btn1:hover .btn-icon {
   color: var(--red) !important;
 }
+
 .btn1.liked:hover .btn-icon {
   color: var(--black) !important;
 }
+
 .liked .btn--icon-default {
   transform: rotate(-90deg) !important;
 }
+
 .btn1:not(.liked).btn--icon-liked {
   transform: rotate(-90deg) !important;
 }
+
 .liked .btn--icon-default,
 .btn--icon-liked {
   opacity: 0 !important;
   color: #fff !important;
   position: absolute !important;
 }
+
 .btn--icon-default,
 .liked .btn--icon-liked {
   opacity: 1 !important;
@@ -181,18 +198,23 @@ nav {
   transition: transform 0.1s ease !important;
   position: relative !important;
 }
+
 .liked .btn-content {
   color: var(--white) !important;
 }
+
 .btn1:hover.liked .btn-content {
   color: var(--black) !important;
 }
+
 .btn1:not(.liked) .btn-content--liked {
   transform: translate(-120px) !important;
 }
+
 .btn1:not(.liked) .btn-content--default {
   transform: translate(-60px) !important;
 }
+
 .liked .btn-content--default {
   transform: translate(50px) !important;
 }
@@ -219,13 +241,13 @@ nav {
   margin-bottom: 10px !important;
 }
 
-.sidenav li > a {
+.sidenav li>a {
   padding: 10px 32px !important;
   display: flex !important;
   align-items: center !important;
 }
 
-.sidenav li > a:hover {
+.sidenav li>a:hover {
   background-color: #fed13d35 !important;
 }
 
@@ -238,7 +260,7 @@ nav {
   opacity: 0.5;
 }
 
-.sidenav li > a:hover:before {
+.sidenav li>a:hover:before {
   background-color: #fe743d !important;
   opacity: 10%;
 }
@@ -286,11 +308,12 @@ nav {
   width: fit-content;
   height: auto !important;
   line-height: normal !important;
-  margin-right: 16px !important;;
+  margin-right: 16px !important;
+  ;
 }
 
 .loginDiv {
-  color:#ccc;
+  color: #ccc;
 }
 
 .modal_trigger {
@@ -300,6 +323,7 @@ nav {
   line-height: normal !important;
   width: 10%;
 }
+
 .waves-effect {
   height: 42px !important;
   margin-bottom: 20px !important;
@@ -361,7 +385,7 @@ nav {
   top: 200px !important;
 }
 
-.createPlaylistBtn  {
+.createPlaylistBtn {
   margin-top: 2px !important;
   font-size: 38px !important;
 }
@@ -373,7 +397,7 @@ nav {
   flex-direction: column;
   /* justify-content: center;
   align-items: center; */
-} 
+}
 
 .wholeCreate {
   display: flex !important;
@@ -567,11 +591,11 @@ main.container {
 }
 
 avatar-row-1 {
-align-items: center;
+  align-items: center;
 }
 
 avatar-row-2 {
-align-items: center;
+  align-items: center;
 }
 
 .custom-flexbox-avatar {
@@ -624,7 +648,7 @@ align-items: center;
 }
 
 .eachPlaylistCard {
-    width: 90% !important;
+  width: 90% !important;
 }
 
 .wholePageDashboard {
@@ -651,24 +675,28 @@ align-items: center;
   .animeCardsDivDashboard {
     flex-direction: column !important;
   }
-    
-    .wholePageDashboard {
-      display: flex !important;
-      align-items: center !important;
-      align-content: space-evenly !important;
-      flex-direction: column !important;
-    }
-    #dashboardPageCards {
-      display: flex;
-      justify-content: center;
-    }
+
+  .wholePageDashboard {
+    display: flex !important;
+    align-items: center !important;
+    align-content: space-evenly !important;
+    flex-direction: column !important;
+  }
+
+  #dashboardPageCards {
+    display: flex;
+    justify-content: center;
+  }
+}
 
 @media screen and (max-width: 905px) {
   .animeInput {
     height: 460px !important;
   }
+}
 
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 905px) {
+
   /* .mainRow {
   } */
   .animeInput {
@@ -685,29 +713,29 @@ align-items: center;
     justify-content: center;
   }
 
-.wholeDashboard {
-  flex-direction: column !important;
-}
+  .wholeDashboard {
+    flex-direction: column !important;
+  }
 
-#profile-info {
-  width: 95% !important;
-}
+  #profile-info {
+    width: 95% !important;
+  }
 
-.trueWholePageDash {
-  width: 100% !important;
-}
+  .trueWholePageDash {
+    width: 100% !important;
+  }
 
-.animeCardsDiv {
-  flex-direction: column !important;
-}
-  
+  .animeCardsDiv {
+    flex-direction: column !important;
+  }
+
   .wholePage {
     display: flex !important;
     align-items: center !important;
     align-content: space-evenly !important;
     flex-direction: column !important;
   }
-  
+
   #mainPageCards {
     display: flex;
     justify-content: center;
@@ -718,10 +746,10 @@ align-items: center;
   .search-submit-class {
     display: none !important;
   }
-  .magnifyingGlass{
+
+  .magnifyingGlass {
     font-size: 32px;
     margin-left: 5px;
     margin-top: 21px !important;
   }
-}
 }
