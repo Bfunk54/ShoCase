@@ -69,13 +69,15 @@
   height: 150px !important;
   width: 120px !important;
 }
+
 .addAnimeCard {
-  margin: 0, 5px, 20px, 5px !important;
+  margin-top: 8px !important;
+  margin-right: 5px !important;
+  margin-left: 5px !important;
+  flex-wrap: wrap;
 }
 
-#test2 {
-  height: fit-content !important;
-}
+
 
 .addAnimeBtn {
   margin-right: 70px !important;
@@ -333,6 +335,47 @@
   font-size: 38px !important;
 }
 
+.createPlaylistCard {
+  display: flex !important;
+  width: 80% !important;
+  text-align: center !important;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+} 
+
+.wholeCreate {
+  width: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.animeDivLast {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.animeDiv {
+  width: 100% !important;
+  margin: auto !important;
+}
+
+.animeDivInput {
+  width: 110% !important;
+}
+
+.searchAnimeBtn {
+  right: -10px !important;
+  bottom: -26px !important;
+}
+
+.animeInput {
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap;
+  /* margin-left: 50px !important; */
+}
 /* .input-field {
     margin-left: 25px !important;
     margin-top: 5px !important;
@@ -513,12 +556,7 @@ align-items: center;
 .eachPlaylistCard {
     width: 90% !important;
 }
-.dashboardCards {
-}
 
- {
-
-}
 .wholePageDashboard {
   display: flex !important;
   align-items: center !important;
@@ -558,6 +596,12 @@ align-items: center;
 @media screen and (max-width: 725px) {
   /* .mainRow {
   } */
+  .animeDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
 .wholeDashboard {
   flex-direction: column !important;
 }
@@ -596,4 +640,5 @@ align-items: center;
     margin-left: 5px;
     margin-top: 15px !important;
   }
+}
 }

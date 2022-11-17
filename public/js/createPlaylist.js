@@ -97,14 +97,13 @@ function addDivs(data) {
   for (let i = 0; i < data.length; i++) {
     // Template literal for anime divs
     let divTemplate = `<div id="addAnimeCard${[
-      i,
-    ]}${animeCnt}" class="addAnimeCard${[i]} col s3">
+      i
+    ]}${animeCnt}" class="addAnimeCard${[i]} addAnimeCard col">
     <div class="addPlaylistCard card">
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].anime_image}">
         
-        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[
-      i,
+        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i
     ]}" class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
         <span class="card-title black-text">${data[i].anime_title}</span>
