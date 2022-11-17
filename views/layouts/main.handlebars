@@ -11,69 +11,84 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-    <header>
-      <ul id="slide-out" class="sidenav grey darken-4">
-        <li><div class="user-view">
-          <a href="/" class="amber-text text-darken-1 navBarTitle">ShoCase</a>
-          {{#if loggedIn}}
-          <div class="background">
-            {{!-- WE NEED TO DECIDE ON A BACKGROUND FOR THE PROFILE --}}
-            <img src="">
-          </div>
-          <a><img class="circle" src="/images/test_avatar_{{currentUser.avatar}}.png"></a>
-          <a><span class="white-text name">{{currentUser.username}}</span></a>
-          <a><span class="white-text email">{{currentUser.email}}</span></a>
-        </div></li>
-        <li><a class="amber-text navBtn" id="logout" href="/">Logout</a></li>
-       {{else}}
-        <br><li><a class="amber-text navBtn" href="/login">Login/Signup</a></li>
-        {{/if}}
-      <li><a class="amber-text text-accent-1 navBtn" href="/dashboard">Profile</a></li>
-      <li><a class="amber-text text-accent-1 navBtn" href="/likes">Likes</a></li>
-      <li><a class="amber-text text-accent-1 navBtn" href="/about-us">About Us</a></li>
-      <li><a class="sidenav-close closeBtn amber-text text-accent-1" href="#!"><i class="xForNav fa-solid fa-x amber-text text-accent-1"></i>Close</a></li>
-    </ul>
-    <nav class="theNav grey darken-2">
+<header>
+  <ul id="slide-out" class="sidenav grey darken-4">
+    <li>
+      <div class="user-view">
+        <a href="/" class="amber-text text-darken-1 navBarTitle">ShoCase</a>
+        {{#if loggedIn}}
+        <div class="background">
+          {{!-- WE NEED TO DECIDE ON A BACKGROUND FOR THE PROFILE --}}
+          <img src="">
+        </div>
+        <a><img class="circle" src="/images/test_avatar_{{currentUser.avatar}}.png"></a>
+        <a><span class="white-text name">{{currentUser.username}}</span></a>
+        <a><span class="white-text email">{{currentUser.email}}</span></a>
+      </div>
+    </li>
+    <li><a class="amber-text navBtn" id="logout" href="/">Logout</a></li>
+    {{else}}
+    <br>
+    <li><a class="amber-text navBtn" href="/login">Login/Signup</a></li>
+    {{/if}}
+    <li><a class="amber-text text-accent-1 navBtn" href="/dashboard">Profile</a></li>
+    <li><a class="amber-text text-accent-1 navBtn" href="/likes">Likes</a></li>
+    <li><a class="amber-text text-accent-1 navBtn" href="/about-us">About Us</a></li>
+    <li><a class="sidenav-close closeBtn amber-text text-accent-1" href="#!"><i
+          class="xForNav fa-solid fa-x amber-text text-accent-1"></i>Close</a></li>
+  </ul>
+  <nav class="theNav grey darken-2">
     <div class="logoContainer">
-    <img class="logo" src="/images/better_s_logo.png">
+      <img class="logo" src="/images/better_s_logo.png">
     </div>
     <div class="homeContainer">
-      <a class="navBtn" href="/"><i id='homeIcon' class="waves-effect waves-light grey-text text-darken-4 material-icons">home</i></a>
-      </div>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="menuBar waves-effect waves-light grey-text text-darken-4 fa-solid fa-bars"></i></a>
-        <a class="waves-effect waves-light modal-trigger" href="/create-playlists"><i class="addPlaylist grey-text text-darken-4 fa-solid fa-plus"></i></a>
+      <a class="navBtn" href="/"><i id='homeIcon'
+          class="waves-effect waves-light grey-text text-darken-4 material-icons">home</i></a>
+    </div>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i
+        class="menuBar waves-effect waves-light grey-text text-darken-4 fa-solid fa-bars"></i></a>
+    <a class="waves-effect waves-light modal-trigger" href="/create-playlists"><i
+        class="addPlaylist grey-text text-darken-4 fa-solid fa-plus"></i></a>
 
-        <i class="magnifyingGlass grey-text text-darken-4 fa-solid fa-magnifying-glass"></i>
-        <form type="submit" id="search-submit" class="input-field inline">
-        <div class="input-field inline">
-            <input id="search_inline" type="text" class="validate" name="term">  
-            <label for="search_inline">Search Animes/Playlists</label>
-          </div>
-          </form>
-          {{!-- <button type="submit" id="search-inline-btn">Search</button> --}}
-      </nav>
-  </header>
-        <!-- Conditionally render login or logout links -->
-        
-        
-<body class="grey lighten-2">    
-        
-    <main>
-          
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
+    <a id="searchBtn" href="#modal-container2" class="modal-trigger"><i class="magnifyingGlass grey-text text-darken-4 fa-solid fa-magnifying-glass"></i></a>
+    <form type="submit" id="search-submit" class="input-field inline search-submit-class">
+      <div class="input-field inline">
+        <input id="search_inline" type="text" class="validate" name="term">
+        <label for="search_inline">Search Animes/Playlists</label>
+      </div>
+    </form>
+    <div class="modal" id="modal-container2">
+      <form type="submit" id="search-submit" class="input-field inline">
+      <div class="input-field inline">
+        <input id="search_inline" type="text" class="validate" name="term">
+        <label for="search_inline" class="active">Search Animes/Playlists</label>
+      </div>
+    </form>
+    </div>
+    {{!-- <button type="submit" id="search-inline-btn">Search</button> --}}
+  </nav>
+</header>
+<!-- Conditionally render login or logout links -->
+
+
+<body class="grey lighten-2">
+
+  <main>
+
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
+  <footer>
+
+  </footer>
   </div>
 
   <!-- Render script for logged in users only -->
- 
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/js/mainPage.js"></script>
   <script src="/js/searchplaylists.js"></script>
-   {{#if loggedIn}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
