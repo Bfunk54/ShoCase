@@ -472,6 +472,16 @@ align-items: center;
   z-index: 99999 !important;
 }
 
+.animeCardsDiv {
+  height: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  text-align: center !important;
+  align-items: center !important;
+  align-content: space-evenly !important;
+}
+
 @media screen and (max-width: 645px) {
   /* .mainRow {
 

@@ -9,8 +9,10 @@
           <a href="/playlist/{{playlist.id}}"><h3 class="playlist-title" id="{{playlist.id}}">{{playlist.title}}</h3></a>
           <h6 class="playlist-author" id="{{playlist.id}}">By: {{playlist.user.username}}</h6>
           <h6 class="playlist-author" id="{{playlist.id}}">Date Created: {{format_date playlist.date_created}}</h6>
+  <div class="animeCardsDiv">
           {{#each playlist.animes as |anime|}}
-            <div id="mainPageCards" class="mainPageCards col s12 m3 l3">
+          
+            <div id="mainPageCards" class="mainPageCards col">
               <div class="addPlaylistCardMain card">
                 <div class="card-image activator addPlaylistCardImgMain">
                   <div class="animeImgDiv">
@@ -53,6 +55,7 @@
               </div>
             </div>
           {{/each}}
+          </div>
         </div>
         {{#if playlist.hasFavorited}}
           <button class="btn1 btn-like liked" data-id="{{playlist.id}}">

@@ -37,12 +37,18 @@ function cardsOnResize() {
           mainCards.forEach((btn) => {
           console.log(window.innerWidth);
           btn.classList.add("row");
+          btn.classList.add("s12");
+          btn.classList.add("m4");
+          btn.classList.add("l4");
           btn.classList.remove("col");
           });
         } else { 
           var mainCards = document.querySelectorAll(".mainPageCards");
           mainCards.forEach((btn) => {
           btn.classList.remove("row");
+          btn.classList.remove("s12");
+          btn.classList.remove("m4");
+          btn.classList.remove("l4");
         btn.classList.add("col");
         });
       }
