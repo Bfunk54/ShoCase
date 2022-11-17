@@ -336,12 +336,19 @@
 }
 
 .createPlaylistCard {
-  display: inline-block !important;
+  display: flex !important;
   width: 80% !important;
   text-align: center !important;
+  flex-direction: column;
   /* justify-content: center;
   align-items: center; */
 } 
+
+.wholeCreate {
+  width: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
 
 .animeDivLast {
   width: 100% !important;
@@ -350,15 +357,18 @@
 }
 
 .animeDiv {
-  width: 110% !important;
-  margin-right: 20px;
+  width: 100% !important;
+  margin: auto !important;
 }
 
 .animeDivInput {
   width: 110% !important;
 }
 
-
+.searchAnimeBtn {
+  right: -10px !important;
+  bottom: -26px !important;
+}
 
 .animeInput {
   display: flex !important;
@@ -586,6 +596,12 @@ align-items: center;
 @media screen and (max-width: 725px) {
   /* .mainRow {
   } */
+  .animeDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
 .wholeDashboard {
   flex-direction: column !important;
 }
@@ -624,4 +640,5 @@ align-items: center;
     margin-left: 5px;
     margin-top: 15px !important;
   }
+}
 }
