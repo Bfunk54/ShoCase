@@ -309,6 +309,8 @@ let newPlaylistAnime = [];
 function savePlaylist() {
   switch (cnt0 + cnt1 + cnt2 + cnt3 === 4) {
     case true:
+      const playlistName = document.querySelector(".newPlaylistName");
+      playlistName.classList.remove("hide");
       createPlaylist.innerHTML += ` <a id='createPlaylistBtn' class="btn-floating halfway-fab waves-effect waves-light amber"><i class="createPlaylistBtn material-icons">save</i></a>`;
       let savePlaylistBtn = document.getElementById("createPlaylistBtn");
       savePlaylistBtn.addEventListener("click", (e) => {
