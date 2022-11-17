@@ -411,6 +411,10 @@ nav {
   height: 75px;
 }
 
+#slide-out {
+  z-index: 1040 !important;
+}
+
 .navBarTitle {
   font-family: "Yatra One", sans-serif;
   font-size: 48px;
