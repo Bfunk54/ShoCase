@@ -404,8 +404,14 @@ nav {
   display: flex !important;
   justify-content: center !important;
   flex-wrap: wrap;
+  height: 285px !important;
   /* margin-left: 50px !important; */
 }
+
+.animeNameText {
+  font-size: 16px !important;
+}
+
 /* .input-field {
     margin-left: 25px !important;
     margin-top: 5px !important;
@@ -657,9 +663,22 @@ align-items: center;
       justify-content: center;
     }
 
+@media screen and (max-width: 905px) {
+  .animeInput {
+    height: 460px !important;
+  }
+
 @media screen and (max-width: 725px) {
   /* .mainRow {
   } */
+  .animeInput {
+    height: 1100px !important;
+  }
+
+  .addAnimeCard {
+    margin-top: 70px !important;
+  }
+
   .animeDiv {
     display: flex;
     flex-direction: column;
