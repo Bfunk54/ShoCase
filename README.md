@@ -6,7 +6,7 @@
 
 ## Description
 
-ShoCase™ is a full stack web application that serves as a social media platform for sharing anime reccomendations through a playlist format. The user is able to make playlists of 4 animes, comment on other users playlists, and save playlists within their liked page. 
+ShoCase™ is a full stack web application that serves as a social media platform for sharing anime reccomendations through a playlist format. The user is able to make playlists of 4 animes, comment on other users playlists, and save playlists within their liked page. For more information check out the [PowerPoint](https://docs.google.com/presentation/d/1Us7_Q01uOFhasWDNHokqUsz2VRzwK0pvtdRSPxGRj1I/edit#slide=id.g29f43f0a72_0_24).
 
 The project utilizes an Express backend, RESTFUL api, mySQL database, and a third party API.
 
@@ -30,9 +30,9 @@ While building this project we learned to:
 
 ## Installation
 
-ShoCase™ is a deployed web application. Most users must simply navigate to [INSERT URL HERE](#)
+ShoCase™ is a deployed web application. Most users must simply navigate to [shocase.herokuapp.com/](https://shocase.herokuapp.com/)
 
-![example deployed site](./public/images/website_screencap.png)
+![example deployed site](./public/images/shocase.png)
 
 Should you wish to download the project locally you must:
 
@@ -104,9 +104,9 @@ For any further questions feel free to contact us via:
 
 - Dylan Crowley - [GitHub](https://github.com/dcrowdev) - [Email](mailto:dcrowdev1025@gmail.com) - [LinkedIn](https://www.linkedin.com/in/dylan-crowley-3974b8252/)
 
-- Benjamin Fein - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
+- Benjamin Fein - [GitHub](https://github.com/Bfunk54) - [Email](mailto:#) - [LinkedIn](https://www.linkedin.com/in/benjamin-fein-5a73b2242/)
 
-- Mary Elenius - [GitHub](#) - [Email](mailto:#) - [LinkedIn](#)
+- Mary Elenius - [GitHub](https://github.com/404pandas) - [Email](mailto:#) - [LinkedIn](https://www.linkedin.com/in/mary-elenius-256212151/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,8 +117,6 @@ Special thanks to these resources. You have proven invaluable to creating this p
 - [Jikan API](https://jikan.moe/)
 
 - [MyAnimeList](https://myanimelist.net/)
-
-- [THE ARTIST FOR OUR AVATARS](#)
 
 **Fair Use**
 
