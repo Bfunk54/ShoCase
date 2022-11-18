@@ -8,11 +8,11 @@
   color: #fe743d;
 } */
 body {
-  background-image: url("/images/amber_background.jpeg") !important;
-  -webkit-background-size: cover;
+  background-image: url("/images/space-background.png") !important;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -o-background-size: cover; */
+  /* background-size: cover; */
 }
 
 .form-input {
