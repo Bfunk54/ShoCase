@@ -22,13 +22,8 @@ const createPlaylist = document.getElementById("createPlaylist");
 // Starts the search for anime
 async function startSearch(search) {
   const animeArray = [];
-  fetch(
-    "https://api.jikan.moe/v4/anime?q=" +
-      search +
-      "&sfw&limit=" +
-      jikanLimit +
-      "&type=anime&order_by=members&sort=desc"
-  )
+  const jikanQuery = `https://api.jikan.moe/v4/anime?q=${search}&sfw&limit=${jikanLimit}&order_by=members&sort=desc`;
+  fetch(jikanQuery)
     .then((response) => response.json())
     .then(function (res) {
       console.log(res.data);
@@ -97,16 +92,19 @@ function addDivs(data) {
   for (let i = 0; i < data.length; i++) {
     // Template literal for anime divs
     let divTemplate = `<div id="addAnimeCard${[
-      i
+      i,
     ]}${animeCnt}" class="addAnimeCard${[i]} addAnimeCard col">
     <div class="addPlaylistCard card">
       <div class="card-image">
         <img class="addPlaylistCardImg" src="${data[i].anime_image}">
         
-        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[i
+        <a id='addAnimeBtn${[i]}${animeCnt}' data-action="addAnime${[
+      i,
     ]}" class="addAnimeBtn btn-floating halfway-fab waves-effect waves-light amber"><i class="material-icons">add</i></a>
       </div>
-        <span class="animeNameText card-title black-text">${data[i].anime_title}</span>
+        <span class="animeNameText card-title black-text">${
+          data[i].anime_title
+        }</span>
   </div>
 </div>  `;
     // Append the divs to the page
